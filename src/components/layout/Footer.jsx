@@ -1,35 +1,28 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import Logo from '../Logo';
-import { Phone, Mail, Pin, Clock, InstaIc, XIc, FbIc, LinkedInIc, ArrowRight, ChevronRight } from '../icons';
+import { Phone, Mail, Pin, Globe, InstaIc, XIc, FbIc, LinkedInIc, ArrowRight } from '../icons';
 import { fadeUp, scaleIn, stagger, vp } from '../../lib/animations';
 
-const PHONE        = '+919090546363';
-const PHONE_DISPLAY = '+91 90905 46363';
-const EMAIL        = 'info@unicareglobalhospitals.com';
+const PHONE          = '+919090546363';
+const PHONE_DISPLAY  = '+91 90905 46363';
+const PHONE_2        = '+919121856565';
+const PHONE_2_DISPLAY = '+91 91218 56565';
+const EMAIL          = 'info@unicareglobalhospitals.com';
+const EMAIL_2        = 'helpdesk@unicareglobalhospitals.com';
+const WEBSITE        = 'www.unicareglobalhospitals.com';
+const ADDRESS        = 'A 201, 2nd Floor, Saanvi Antalya Homes, Kokapet, Telangana';
 
-const generalLinks = [
-  { label: 'Home',             to: '/' },
-  { label: 'About Us',         to: '/about' },
-  { label: 'Meet the Doctors', to: '/doctors' },
-  { label: 'Health Packages',  to: '/packages' },
-  { label: 'Blog',             to: '/blog' },
-  { label: 'Contact',          to: '/contact' },
-  { label: 'Book Appointment', to: '/book-appointment' },
-];
-
-const specialtyLinks = [
-  { label: "Maternity & Women's Health", to: '/specialties/maternity' },
-  { label: 'Paediatrics',                to: '/specialties/paediatrics' },
-  { label: 'Orthopaedics',               to: '/specialties/orthopaedics' },
-  { label: 'General Medicine',           to: '/specialties/general-medicine' },
-  { label: 'General Surgery',            to: '/specialties/general-surgery' },
-  { label: 'Pharmacy',                   to: '/specialties/pharmacy' },
-  { label: 'Diagnostics & Lab',          to: '/specialties/diagnostics' },
+const quickLinks = [
+  { label: 'Specialties',         to: '/specialties' },
+  { label: 'Doctors',             to: '/doctors' },
+  { label: 'Book an Appointment', to: '/book-an-appointment' },
+  { label: 'Blog',                to: '/blog' },
+  { label: 'Contact',             to: '/contact' },
 ];
 
 const socialLinks = [
-  { label: 'Instagram', href: 'https://www.instagram.com/unicarehospital_/', Icon: InstaIc },
+  { label: 'Instagram', href: 'https://www.instagram.com/unicarehospitals/', Icon: InstaIc },
   { label: 'X',         href: 'https://x.com/unicarehyd',                    Icon: XIc },
   { label: 'Facebook',  href: 'https://www.facebook.com/profile.php?id=61589321121365', Icon: FbIc },
   { label: 'LinkedIn',  href: 'https://linkedin.com/company/unicare-hospital-hyd/',     Icon: LinkedInIc },
@@ -42,7 +35,7 @@ export default function Footer() {
     <footer role="contentinfo" className="bg-white border-t border-(--line)">
       {/* ── Main grid ── */}
       <div className="max-w-[1320px] mx-auto px-4 sm:px-6 pt-14 pb-10">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-8">
 
           {/* Col 1 — Brand */}
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={vp}>
@@ -78,7 +71,7 @@ export default function Footer() {
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={vp}>
             <h3 className="text-[12px] font-semibold uppercase tracking-widest text-(--navy) mb-4">Quick Links</h3>
             <ul className="space-y-2" role="list">
-              {generalLinks.map(({ label, to }) => (
+              {quickLinks.map(({ label, to }) => (
                 <li key={to}>
                   <Link
                     to={to}
@@ -97,46 +90,31 @@ export default function Footer() {
             <h3 className="text-[12px] font-semibold uppercase tracking-widest text-(--navy) mb-4">Contact Us</h3>
 
             <ul className="space-y-2.5" role="list">
-              <li>
-                <a href={`mailto:${EMAIL}`} className="flex items-center gap-2 text-(--muted) hover:text-(--navy) transition-colors group">
-                  <Mail s={13} c="var(--teal)" />
-                  <span className="text-[12.5px] group-hover:underline truncate">{EMAIL}</span>
-                </a>
-              </li>
               <li className="flex items-start gap-2 text-(--muted)">
                 <Pin s={13} c="var(--teal)" className="mt-0.5 shrink-0" />
-                <span className="text-[12.5px]">Kokapet, Hyderabad, Telangana</span>
+                <span className="text-[12.5px]">{ADDRESS}</span>
               </li>
               <li className="flex items-start gap-2 text-(--muted)">
-                <Clock s={13} c="var(--teal)" className="mt-0.5 shrink-0" />
-                <span className="text-[12.5px]">OPD Mon–Sat 9 AM–7 PM · Emergency & Pharmacy 24×7</span>
+                <Phone s={13} c="var(--teal)" className="mt-0.5 shrink-0" />
+                <span className="text-[12.5px]">
+                  <a href={`tel:${PHONE}`} className="hover:text-(--navy) hover:underline transition-colors">{PHONE_DISPLAY}</a>
+                  {', '}
+                  <a href={`tel:${PHONE_2}`} className="hover:text-(--navy) hover:underline transition-colors">{PHONE_2_DISPLAY}</a>
+                </span>
               </li>
-            </ul>
-          </motion.div>
-
-          {/* Col 4 — Specialties */}
-          <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={vp}>
-            <h3 className="text-[12px] font-semibold uppercase tracking-widest text-(--navy) mb-4">Specialties</h3>
-            <ul className="space-y-2" role="list">
-              <li>
-                <Link
-                  to="/specialties"
-                  className="text-[13px] font-semibold text-(--navy) hover:text-(--teal) transition-colors flex items-center gap-1.5 mb-1"
-                >
-                  All Specialties <ChevronRight s={11} c="var(--teal)" />
-                </Link>
+              <li className="flex items-start gap-2 text-(--muted)">
+                <Mail s={13} c="var(--teal)" className="mt-0.5 shrink-0" />
+                <span className="text-[12.5px] flex flex-col gap-0.5">
+                  <a href={`mailto:${EMAIL}`} className="hover:text-(--navy) hover:underline transition-colors truncate">{EMAIL}</a>
+                  <a href={`mailto:${EMAIL_2}`} className="hover:text-(--navy) hover:underline transition-colors truncate">{EMAIL_2}</a>
+                </span>
               </li>
-              {specialtyLinks.map(({ label, to }) => (
-                <li key={to}>
-                  <Link
-                    to={to}
-                    className="text-[12.5px] text-(--muted) hover:text-(--navy) transition-colors flex items-center gap-1.5"
-                  >
-                    <ArrowRight s={10} c="var(--teal)" />
-                    {label}
-                  </Link>
-                </li>
-              ))}
+              <li className="flex items-start gap-2 text-(--muted)">
+                <Globe s={13} c="var(--teal)" className="mt-0.5 shrink-0" />
+                <a href={`https://${WEBSITE}`} target="_blank" rel="noopener noreferrer" className="text-[12.5px] hover:text-(--navy) hover:underline transition-colors">
+                  {WEBSITE}
+                </a>
+              </li>
             </ul>
           </motion.div>
         </div>
@@ -171,6 +149,14 @@ export default function Footer() {
             >
               <Phone s={11} c="var(--teal)" />
               {PHONE_DISPLAY}
+            </a>
+            <a
+              href={`tel:${PHONE_2}`}
+              className="flex items-center gap-1.5 font-medium text-(--navy) hover:underline"
+              aria-label={`Emergency: call ${PHONE_2_DISPLAY}`}
+            >
+              <Phone s={11} c="var(--teal)" />
+              {PHONE_2_DISPLAY}
             </a>
           </div>
         </div>

@@ -1,6 +1,6 @@
 import { createPortal } from 'react-dom';
 import { Link } from 'react-router-dom';
-import { Phone, WhatsAppIc } from './icons';
+import { Phone, WhatsAppIc, CalendarCheck } from './icons';
 
 const PHONE     = '+919090546363';
 const PHONE_FMT = '+91 90905 46363';
@@ -10,54 +10,24 @@ const WA_URL    = `https://wa.me/919090546363?text=${WA_MSG}`;
 export default function FloatingCTAs() {
   return createPortal(
     <>
-      {/* ── Desktop floating buttons ── */}
-      <div className="hidden lg:block">
-        {/* Call pill — bottom-left */}
-        <a
-          href={`tel:${PHONE}`}
-          aria-label={`Call UniCare Hospitals: ${PHONE_FMT}`}
-          className="fixed bottom-8 left-8 z-[9998] flex items-center gap-3 pl-3 pr-5 h-12 rounded-full group"
-          style={{
-            background: 'var(--navy)',
-            boxShadow: '0 4px 20px rgba(1,34,87,0.30)',
-          }}
-        >
-          {/* Pulse ring on the icon */}
-          <span className="relative flex items-center justify-center w-7 h-7 shrink-0">
-            <span
-              className="absolute inset-0 rounded-full opacity-40"
-              style={{
-                background: 'rgba(255,255,255,0.25)',
-                animation: 'callPulse 2s ease-out infinite',
-              }}
-            />
-            <Phone s={15} c="#fff" />
-          </span>
-          <span className="flex flex-col leading-tight">
-            <span className="text-[10px] text-white/60 font-medium tracking-wider uppercase">Call Now</span>
-            <span className="text-[13px] text-white font-semibold">{PHONE_FMT}</span>
-          </span>
-        </a>
-
-        {/* WhatsApp circle — bottom-right */}
-        <a
-          href={WA_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Chat with UniCare on WhatsApp"
-          className="fixed bottom-8 right-8 z-[9998] w-14 h-14 rounded-full flex items-center justify-center transition-transform hover:scale-110"
-          style={{
-            background: '#25D366',
-            boxShadow: '0 4px 20px rgba(37,211,102,0.45)',
-          }}
-        >
-          <WhatsAppIc s={28} c="#fff" />
-        </a>
-      </div>
+      {/* ── Floating WhatsApp circle — bottom-right, all breakpoints ── */}
+      <a
+        href={WA_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Chat with UniCare on WhatsApp"
+        className="fixed right-5 lg:right-8 bottom-24 lg:bottom-8 z-9998 w-13 h-13 lg:w-14 lg:h-14 rounded-full flex items-center justify-center transition-transform hover:scale-110"
+        style={{
+          background: '#25D366',
+          boxShadow: '0 4px 20px rgba(37,211,102,0.45)',
+        }}
+      >
+        <WhatsAppIc s={26} c="#fff" />
+      </a>
 
       {/* ── Mobile sticky bottom bar ── */}
       <div
-        className="lg:hidden fixed bottom-0 left-0 right-0 z-[9998] flex"
+        className="lg:hidden fixed bottom-0 left-0 right-0 z-[9998]"
         style={{
           background: 'rgba(255,255,255,0.97)',
           borderTop: '1px solid rgba(1,34,87,0.10)',
@@ -65,39 +35,45 @@ export default function FloatingCTAs() {
           paddingBottom: 'env(safe-area-inset-bottom, 0px)',
         }}
       >
-        <a
-          href={`tel:${PHONE}`}
-          aria-label={`Call ${PHONE_FMT}`}
-          className="flex-1 flex items-center justify-center gap-2.5 py-3.5 text-white text-[14px] font-semibold transition-opacity active:opacity-80"
-          style={{ background: 'var(--navy)' }}
-        >
-          <Phone s={17} c="#fff" />
-          Call Now
-        </a>
-        <a
-          href={WA_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Chat on WhatsApp"
-          className="flex-1 flex items-center justify-center gap-2.5 py-3.5 text-white text-[14px] font-semibold transition-opacity active:opacity-80"
-          style={{ background: '#25D366' }}
-        >
-          <WhatsAppIc s={18} c="#fff" />
-          WhatsApp
-        </a>
-      </div>
+        <div className="grid grid-cols-3 items-end py-2.5">
+          {/* Call */}
+          <a
+            href={`tel:${PHONE}`}
+            aria-label={`Call ${PHONE_FMT}`}
+            className="flex flex-col items-center justify-center gap-1.5 py-1.5 text-(--navy) opacity-70 hover:opacity-100 transition-opacity"
+          >
+            <Phone s={22} />
+            <span className="text-[10.5px] font-medium tracking-wide">Call</span>
+          </a>
 
-      {/* Pulse keyframe */}
-      <style>{`
-        @keyframes callPulse {
-          0%   { transform: scale(1);   opacity: 0.5; }
-          70%  { transform: scale(2.2); opacity: 0;   }
-          100% { transform: scale(1);   opacity: 0;   }
-        }
-        @media (prefers-reduced-motion: reduce) {
-          @keyframes callPulse { from {} to {} }
-        }
-      `}</style>
+          {/* Book — elevated center CTA */}
+          <Link
+            to="/book-an-appointment"
+            className="flex flex-col items-center justify-center gap-1.5 -mt-5"
+            aria-label="Book an appointment"
+          >
+            <span
+              className="w-15 h-15 rounded-full flex items-center justify-center ring-4 ring-white"
+              style={{ background: 'var(--teal)', boxShadow: '0 6px 20px rgba(44,170,160,0.5)' }}
+            >
+              <CalendarCheck s={24} c="#fff" />
+            </span>
+            <span className="text-[10.5px] font-semibold tracking-wide" style={{ color: 'var(--teal)' }}>Book</span>
+          </Link>
+
+          {/* WhatsApp */}
+          <a
+            href={WA_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Chat on WhatsApp"
+            className="flex flex-col items-center justify-center gap-1.5 py-1.5 text-(--navy) opacity-70 hover:opacity-100 transition-opacity"
+          >
+            <WhatsAppIc s={22} />
+            <span className="text-[10.5px] font-medium tracking-wide">WhatsApp</span>
+          </a>
+        </div>
+      </div>
     </>,
     document.body
   );

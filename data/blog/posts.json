@@ -1,0 +1,210 @@
+[
+  {
+    "slug": "first-trimester-checklist-kokapet",
+    "_placeholder": true,
+    "title": "Your first trimester checklist: what Kokapet moms-to-be should do in weeks 1 to 12",
+    "category": "Gynecology & OB",
+    "coverImage": null,
+    "readTime": "6 min read",
+    "publishedDate": "2026-06-01",
+    "authorSlug": "dr-an-varuna-vyas",
+    "excerpt": "A practical guide from Dr. A.N. Varuna Vyas on the appointments, tests and habits that matter most in your first 12 weeks.",
+    "keyTakeaways": [
+      "Book your first antenatal appointment within the first 8 weeks — early blood tests and an ultrasound scan establish your due date and rule out complications.",
+      "Folic acid (400–800 mcg daily) should be taken from the moment you confirm pregnancy to protect your baby's neural tube development.",
+      "Avoid alcohol, unpasteurised dairy and high-mercury fish; these are the most common dietary risks in the first trimester."
+    ],
+    "content": [
+      { "type": "paragraph", "text": "The first 12 weeks are when your baby's brain, heart, spinal cord and major organs form. Small decisions — a supplement, a food choice, an early scan — can have lasting effects. This checklist is designed to help families in Kokapet and West Hyderabad act early and act right." },
+      { "type": "heading", "level": 2, "text": "Weeks 1–6: Confirm and book" },
+      { "type": "paragraph", "text": "Confirm the pregnancy with a home test, then call your gynaecologist to schedule a dating ultrasound. Start folic acid if you have not already. Avoid self-medicating — even over-the-counter painkillers like ibuprofen should be avoided in the first trimester." },
+      { "type": "heading", "level": 2, "text": "Weeks 7–9: Your first antenatal visit" },
+      { "type": "paragraph", "text": "Expect blood tests (haemoglobin, thyroid, blood group, rubella immunity) and an ultrasound to confirm the heartbeat and rule out an ectopic pregnancy. This is also when your doctor calculates your expected date of delivery (EDD)." },
+      { "type": "heading", "level": 2, "text": "Weeks 10–12: NT scan" },
+      { "type": "paragraph", "text": "The nuchal translucency (NT) scan screens for chromosomal conditions including Down syndrome. It is optional but recommended, especially for women over 35. The scan is painless and takes about 20–30 minutes." },
+      { "type": "heading", "level": 2, "text": "When to call your doctor immediately" },
+      { "type": "list", "items": ["Heavy bleeding or large clots", "Severe abdominal cramps that do not ease", "Continuous vomiting making it impossible to keep fluids down", "Fever above 38°C", "Sudden disappearance of pregnancy symptoms after week 8"] }
+    ],
+    "relatedSpecialty": {
+      "name": "Maternity & Women's Health",
+      "url": "/specialties/maternity-womens-health"
+    },
+    "seo": {
+      "title": "First Trimester Checklist — Kokapet Moms | UniCare Hospitals",
+      "description": "Week-by-week first trimester guide from Dr. A.N. Varuna Vyas at UniCare Hospitals Kokapet. Tests, appointments and habits for a healthy pregnancy in West Hyderabad."
+    }
+  },
+  {
+    "slug": "fever-in-children-when-to-come-in",
+    "_placeholder": true,
+    "title": "Fever in children: when to wait, when to call, when to come in",
+    "category": "Child Health",
+    "coverImage": null,
+    "readTime": "5 min read",
+    "publishedDate": "2026-06-03",
+    "authorSlug": "dr-m-nitin-rao",
+    "excerpt": "Dr. M. Nitin Rao explains the difference between a fever you manage at home and one that needs a same-day paediatrician visit.",
+    "keyTakeaways": [
+      "A temperature above 38°C (100.4°F) is a fever. In children under three months, any fever warrants an immediate doctor visit — do not wait and watch.",
+      "Paracetamol (15 mg/kg every 4–6 hours) relieves discomfort, but the number on the thermometer matters less than how your child looks and behaves.",
+      "Come in if your child has a fever lasting more than 3 days, a rash that does not fade when pressed, stiff neck, difficulty breathing, or is unusually drowsy."
+    ],
+    "content": [
+      { "type": "paragraph", "text": "Fever is one of the most common reasons parents bring children to a paediatrician — and one of the most misunderstood. Fever itself is not an illness; it is your child's immune system doing its job. The goal is not to eliminate the number but to make your child comfortable and know when the fever is a sign of something more serious." },
+      { "type": "heading", "level": 2, "text": "When to wait and watch at home" },
+      { "type": "paragraph", "text": "A child who is alert, drinking fluids and playing between fever spikes — even at 39°C — can usually be monitored at home for 24–48 hours. Give paracetamol as directed, offer fluids frequently and rest. Sponging with lukewarm (not cold) water can help bring a very high temperature down quickly." },
+      { "type": "heading", "level": 2, "text": "When to call your paediatrician" },
+      { "type": "paragraph", "text": "Call if the fever is above 38°C in a baby under 3 months, above 39°C in a child aged 3–6 months, or if the fever has lasted more than 48 hours without an obvious cause. Also call if your child has an ear infection or sore throat you are not confident managing at home." },
+      { "type": "heading", "level": 2, "text": "When to come in immediately" },
+      { "type": "list", "items": ["Any fever in a baby under 3 months", "Difficulty breathing or unusually fast breathing", "A rash — especially one that does not fade when you press a glass to it", "Stiff neck or sensitivity to bright light", "Seizures (even if they stop)", "Extreme drowsiness or very difficult to wake", "No wet nappies or urine for 8+ hours"] }
+    ],
+    "relatedSpecialty": {
+      "name": "Paediatrics",
+      "url": "/specialties/pediatrics"
+    },
+    "seo": {
+      "title": "Fever in Children: When to Come In | UniCare Hospitals Kokapet",
+      "description": "Dr. M. Nitin Rao explains when childhood fever is safe to manage at home and when it needs an immediate paediatrician visit at UniCare Hospitals, Kokapet."
+    }
+  },
+  {
+    "slug": "vaccination-schedule-new-parents",
+    "_placeholder": true,
+    "title": "The vaccination schedule every new parent should pin on the fridge",
+    "category": "Child Health",
+    "coverImage": null,
+    "readTime": "5 min read",
+    "publishedDate": "2026-06-05",
+    "authorSlug": "dr-mareddy-veena",
+    "excerpt": "Dr. Mareddy Veena walks through the IAP vaccination schedule from birth to 5 years — what each vaccine protects against and what to expect after.",
+    "keyTakeaways": [
+      "India's National Immunization Schedule covers BCG, hepatitis B, polio, DTP, Hib, rotavirus, PCV, measles and typhoid — all available at UniCare Hospitals, Kokapet.",
+      "Missing a vaccine does not mean starting over. A catch-up schedule can bring your child up to date at any age — just ask at the next visit.",
+      "Mild fever and soreness after vaccination are normal immune responses. Paracetamol can manage them; they are not a reason to skip future vaccines."
+    ],
+    "content": [
+      { "type": "paragraph", "text": "Vaccines are one of the safest and most cost-effective health interventions available. They protect your child before they are exposed to disease — when the stakes are highest. At UniCare, Dr. Mareddy Veena reviews each child's schedule at every well-baby visit so nothing is missed and no dose is delayed without reason." },
+      { "type": "heading", "level": 2, "text": "Vaccines given at birth" },
+      { "type": "list", "items": ["BCG (tuberculosis — single dose at birth)", "Hepatitis B (first dose at birth)", "Oral Polio Vaccine — OPV 0 (within 24 hours of birth)"] },
+      { "type": "heading", "level": 2, "text": "Key milestones: 6 weeks to 18 months" },
+      { "type": "paragraph", "text": "From 6 weeks, your baby begins the primary series: DTP (diphtheria, tetanus, pertussis), Hib (Haemophilus influenzae type b), IPV (injectable polio), hepatitis B (2nd dose), rotavirus and PCV (pneumococcal). Doses are repeated at 10 and 14 weeks, with boosters at 15–18 months. The MMR vaccine (measles, mumps, rubella) is given at 9–12 months and again at 15 months." },
+      { "type": "heading", "level": 2, "text": "Optional vaccines worth discussing" },
+      { "type": "paragraph", "text": "The Indian Academy of Pediatrics also recommends varicella (chickenpox), hepatitis A, influenza (annually from 6 months), and HPV for girls from age 9. These are not mandated but offer significant protection. Discuss them at your next visit." },
+      { "type": "heading", "level": 2, "text": "What to expect after vaccination" },
+      { "type": "list", "items": ["Low-grade fever (38–38.5°C) for 24–48 hours — give paracetamol", "Soreness or redness at the injection site", "Mild fussiness or poor sleep on the night of vaccination", "After MMR: a mild rash or fever may appear 7–10 days later — this is normal"] }
+    ],
+    "relatedSpecialty": {
+      "name": "Paediatrics",
+      "url": "/specialties/pediatrics"
+    },
+    "seo": {
+      "title": "Child Vaccination Schedule — Kokapet Parents' Guide | UniCare Hospitals",
+      "description": "Complete IAP vaccination schedule from birth to 5 years, explained by Dr. Mareddy Veena at UniCare Hospitals, Kokapet. What each vaccine does and what to expect."
+    }
+  },
+  {
+    "slug": "hba1c-explained-diabetes",
+    "_placeholder": true,
+    "title": "HbA1c explained: the one number every person with diabetes should know",
+    "category": "Diabetes and Hormones",
+    "coverImage": null,
+    "readTime": "6 min read",
+    "publishedDate": "2026-06-08",
+    "authorSlug": "dr-deepak-thiriveedi",
+    "excerpt": "Dr. Deepak Thiriveedi explains what HbA1c actually measures, what your number means, and how to bring it down without drastic measures.",
+    "keyTakeaways": [
+      "HbA1c measures your average blood sugar over the past 2–3 months. Below 5.7% is normal; 5.7–6.4% is prediabetes; 6.5% or above confirms diabetes.",
+      "Unlike a fasting glucose test, HbA1c does not require an overnight fast and reflects long-term control rather than a single-day reading.",
+      "For most people with type 2 diabetes, the treatment target is an HbA1c below 7%. Your endocrinologist may set a different target based on your age and risk profile."
+    ],
+    "content": [
+      { "type": "paragraph", "text": "Haemoglobin A1c is formed when glucose in the blood attaches to haemoglobin inside red blood cells. Because red blood cells live for roughly 90 days, the HbA1c percentage reflects your average blood sugar across that entire period — unlike a fasting sugar test, which is a single point in time and can be affected by what you ate the night before." },
+      { "type": "heading", "level": 2, "text": "Understanding your result" },
+      { "type": "list", "items": ["Below 5.7%: Normal", "5.7–6.4%: Prediabetes — intervention at this stage can prevent or delay type 2 diabetes", "6.5% or above (on two separate tests): Diabetes confirmed", "Below 7%: Target for most people already diagnosed with type 2 diabetes"] },
+      { "type": "heading", "level": 2, "text": "Why every 1% matters" },
+      { "type": "paragraph", "text": "Every 1% reduction in HbA1c reduces the risk of diabetes complications — kidney disease, eye damage, nerve damage — by roughly 25–35%. The most effective interventions are consistent dietary changes (reducing refined carbohydrates and sugary drinks), 150 minutes of moderate physical activity per week, and when lifestyle alone is insufficient, medications prescribed and monitored by an endocrinologist." },
+      { "type": "heading", "level": 2, "text": "How often should you test?" },
+      { "type": "paragraph", "text": "If your HbA1c is above target, Dr. Deepak Thiriveedi typically repeats the test every 3 months until control is achieved, then every 6 months once stable. Most people with well-controlled diabetes test annually. Testing more often does not improve control — consistently acting on the result does." },
+      { "type": "heading", "level": 2, "text": "Signs your HbA1c may be rising" },
+      { "type": "list", "items": ["Increased thirst or more frequent urination", "Unexplained tiredness that does not improve with sleep", "Blurred vision", "Slow wound healing", "Tingling or numbness in the feet or hands"] }
+    ],
+    "relatedSpecialty": {
+      "name": "General Medicine & Endocrinology",
+      "url": "/specialties/general-medicine-endocrinology"
+    },
+    "seo": {
+      "title": "HbA1c Explained: What Your Number Means | UniCare Hospitals Kokapet",
+      "description": "Dr. Deepak Thiriveedi explains HbA1c ranges, what the test measures, and how to reduce your number. Endocrinology at UniCare Hospitals, Kokapet, Hyderabad."
+    }
+  },
+  {
+    "slug": "gallstones-surgery-honest-answer",
+    "_placeholder": true,
+    "title": "Gallstones: do they always need surgery? An honest answer.",
+    "category": "Surgery",
+    "coverImage": null,
+    "readTime": "5 min read",
+    "publishedDate": "2026-06-10",
+    "authorSlug": "dr-bhargava-vyas",
+    "excerpt": "Dr. Bhargava Vyas A.N. gives an honest answer on when gallstones need to come out — and when watchful waiting is perfectly reasonable.",
+    "keyTakeaways": [
+      "Most gallstones are silent — discovered by chance on ultrasound. Silent stones with no symptoms do not always need surgery.",
+      "Laparoscopic cholecystectomy (keyhole removal) is the standard of care for symptomatic gallstones: 3–4 small cuts, general anaesthesia, usually same-day or next-day discharge.",
+      "The main triggers for surgery are repeated painful attacks (biliary colic), gallbladder inflammation (cholecystitis), or a stone blocking the bile duct."
+    ],
+    "content": [
+      { "type": "paragraph", "text": "Gallstones are extremely common — present in roughly 10–15% of Indian adults. But having stones does not automatically mean you need an operation. The question Dr. Bhargava Vyas always asks first is not \"do you have stones?\" but \"are those stones causing you problems?\"" },
+      { "type": "heading", "level": 2, "text": "When watchful waiting is appropriate" },
+      { "type": "paragraph", "text": "If your gallstone was found incidentally — during an ultrasound for something else — and you have had no pain, nausea or fever related to it, a conservative approach is often reasonable. The annual risk of developing symptoms from a silent stone is roughly 2–3%. Many people live comfortably with gallstones for years without ever needing surgery." },
+      { "type": "heading", "level": 2, "text": "When surgery is the right call" },
+      { "type": "list", "items": ["Repeated biliary colic — right upper abdominal pain after fatty meals, lasting 30 minutes to several hours", "Acute cholecystitis — fever and persistent pain lasting more than 6 hours", "Choledocholithiasis — a stone has moved into and blocked the common bile duct", "Gallstone pancreatitis — a stone has triggered inflammation of the pancreas"] },
+      { "type": "heading", "level": 2, "text": "What laparoscopic surgery involves" },
+      { "type": "paragraph", "text": "Laparoscopic cholecystectomy removes the entire gallbladder (not just the stones) through 3–4 cuts of less than 1 cm. You are under general anaesthesia for 45–60 minutes. Most patients go home the same day or the next morning and return to desk work within a week. At UniCare, Dr. Bhargava Vyas personally reviews every surgical patient from first consultation to final follow-up." },
+      { "type": "heading", "level": 2, "text": "Life without a gallbladder" },
+      { "type": "paragraph", "text": "The gallbladder stores bile but is not essential for digestion. After removal, bile flows directly from the liver to the small intestine. Most people eat a normal diet within 2–4 weeks. Some experience loose stools after fatty meals for the first few months — this almost always settles on its own." }
+    ],
+    "relatedSpecialty": {
+      "name": "General & Minimal Access Surgery",
+      "url": "/specialties/general-minimal-access-surgery"
+    },
+    "seo": {
+      "title": "Gallstones & Surgery — Honest Answers | UniCare Hospitals Kokapet",
+      "description": "Dr. Bhargava Vyas A.N. explains when gallstones need surgery and when watchful waiting is fine. Laparoscopic surgery at UniCare Hospitals, Kokapet, Hyderabad."
+    }
+  },
+  {
+    "slug": "thyroid-tiredness-hormone-problem",
+    "_placeholder": true,
+    "title": "Thyroid and tiredness: when fatigue is a hormone problem",
+    "category": "Diabetes and Hormones",
+    "coverImage": null,
+    "readTime": "6 min read",
+    "publishedDate": "2026-06-12",
+    "authorSlug": "dr-deepak-thiriveedi",
+    "excerpt": "Dr. Deepak Thiriveedi explains how hypothyroidism causes fatigue that sleep cannot fix — and how a single blood test diagnoses it.",
+    "keyTakeaways": [
+      "Hypothyroidism (underactive thyroid) is one of the most commonly missed causes of unexplained fatigue, especially in women over 30.",
+      "A simple blood test — TSH and T4 — confirms whether your thyroid is the problem. It takes under 5 minutes and does not require fasting.",
+      "Levothyroxine (a synthetic thyroid hormone tablet taken once daily) restores normal thyroid function for most patients within 4–8 weeks."
+    ],
+    "content": [
+      { "type": "paragraph", "text": "The thyroid gland controls your body's metabolic rate — how fast your cells convert fuel into energy. When the thyroid is underactive (hypothyroidism), every function slows: energy production, heart rate, digestion, even mood. The result is a tiredness that sleep does not fix, often accompanied by weight gain, cold intolerance, dry skin and low mood." },
+      { "type": "heading", "level": 2, "text": "Why it is so often missed" },
+      { "type": "paragraph", "text": "Fatigue is one of the most common complaints in general practice, and most fatigue is not thyroid-related. But hypothyroidism mimics burnout, anaemia, depression and sleep disorders so closely that it is frequently overlooked for months or years. At UniCare, Dr. Deepak Thiriveedi includes TSH screening in the initial workup for patients presenting with persistent fatigue." },
+      { "type": "heading", "level": 2, "text": "Other symptoms that point to thyroid" },
+      { "type": "list", "items": ["Unexplained weight gain despite no change in diet or activity", "Hair thinning or noticeable hair loss", "Constipation that does not respond to dietary changes", "Low mood or depression, especially without an obvious trigger", "Slow heart rate or palpitations (in hyperthyroidism, the opposite condition)", "Puffy face, especially around the eyes, in the morning"] },
+      { "type": "heading", "level": 2, "text": "The diagnosis: quicker than you think" },
+      { "type": "paragraph", "text": "A blood draw for TSH (thyroid-stimulating hormone) and free T4 is all that is needed. No fasting required. Results typically come back within 24 hours. If TSH is elevated and T4 is low, hypothyroidism is confirmed. Treatment with levothyroxine — a once-daily tablet — restores normal levels in most patients within 4–8 weeks, with significant improvement in energy and mood." },
+      { "type": "heading", "level": 2, "text": "How long do you stay on medication?" },
+      { "type": "paragraph", "text": "Most patients with hypothyroidism remain on levothyroxine long-term, with an annual or biannual blood test to adjust the dose. The medication is well-tolerated, inexpensive and safe for pregnancy. Many patients say starting treatment felt like \"waking up\" after years of exhaustion." }
+    ],
+    "relatedSpecialty": {
+      "name": "General Medicine & Endocrinology",
+      "url": "/specialties/general-medicine-endocrinology"
+    },
+    "seo": {
+      "title": "Thyroid and Fatigue: Is Your Thyroid to Blame? | UniCare Hospitals",
+      "description": "Dr. Deepak Thiriveedi explains hypothyroidism, its link to persistent fatigue, and how a single blood test diagnoses it. Endocrinology at UniCare Hospitals, Kokapet."
+    }
+  }
+]

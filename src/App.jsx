@@ -33,7 +33,7 @@ function Layout() {
   return (
     <>
       <Header />
-      <main id="main-content" className="pt-18 pb-16 lg:pb-0 min-h-dvh">
+      <main id="main-content" className="pt-16 lg:pt-35 pb-16 lg:pb-0 min-h-dvh">
         <Outlet />
       </main>
       <Footer />
@@ -49,21 +49,21 @@ export default function App() {
       <Routes>
         <Route element={<Layout />}>
           <Route path="/"                           element={<Home />} />
-          <Route path="/about"                      element={<About />} />
+          <Route path="/about-us"                   element={<About />} />
           <Route path="/specialties"                element={<Specialties />} />
-          <Route path="/specialties/maternity"      element={<Maternity />} />
-          <Route path="/specialties/paediatrics"    element={<Paediatrics />} />
-          <Route path="/specialties/orthopaedics"   element={<Orthopaedics />} />
-          <Route path="/specialties/general-medicine" element={<GeneralMedicine />} />
-          <Route path="/specialties/general-surgery"  element={<GeneralSurgery />} />
+          <Route path="/specialties/maternity-womens-health" element={<Maternity />} />
+          <Route path="/specialties/pediatrics"     element={<Paediatrics />} />
+          <Route path="/specialties/orthopedics"    element={<Orthopaedics />} />
+          <Route path="/specialties/general-medicine-endocrinology" element={<GeneralMedicine />} />
+          <Route path="/specialties/general-minimal-access-surgery" element={<GeneralSurgery />} />
           <Route path="/specialties/pharmacy"       element={<Pharmacy />} />
-          <Route path="/specialties/diagnostics"    element={<Diagnostics />} />
+          <Route path="/specialties/diagnostics-lab" element={<Diagnostics />} />
           <Route path="/doctors"                    element={<Doctors />} />
-          <Route path="/packages"                   element={<Packages />} />
+          <Route path="/health-checkup-packages"    element={<Packages />} />
           <Route path="/blog"                       element={<Blog />} />
           <Route path="/blog/:slug"                 element={<BlogPost />} />
           <Route path="/contact"                    element={<Contact />} />
-          <Route path="/book-appointment"           element={<BookAppointment />} />
+          <Route path="/book-an-appointment"        element={<BookAppointment />} />
           <Route path="*"                           element={<NotFound />} />
         </Route>
       </Routes>
