@@ -1,5 +1,3 @@
-import { useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import SEO from '../../components/SEO';
 import { fadeUp, stagger, vp } from '../../lib/animations';
@@ -59,15 +57,6 @@ const FEATURES = [
 const featContainer = stagger(0.09, 0.1);
 
 export default function Contact() {
-  const { hash } = useLocation();
-
-  useEffect(() => {
-    if (!hash) return;
-    const id = hash.replace('#', '');
-    const el = document.getElementById(id);
-    if (el) setTimeout(() => el.scrollIntoView({ behavior: 'smooth', block: 'start' }), 120);
-  }, [hash]);
-
   return (
     <>
       <SEO
@@ -80,8 +69,8 @@ export default function Contact() {
       {/* Hero — full-width map banner */}
       <LocationMap />
 
-      {/* 1. Inquiry form */}
-      <div id="inquiry-form">
+      {/* 1. Inquiry form — floats over bottom of map */}
+      <div id="inquiry-form" className="relative z-10 -mt-48 sm:-mt-56 lg:-mt-64">
         <InquiryForm />
       </div>
 

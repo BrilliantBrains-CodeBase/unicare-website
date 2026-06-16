@@ -42,30 +42,8 @@ export default function InquiryForm() {
   }
 
   return (
-    <section className="px-4 sm:px-6 lg:px-10 py-12 sm:py-16">
+    <section className="px-4 sm:px-6 lg:px-10 pt-8 sm:pt-10 pb-12 sm:pb-16">
       <div className="max-w-330 mx-auto">
-
-        {/* Heading */}
-        <motion.div
-          className="flex flex-col items-center text-center mb-8 md:mb-10"
-          variants={headingStagger}
-          initial="hidden"
-          whileInView="visible"
-          viewport={vp}
-        >
-          <motion.span variants={fadeUp} className="pill text-[12px]">Get in Touch</motion.span>
-          <motion.h2
-            variants={fadeUp}
-            className="font-display text-[28px] md:text-[38px] lg:text-[46px] leading-[1.08] mt-4"
-            style={{ color: 'var(--navy)' }}
-          >
-            Send us a message.
-          </motion.h2>
-          <motion.p variants={fadeUp} className="text-[14px] sm:text-[15px] text-(--muted) mt-3 leading-relaxed max-w-110">
-            Our care team typically responds within the hour during working hours.
-          </motion.p>
-        </motion.div>
-
         <div className="grid grid-cols-12 gap-5 sm:gap-6 items-stretch">
 
           {/* Left sidebar — navy */}

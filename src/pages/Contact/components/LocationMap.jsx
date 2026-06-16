@@ -11,7 +11,7 @@ export default function LocationMap() {
     <div
       className="relative -mt-16 lg:-mt-20 w-full overflow-hidden"
       style={{
-        minHeight: 'clamp(280px, 38vw, 400px)',
+        minHeight: 'clamp(460px, 60vw, 660px)',
         background: '#E6F4F2',
       }}
     >
@@ -85,15 +85,9 @@ export default function LocationMap() {
         </div>
       </div>
 
-      {/* Zoom controls — top right */}
-      <div className="absolute z-20 top-20 sm:top-22 right-3 sm:right-5 flex flex-col gap-1.5">
-        <button aria-label="Zoom in"  className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-white text-(--navy) flex items-center justify-center shadow-sm text-base font-bold cursor-pointer">+</button>
-        <button aria-label="Zoom out" className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-white text-(--navy) flex items-center justify-center shadow-sm text-base font-bold leading-none cursor-pointer">−</button>
-      </div>
-
-      {/* Bottom overlay — left: label · right: Get Directions */}
+      {/* Top overlay — left: label · right: Get Directions */}
       <motion.div
-        className="absolute z-20 bottom-4 sm:bottom-5 left-4 sm:left-6 right-4 sm:right-6 flex items-end justify-between gap-3"
+        className="absolute z-20 top-20 sm:top-24 left-4 sm:left-6 right-4 sm:right-6 flex items-start justify-between gap-3"
         variants={overlayStagger}
         initial="hidden"
         animate="visible"
@@ -112,7 +106,7 @@ export default function LocationMap() {
           href={MAPS_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="btn-dark text-[12px] sm:text-[13px]"
+          className="btn-dark text-[12px] sm:text-[13px] shrink-0"
         >
           <span>Get Directions</span>
           <span className="arrow"><Arrow s={12}/></span>

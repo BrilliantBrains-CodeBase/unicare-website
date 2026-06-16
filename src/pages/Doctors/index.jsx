@@ -1,10 +1,10 @@
-import { useState } from 'react';
+import { useState, useRef, useLayoutEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import SEO from '../../components/SEO';
 import PageBanner from '../../components/PageBanner';
 import { Phone, WhatsAppIc, CalendarCheck } from '../../components/icons';
-import { scaleIn, fadeUp, stagger, vp } from '../../lib/animations';
+import { fadeUp, stagger, vp } from '../../lib/animations';
 import { physicianSchema } from '../../lib/schema';
 import { doctors } from '../../data/doctors';
 
@@ -13,90 +13,121 @@ const WA_URL = `https://wa.me/919090546363?text=${encodeURIComponent('Hello, I w
 
 const FILTERS = ['All', 'Gynecology & OB', 'Pediatrics', 'Surgery', 'Endocrinology & Diabetes', 'Orthopedics'];
 
-const cardStagger = stagger(0.07, 0.1);
-const ctaStagger  = stagger(0.1, 0);
+const ctaStagger = stagger(0.1, 0);
 
-function DoctorCard({ doc, expanded, onToggle }) {
-  const roleLabel    = doc.role.split('—')[0].trim();
-  const roleSubtitle = doc.role.split('—')[1]?.trim();
-  const quals        = doc.qualifications.split(', ');
+// Renders qualification pills, clipping to a single line and showing "+N" for overflow
+function QualPills({ qualString }) {
+  const containerRef = useRef(null);
+  const [maxV, setMaxV]  = useState(null);
+  const quals = qualString.split(', ');
+
+  // Reset measurement when qualifications change (e.g. after filter switch)
+  useLayoutEffect(() => { setMaxV(null); }, [qualString]);
+
+  // Measure after every render; bail out once measured
+  useLayoutEffect(() => {
+    if (maxV !== null) return;
+    const el = containerRef.current;
+    if (!el) return;
+    const pills = [...el.querySelectorAll('[data-pill]')];
+    if (!pills.length) return;
+    const base = pills[0].offsetTop;
+    let count = 0;
+    for (const p of pills) {
+      if (p.offsetTop > base + 2) break;
+      count++;
+    }
+    setMaxV(count);
+  });
+
+  const shown = maxV !== null ? quals.slice(0, maxV) : quals;
+  const extra = maxV !== null ? quals.length - maxV : 0;
 
   return (
-    <motion.div
-      variants={scaleIn}
-      className="rounded-2xl overflow-hidden flex flex-row"
-      style={{ background: 'var(--teal-soft)' }}
-    >
-      {/* Photo — fixed width, fills card height */}
-      <div className="relative w-36 sm:w-40 shrink-0 self-stretch">
+    <div ref={containerRef} className="flex flex-wrap justify-center gap-1.5">
+      {shown.map(q => (
+        <span
+          key={q}
+          data-pill
+          className="px-2 py-0.5 rounded-full text-[10px] font-medium border border-(--line) text-(--navy) shrink-0"
+          style={{ background: 'var(--teal-soft)' }}
+        >
+          {q}
+        </span>
+      ))}
+      {extra > 0 && (
+        <span
+          className="px-2 py-0.5 rounded-full text-[10px] font-semibold text-white shrink-0"
+          style={{ background: 'var(--navy)' }}
+        >
+          +{extra}
+        </span>
+      )}
+    </div>
+  );
+}
+
+function DoctorCard({ doc }) {
+  const roleLabel    = doc.role.split('—')[0].trim();
+  const roleSubtitle = doc.role.split('—')[1]?.trim();
+
+  return (
+    <div className="rounded-2xl overflow-hidden flex flex-col group hover-lift border border-(--line) bg-white">
+      {/* Photo */}
+      <div className="relative overflow-hidden h-72 sm:h-80" style={{ background: 'var(--teal-soft)' }}>
         <img
           src={doc.photo}
           alt={doc.name}
-          className="absolute inset-0 w-full h-full object-cover object-top"
+          className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
         />
+        {/* Book Appointment — overlaid at photo bottom */}
+        <Link
+          to="/book-an-appointment"
+          className="absolute bottom-4 left-1/2 -translate-x-1/2 whitespace-nowrap inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-[13px] font-semibold text-white shadow-lg transition-all duration-200 hover:scale-105"
+          style={{ background: 'var(--navy)' }}
+        >
+          <CalendarCheck s={13} c="#fff" />
+          Book An Appointment
+        </Link>
       </div>
 
       {/* Info */}
-      <div className="p-3.5 sm:p-4 flex flex-col gap-2 flex-1 min-w-0">
+      <div className="px-5 pt-5 pb-5 flex flex-col gap-3 text-center">
         <div>
-          <div
-            className="inline-flex items-center px-2.5 py-1 rounded-full text-[9.5px] font-semibold tracking-wide mb-1.5"
-            style={{ background: doc.color + '1A', color: doc.color }}
-          >
-            {roleLabel}
-          </div>
-          <div className="font-display text-[14px] sm:text-[16px] leading-snug text-(--navy)">{doc.name}</div>
+          <h3 className="font-display text-[18px] sm:text-[19px] text-(--navy) leading-snug">{doc.name}</h3>
+          <p className="text-[13px] text-(--muted) mt-1 leading-snug">{roleLabel}</p>
           {roleSubtitle && (
-            <div className="text-[10.5px] text-(--muted) mt-0.5 leading-snug">{roleSubtitle}</div>
+            <p className="text-[11.5px] mt-0.5 leading-snug" style={{ color: 'var(--muted)', opacity: 0.7 }}>{roleSubtitle}</p>
           )}
         </div>
 
-        {/* Expandable: quals + bio */}
-        {expanded && (
-          <>
-            <div className="flex flex-wrap gap-1">
-              {quals.map(q => (
-                <span key={q} className="px-1.5 py-0.5 rounded-full text-[9px] font-medium bg-white border border-(--line) text-(--navy) leading-none">
-                  {q}
-                </span>
-              ))}
-            </div>
-            <p className="text-[11px] text-(--muted) leading-relaxed">{doc.bio}</p>
-          </>
-        )}
+        {/* Qualification pills — single line, overflow as "+N" */}
+        <QualPills qualString={doc.qualifications} />
 
-        {/* Read more / less */}
-        <button
-          onClick={onToggle}
-          className="self-start text-[11px] font-medium cursor-pointer hover:underline"
-          style={{ color: doc.color }}
-        >
-          {expanded ? 'Read less ↑' : 'Read more ↓'}
-        </button>
-
-        {/* CTA row */}
-        <div className="flex flex-wrap items-center gap-1.5 pt-2 border-t border-white/60 mt-auto">
-          <a href={`tel:${doc.phone}`} className="btn-dark text-[10px] py-1.5! px-2.5! gap-1!">
-            <Phone s={10} c="#fff" />
+        {/* Contact buttons */}
+        <div className="flex items-center justify-center gap-2 pt-3 border-t border-(--line)">
+          <a href={`tel:${doc.phone}`} className="btn-dark text-[12px]! py-2! px-4! gap-1.5!">
+            <Phone s={12} c="#fff" />
             <span>Call</span>
           </a>
-          <a href={doc.waUrl} target="_blank" rel="noopener noreferrer" className="btn-dark text-[10px] py-1.5! px-2.5! gap-1!" style={{ background: '#25D366' }}>
-            <WhatsAppIc s={11} c="#fff" />
+          <a
+            href={doc.waUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-dark text-[12px]! py-2! px-4! gap-1.5!"
+            style={{ background: '#25D366' }}
+          >
+            <WhatsAppIc s={13} c="#fff" />
             <span>WhatsApp</span>
           </a>
-          <Link to="/book-an-appointment" className="btn-outline text-[10px] py-1.5! px-2.5! gap-1!">
-            <CalendarCheck s={10} />
-            <span>Book</span>
-          </Link>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 }
 
 export default function Doctors() {
   const [activeFilter, setActiveFilter] = useState('All');
-  const [expandedRow, setExpandedRow]   = useState(0);
 
   const filtered = activeFilter === 'All'
     ? doctors
@@ -104,7 +135,6 @@ export default function Doctors() {
 
   function handleFilter(f) {
     setActiveFilter(f);
-    setExpandedRow(0);
   }
 
   return (
@@ -173,25 +203,11 @@ export default function Doctors() {
               </a>
             </motion.div>
           ) : (
-            <motion.div
-              className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5"
-              variants={cardStagger}
-              initial="hidden"
-              whileInView="visible"
-              viewport={vp}
-            >
-              {filtered.map((doc, idx) => {
-                const row = Math.floor(idx / 2);
-                return (
-                  <DoctorCard
-                    key={doc.slug}
-                    doc={doc}
-                    expanded={expandedRow === row}
-                    onToggle={() => setExpandedRow(r => r === row ? null : row)}
-                  />
-                );
-              })}
-            </motion.div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
+              {filtered.map(doc => (
+                <DoctorCard key={doc.slug} doc={doc} />
+              ))}
+            </div>
           )}
         </div>
       </section>
