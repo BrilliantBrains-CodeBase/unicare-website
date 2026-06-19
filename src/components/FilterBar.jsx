@@ -41,10 +41,10 @@ export default function FilterBar({
   const isFiltered = activeFilter !== 'All';
 
   return (
-    <div className="flex items-center gap-3">
-      {/* Search */}
-      <div className="relative flex-1">
-        <span className="absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" style={{ color: 'var(--muted)' }}>
+    <div className="flex items-center gap-2">
+      {/* Search — pill, glassmorphic, compact */}
+      <div className="relative w-44 sm:w-56">
+        <span className="absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none" style={{ color: 'var(--teal)' }}>
           <Search s={15}/>
         </span>
         <input
@@ -52,7 +52,12 @@ export default function FilterBar({
           value={searchQuery}
           onChange={e => onSearch(e.target.value)}
           placeholder={searchPlaceholder}
-          className="h-11 w-full rounded-xl border border-(--line) pl-10 pr-4 text-[14px] text-(--navy) bg-white focus:outline-none focus:ring-2 focus:ring-(--teal)/30 focus:border-(--teal) placeholder:text-(--muted)/50 transition"
+          className="h-10 w-full rounded-full pl-8 pr-4 text-[13px] transition-all duration-200 focus:outline-none placeholder:text-(--muted)/60"
+          style={{
+            background: 'var(--teal-soft)',
+            border: '1px solid rgba(44,170,160,0.25)',
+            color: 'var(--navy)',
+          }}
         />
       </div>
 
@@ -60,10 +65,10 @@ export default function FilterBar({
       <div className="relative shrink-0" ref={wrapRef}>
         <button
           onClick={() => setOpen(o => !o)}
-          className="h-11 inline-flex items-center gap-2 px-4 rounded-xl border text-[13.5px] font-medium transition-all duration-200 cursor-pointer"
+          className="h-10 inline-flex items-center gap-2 px-4 rounded-full text-[13px] font-medium transition-all duration-200 cursor-pointer"
           style={isFiltered || open
-            ? { background: 'var(--navy)', color: '#fff', borderColor: 'var(--navy)' }
-            : { background: 'white', color: 'var(--navy)', borderColor: 'var(--line)' }
+            ? { background: 'var(--navy)', color: '#fff', border: '1px solid var(--navy)', boxShadow: '0 2px 10px rgba(1,34,87,0.18)' }
+            : { background: 'var(--teal-soft)', border: '1px solid rgba(44,170,160,0.25)', color: 'var(--navy)' }
           }
           aria-haspopup="listbox"
           aria-expanded={open}
@@ -79,7 +84,8 @@ export default function FilterBar({
 
         {open && (
           <div
-            className="absolute right-0 top-full mt-2 w-56 bg-white rounded-2xl border border-(--line) shadow-xl z-50 py-2 overflow-hidden"
+            className="absolute right-0 top-full mt-2 w-56 rounded-2xl border border-(--line) shadow-xl z-50 py-2 overflow-hidden"
+            style={{ background: 'rgba(255,255,255,0.90)', backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)' }}
             role="listbox"
             aria-label="Filter options"
           >

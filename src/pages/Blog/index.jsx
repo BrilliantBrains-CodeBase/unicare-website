@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import SEO from '../../components/SEO';
 import PageBanner from '../../components/PageBanner';
+import FilterBar from '../../components/FilterBar';
 import { fadeUp, stagger, vp } from '../../lib/animations';
 import { getDoctorBySlug } from '../../data/doctors';
 import posts from '../../../data/blog/posts.json';
@@ -13,10 +14,17 @@ const gridStagger = stagger(0.07, 0.1);
 
 export default function Blog() {
   const [activeCategory, setActiveCategory] = useState('All');
+  const [searchQuery,    setSearchQuery]    = useState('');
 
-  const filtered = activeCategory === 'All'
-    ? posts
-    : posts.filter(p => p.category === activeCategory);
+  const q = searchQuery.toLowerCase();
+  const filtered = posts
+    .filter(p => activeCategory === 'All' || p.category === activeCategory)
+    .filter(p => !q || p.title.toLowerCase().includes(q) || p.excerpt.toLowerCase().includes(q));
+
+  function handleCategory(cat) {
+    setActiveCategory(cat);
+    setSearchQuery('');
+  }
 
   return (
     <>
@@ -33,24 +41,17 @@ export default function Blog() {
         subtitle="Practical guidance on pregnancy, child health, diabetes, surgery and more — written by the Unicare team in Kokapet."
       />
 
-      {/* Category filter */}
+      {/* Filter bar */}
       <section className="px-4 sm:px-6 lg:px-10 pt-8 pb-0">
-        <div className="max-w-330 mx-auto flex flex-wrap gap-2" role="tablist" aria-label="Filter blog posts by category">
-          {CATEGORIES.map(cat => (
-            <button
-              key={cat}
-              role="tab"
-              aria-selected={activeCategory === cat}
-              onClick={() => setActiveCategory(cat)}
-              className="pill text-[13px] cursor-pointer transition-all duration-200"
-              style={activeCategory === cat
-                ? { background: 'var(--navy)', color: '#fff', borderColor: 'var(--navy)' }
-                : {}
-              }
-            >
-              {cat}
-            </button>
-          ))}
+        <div className="max-w-330 mx-auto">
+          <FilterBar
+            searchQuery={searchQuery}
+            onSearch={setSearchQuery}
+            searchPlaceholder="Search articles…"
+            filters={CATEGORIES}
+            activeFilter={activeCategory}
+            onFilter={handleCategory}
+          />
         </div>
       </section>
 
