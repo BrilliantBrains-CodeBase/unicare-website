@@ -6,7 +6,7 @@ import { fadeUp, stagger, vp } from '../../lib/animations';
 import { getDoctorBySlug } from '../../data/doctors';
 import posts from '../../../data/blog/posts.json';
 import PostCard from './components/PostCard';
-import CTABand from './components/CTABand';
+import CTABand from '../../components/CTABand';
 
 const CATEGORIES = ['All', 'Gynecology & OB', 'Child Health', 'Diabetes and Hormones', 'Surgery', 'General Health'];
 const gridStagger = stagger(0.07, 0.1);
@@ -86,7 +86,11 @@ export default function Blog() {
         </div>
       </section>
 
-      <CTABand />
+      <CTABand
+        chip="Ask Our Doctors"
+        heading="Have a question an article cannot answer? Ask our doctors."
+        subtext="Call, WhatsApp or book an appointment — our specialists respond within the hour."
+      />
     </>
   );
 }

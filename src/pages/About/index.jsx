@@ -1,5 +1,6 @@
 import SEO from '../../components/SEO';
 import PageBanner from '../../components/PageBanner';
+import CTABand from '../../components/CTABand';
 
 export default function About() {
   return (
@@ -14,6 +15,12 @@ export default function About() {
         chip="About Us"
         title="Founded by doctors. Built for families."
         subtitle="Unicare Hospitals was created by practicing specialists who wanted to bring expert, honest care closer to where West Hyderabad families live."
+      />
+
+      <CTABand
+        chip="Visit Us"
+        heading="Ready to meet your specialist? We are five minutes away."
+        subtext="Call, WhatsApp or book online — our team will confirm your appointment and guide you to the right specialist."
       />
     </>
   );

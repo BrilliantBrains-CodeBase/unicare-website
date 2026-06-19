@@ -4,14 +4,11 @@ import { Link } from 'react-router-dom';
 import SEO from '../../components/SEO';
 import PageBanner from '../../components/PageBanner';
 import FilterBar from '../../components/FilterBar';
-import { Arrow, Phone, WhatsAppIc, CalendarCheck } from '../../components/icons';
+import CTABand from '../../components/CTABand';
+import { Arrow } from '../../components/icons';
 import { scaleIn, fadeUp, stagger, vp } from '../../lib/animations';
 
-const PHONE  = '+919090546363';
-const WA_URL = `https://wa.me/919090546363?text=${encodeURIComponent('Hello, I would like to know more about the specialties at UniCare Hospitals.')}`;
-
 const cardStagger = stagger(0.07, 0.1);
-const ctaStagger  = stagger(0.1, 0);
 
 const FILTERS = ['All', 'Women & Children', 'Surgery & Ortho', 'Medicine & Diabetes', 'Support Services'];
 
@@ -314,51 +311,11 @@ export default function Specialties() {
         </div>
       </section>
 
-      {/* CTA band */}
-      <section className="px-4 sm:px-6 lg:px-10 pb-16 sm:pb-20 lg:pb-24">
-        <div className="max-w-330 mx-auto">
-          <motion.div
-            className="rounded-3xl px-6 sm:px-10 py-10 sm:py-12 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6"
-            style={{ background: 'var(--teal-soft)' }}
-            variants={ctaStagger}
-            initial="hidden"
-            whileInView="visible"
-            viewport={vp}
-          >
-            <motion.p
-              variants={fadeUp}
-              className="font-display text-[20px] sm:text-[24px] lg:text-[28px] text-(--navy) leading-snug max-w-lg"
-            >
-              Not sure which specialist you need? Call{' '}
-              <a href={`tel:${PHONE}`} className="text-(--teal) hover:underline whitespace-nowrap">
-                +91 90905 46363
-              </a>{' '}
-              and our team will guide you.
-            </motion.p>
-
-            <motion.div variants={fadeUp} className="flex flex-wrap gap-3 shrink-0">
-              <a href={`tel:${PHONE}`} className="btn-dark gap-2!">
-                <Phone s={14} c="#fff" />
-                <span>Call Now</span>
-              </a>
-              <a
-                href={WA_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-dark gap-2!"
-                style={{ background: '#25D366' }}
-              >
-                <WhatsAppIc s={16} c="#fff" />
-                <span>WhatsApp</span>
-              </a>
-              <Link to="/book-an-appointment" className="btn-outline gap-2!">
-                <CalendarCheck s={14} />
-                <span>Book Appointment</span>
-              </Link>
-            </motion.div>
-          </motion.div>
-        </div>
-      </section>
+      <CTABand
+        chip="Need Guidance?"
+        heading="Not sure which specialist you need? Our team will guide you."
+        subtext="Call +91 90905 46363, message on WhatsApp, or book online. We will point you to the right doctor."
+      />
     </>
   );
 }

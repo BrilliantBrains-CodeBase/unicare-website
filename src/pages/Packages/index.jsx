@@ -1,5 +1,6 @@
 import SEO from '../../components/SEO';
 import PageBanner from '../../components/PageBanner';
+import CTABand from '../../components/CTABand';
 
 export default function Packages() {
   return (
@@ -14,6 +15,12 @@ export default function Packages() {
         chip="Health Packages"
         title="Preventive care, priced simply."
         subtitle="Full-body panels, diabetes screens, women's health and senior citizen packages — each reviewed personally by our doctors."
+      />
+
+      <CTABand
+        chip="Book a Package"
+        heading="Have questions about our packages? Talk to our team."
+        subtext="Call us, WhatsApp or book online — our team will help you pick the right health panel and schedule your visit."
       />
     </>
   );
