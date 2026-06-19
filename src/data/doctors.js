@@ -1,8 +1,8 @@
-import drVarunaImg   from '../../../src/assets/Dr.Varuna.png';
-import drBhargavaImg from '../../../src/assets/Dr.Bhargava.png';
-import drDeepakImg   from '../../../src/assets/Dr.Deepak.png';
-import drNitinImg    from '../../../src/assets/Dr.Nitin.png';
-import drVeenaImg    from '../../../src/assets/Dr.Veena.png';
+import drVarunaImg   from '../assets/Dr.Varuna.png';
+import drBhargavaImg from '../assets/Dr.Bhargava.png';
+import drDeepakImg   from '../assets/Dr.Deepak.png';
+import drNitinImg    from '../assets/Dr.Nitin.png';
+import drVeenaImg    from '../assets/Dr.Veena.png';
 
 const PHONE  = '+919090546363';
 const WA_MSG = encodeURIComponent('Hello, I would like to book an appointment at UniCare Hospitals.');
