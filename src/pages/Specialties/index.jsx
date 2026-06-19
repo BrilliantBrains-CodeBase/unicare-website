@@ -1,7 +1,9 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import SEO from '../../components/SEO';
 import PageBanner from '../../components/PageBanner';
+import FilterBar from '../../components/FilterBar';
 import { Arrow, Phone, WhatsAppIc, CalendarCheck } from '../../components/icons';
 import { scaleIn, fadeUp, stagger, vp } from '../../lib/animations';
 
@@ -11,9 +13,12 @@ const WA_URL = `https://wa.me/919090546363?text=${encodeURIComponent('Hello, I w
 const cardStagger = stagger(0.07, 0.1);
 const ctaStagger  = stagger(0.1, 0);
 
+const FILTERS = ['All', 'Women & Children', 'Surgery & Ortho', 'Medicine & Diabetes', 'Support Services'];
+
 const SPECIALTIES = [
   {
     tag: 'Gynecology & OB',
+    category: 'Women & Children',
     desc: 'Pregnancy care, safe deliveries, fertility support and gynecological treatment.',
     to: '/specialties/maternity-womens-health',
     icon: (
@@ -32,6 +37,7 @@ const SPECIALTIES = [
   },
   {
     tag: 'Paediatrics',
+    category: 'Women & Children',
     desc: 'Newborn and child care by two MD paediatricians.',
     to: '/specialties/pediatrics',
     icon: (
@@ -51,6 +57,7 @@ const SPECIALTIES = [
   },
   {
     tag: 'Orthopaedics',
+    category: 'Surgery & Ortho',
     desc: 'Bone, joint, spine and sports injury care.',
     to: '/specialties/orthopedics',
     icon: (
@@ -69,6 +76,7 @@ const SPECIALTIES = [
   },
   {
     tag: 'General Medicine',
+    category: 'Medicine & Diabetes',
     desc: 'Fever, infections, lifestyle disease and preventive health for adults.',
     to: '/specialties/general-medicine-endocrinology',
     icon: (
@@ -88,6 +96,7 @@ const SPECIALTIES = [
   },
   {
     tag: 'General Surgery',
+    category: 'Surgery & Ortho',
     desc: 'Laparoscopic and minimal access procedures.',
     to: '/specialties/general-minimal-access-surgery',
     icon: (
@@ -108,6 +117,7 @@ const SPECIALTIES = [
   },
   {
     tag: 'Endocrinology & Diabetes',
+    category: 'Medicine & Diabetes',
     desc: 'Diabetes, thyroid and hormonal care.',
     to: '/specialties/general-medicine-endocrinology',
     icon: (
@@ -125,6 +135,7 @@ const SPECIALTIES = [
   },
   {
     tag: 'Pharmacy',
+    category: 'Support Services',
     desc: 'Round-the-clock prescribed medicines on-site.',
     to: '/specialties/pharmacy',
     icon: (
@@ -143,6 +154,7 @@ const SPECIALTIES = [
   },
   {
     tag: 'Diagnostics & Lab',
+    category: 'Support Services',
     desc: 'Blood tests, health panels and imaging with same-day reports.',
     to: '/specialties/diagnostics-lab',
     icon: (
@@ -249,6 +261,19 @@ function SpecialtyCard({ s }) {
 }
 
 export default function Specialties() {
+  const [activeFilter, setActiveFilter] = useState('All');
+  const [searchQuery,  setSearchQuery]  = useState('');
+
+  const q = searchQuery.toLowerCase();
+  const filtered = SPECIALTIES
+    .filter(s => activeFilter === 'All' || s.category === activeFilter)
+    .filter(s => !q || s.tag.toLowerCase().includes(q) || s.desc.toLowerCase().includes(q));
+
+  function handleFilter(f) {
+    setActiveFilter(f);
+    setSearchQuery('');
+  }
+
   return (
     <>
       <SEO
@@ -264,20 +289,28 @@ export default function Specialties() {
         subtitle="Eight departments. One neighbourhood hospital. Closer to Kokapet, Narsingi and the Financial District than you think."
       />
 
-      {/* 8-card specialty grid */}
+      {/* Filter bar */}
+      <section className="px-4 sm:px-6 lg:px-10 pt-8 pb-0">
+        <div className="max-w-330 mx-auto">
+          <FilterBar
+            searchQuery={searchQuery}
+            onSearch={setSearchQuery}
+            searchPlaceholder="Search specialties…"
+            filters={FILTERS}
+            activeFilter={activeFilter}
+            onFilter={handleFilter}
+          />
+        </div>
+      </section>
+
+      {/* Specialty cards grid */}
       <section className="px-4 sm:px-6 lg:px-10 pt-10 sm:pt-12 pb-12 sm:pb-16 lg:pb-20">
         <div className="max-w-330 mx-auto">
-          <motion.div
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6"
-            variants={cardStagger}
-            initial="hidden"
-            whileInView="visible"
-            viewport={vp}
-          >
-            {SPECIALTIES.map(s => (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
+            {filtered.map(s => (
               <SpecialtyCard key={s.tag} s={s} />
             ))}
-          </motion.div>
+          </div>
         </div>
       </section>
 

@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import SEO from '../../components/SEO';
 import PageBanner from '../../components/PageBanner';
+import FilterBar from '../../components/FilterBar';
 import { Phone, WhatsAppIc, CalendarCheck } from '../../components/icons';
 import { fadeUp, stagger, vp } from '../../lib/animations';
 import { physicianSchema } from '../../lib/schema';
@@ -80,15 +81,6 @@ function DoctorCard({ doc }) {
           alt={doc.name}
           className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
         />
-        {/* Book Appointment — overlaid at photo bottom */}
-        <Link
-          to="/book-an-appointment"
-          className="absolute bottom-4 left-1/2 -translate-x-1/2 whitespace-nowrap inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-[13px] font-semibold text-white shadow-lg transition-all duration-200 hover:scale-105"
-          style={{ background: 'var(--navy)' }}
-        >
-          <CalendarCheck s={13} c="#fff" />
-          Book An Appointment
-        </Link>
       </div>
 
       {/* Info */}
@@ -105,7 +97,7 @@ function DoctorCard({ doc }) {
         <QualPills qualString={doc.qualifications} />
 
         {/* Contact buttons */}
-        <div className="flex items-center justify-center gap-2 pt-3 border-t border-(--line)">
+        <div className="flex items-center justify-center gap-2 pt-3 border-t border-(--line) flex-wrap">
           <a href={`tel:${doc.phone}`} className="btn-dark text-[12px]! py-2! px-4! gap-1.5!">
             <Phone s={12} c="#fff" />
             <span>Call</span>
@@ -120,6 +112,10 @@ function DoctorCard({ doc }) {
             <WhatsAppIc s={13} c="#fff" />
             <span>WhatsApp</span>
           </a>
+          <Link to="/book-an-appointment" className="btn-outline text-[12px]! py-2! px-4! gap-1.5!">
+            <CalendarCheck s={12} />
+            <span>Book</span>
+          </Link>
         </div>
       </div>
     </div>
@@ -128,13 +124,16 @@ function DoctorCard({ doc }) {
 
 export default function Doctors() {
   const [activeFilter, setActiveFilter] = useState('All');
+  const [searchQuery,  setSearchQuery]  = useState('');
 
-  const filtered = activeFilter === 'All'
-    ? doctors
-    : doctors.filter(d => d.specialty === activeFilter);
+  const q = searchQuery.toLowerCase();
+  const filtered = doctors
+    .filter(d => activeFilter === 'All' || d.specialty === activeFilter)
+    .filter(d => !q || d.name.toLowerCase().includes(q) || d.specialty.toLowerCase().includes(q));
 
   function handleFilter(f) {
     setActiveFilter(f);
+    setSearchQuery('');
   }
 
   return (
@@ -153,34 +152,17 @@ export default function Doctors() {
         subtitle="Most hospitals are owned by businesses and staffed by doctors. Unicare is the opposite: built by doctors, for the families of West Hyderabad."
       />
 
-      {/* Filter tabs */}
+      {/* Filter bar */}
       <section className="px-4 sm:px-6 lg:px-10 pt-8 pb-0">
         <div className="max-w-330 mx-auto">
-          <motion.div
-            className="flex flex-wrap gap-2"
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={vp}
-            role="tablist"
-            aria-label="Filter doctors by specialty"
-          >
-            {FILTERS.map(f => (
-              <button
-                key={f}
-                role="tab"
-                aria-selected={activeFilter === f}
-                onClick={() => handleFilter(f)}
-                className="pill text-[13px] cursor-pointer transition-all duration-200"
-                style={activeFilter === f
-                  ? { background: 'var(--navy)', color: '#fff', borderColor: 'var(--navy)' }
-                  : {}
-                }
-              >
-                {f}
-              </button>
-            ))}
-          </motion.div>
+          <FilterBar
+            searchQuery={searchQuery}
+            onSearch={setSearchQuery}
+            searchPlaceholder="Search doctors…"
+            filters={FILTERS}
+            activeFilter={activeFilter}
+            onFilter={handleFilter}
+          />
         </div>
       </section>
 
