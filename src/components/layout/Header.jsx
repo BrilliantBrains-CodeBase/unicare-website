@@ -120,7 +120,7 @@ export default function Header() {
       >
         {/* ── Announcement bar (desktop only, expands in when pinned) ── */}
         <div
-          className="hidden lg:block overflow-hidden"
+          className="hidden xl:block overflow-hidden"
           style={{
             maxHeight: pinned ? '36px' : '0px',
             transition: 'max-height 0.35s ease',
@@ -147,7 +147,7 @@ export default function Header() {
         </div>
 
         {/* ── Desktop nav bar ── */}
-        <div className="hidden lg:flex items-center gap-1 max-w-330 mx-auto px-6 py-4">
+        <div className="hidden xl:flex items-center gap-1 max-w-330 mx-auto px-6 py-4">
           <Link to="/" aria-label="UniCare Hospitals — Home" className="shrink-0 mr-3">
             <Logo horizontal className="h-18 w-auto" />
           </Link>
@@ -252,7 +252,7 @@ export default function Header() {
         </div>
 
         {/* ── Mobile bar ── */}
-        <div className="lg:hidden flex items-center justify-between px-4 h-[64px]">
+        <div className="xl:hidden flex items-center justify-between px-4 h-[64px]">
           <Link to="/" aria-label="UniCare Hospitals — Home" className="shrink-0">
             <Logo horizontal className="h-10 w-auto" />
           </Link>
@@ -277,7 +277,7 @@ export default function Header() {
             id="mobile-menu"
             role="navigation"
             aria-label="Mobile navigation"
-            className="lg:hidden mx-3 mb-3 rounded-2xl overflow-hidden"
+            className="xl:hidden mx-3 mb-3 rounded-2xl overflow-hidden"
             style={pinned
               ? { background: '#fff', border: '1px solid rgba(1,34,87,0.1)' }
               : { background: 'rgba(255,255,255,0.10)', backdropFilter: 'blur(14px)', WebkitBackdropFilter: 'blur(14px)', border: '1px solid rgba(255,255,255,0.18)' }
