@@ -1,8 +1,11 @@
+import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Phone, WhatsAppIc, CalendarCheck, Pin } from '../../../components/icons';
 import { fadeUp, stagger } from '../../../lib/animations';
-import heroBg from '../../../assets/hospital-exterior-main.png';
+import heroBg from '../../../assets/hero-bg.png';
+
+const HERO_VIDEO = '/hero-video.mp4';
 
 const PHONE = '+919090546363';
 const WA_MSG = encodeURIComponent('Hello, I would like to book an appointment at UniCare Hospitals.');
@@ -12,41 +15,52 @@ const MAPS_URL = `https://www.google.com/maps/search/?api=1&query=${encodeURICom
 const ctaStagger = stagger(0.08, 0.35);
 
 export default function HeroSection() {
+  // Make the page background dark navy while the hero is mounted — ensures the
+  // floating header's margin gaps show dark (matching the hero overlay) not the
+  // light page background (#F4F5F7) that would otherwise bleed through.
+  useEffect(() => {
+    document.documentElement.style.background = '#012257';
+    return () => { document.documentElement.style.background = ''; };
+  }, []);
+
   return (
-    <section data-hero className="relative isolate overflow-hidden -mt-16 lg:-mt-35 min-h-150 lg:min-h-175 flex items-center">
-      <img
-        src={heroBg}
-        alt="Unicare Hospitals exterior in Kokapet, Hyderabad"
-        className="absolute inset-0 w-full h-full object-cover ken-burns"
-        fetchpriority="high"
-        decoding="async"
+    <section data-hero className="lg:mx-6 2xl:mx-8 lg:rounded-t-[44px] 2xl:rounded-t-[60px] relative isolate overflow-hidden -mt-22 min-h-150 sm:min-h-165 lg:min-h-0 lg:aspect-video flex items-center">
+      <video
+        src={HERO_VIDEO}
+        poster={heroBg}
+        autoPlay
+        loop
+        muted
+        playsInline
+        aria-hidden="true"
+        className="absolute inset-0 w-full h-full object-cover"
       />
       <div
         className="absolute inset-0"
-        style={{ background: 'linear-gradient(180deg, rgba(1,34,87,.6) 0%, rgba(1,34,87,.15) 45%, rgba(1,34,87,.72) 100%)' }}
+        style={{ background: 'linear-gradient(180deg, rgba(1,34,87,.65) 0%, rgba(1,34,87,.1) 45%, rgba(1,34,87,.72) 100%)' }}
       />
 
-      <div className="relative z-10 max-w-330 mx-auto px-4 sm:px-6 lg:px-10 w-full pt-28 lg:pt-36 pb-16 lg:pb-24">
+      <div className="relative z-10 max-w-330 2xl:max-w-400 mx-auto px-4 sm:px-6 lg:px-10 2xl:px-20 w-full pt-24 lg:pt-28 2xl:pt-32 pb-16 lg:pb-24 2xl:pb-32">
         <motion.div className="chip mb-5 sm:mb-6 w-fit text-[12px] sm:text-[13px] px-3.5 py-2" variants={fadeUp} initial="hidden" animate="visible">
           <span className="dot" style={{ background: '#2CAAA0' }} /> Kokapet, Hyderabad
         </motion.div>
 
         <motion.h1
-          className="font-display text-white text-[42px] sm:text-[64px] lg:text-[88px] leading-[0.98] tracking-[-0.03em] max-w-184"
+          className="font-display text-white text-[36px] xs:text-[42px] sm:text-[64px] lg:text-[88px] 2xl:text-[110px] leading-[0.98] tracking-[-0.03em] max-w-184 2xl:max-w-none"
           variants={fadeUp} initial="hidden" animate="visible"
         >
           Expert Care, Close to Home.
         </motion.h1>
 
         <motion.p
-          className="text-white/95 text-[15px] sm:text-[17px] lg:text-[18px] max-w-136 mt-5 sm:mt-7 leading-relaxed"
+          className="text-white/95 text-[15px] sm:text-[17px] lg:text-[18px] 2xl:text-[20px] max-w-136 2xl:max-w-[640px] mt-5 sm:mt-7 leading-relaxed"
           variants={fadeUp} initial="hidden" animate="visible"
         >
           A new generation of family hospital, founded by practising doctors. Located in the heart of Kokapet.
         </motion.p>
 
-        <motion.div className="mt-7 sm:mt-9 flex flex-wrap items-center gap-3" variants={ctaStagger} initial="hidden" animate="visible">
-          <motion.a variants={fadeUp} href={`tel:${PHONE}`} className="btn-dark text-[15px] sm:text-[16px] py-3! pl-5! pr-5!">
+        <motion.div className="mt-7 sm:mt-9 2xl:mt-12 flex flex-col xs:flex-row flex-wrap items-stretch xs:items-center gap-3 2xl:gap-5" variants={ctaStagger} initial="hidden" animate="visible">
+          <motion.a variants={fadeUp} href={`tel:${PHONE}`} className="btn-dark text-[15px] sm:text-[16px] 2xl:text-[16px] py-3! pl-5! pr-5! 2xl:py-4! 2xl:px-6! justify-center xs:justify-start min-h-[44px]">
             <Phone s={15} c="#fff" />
             <span>Call Hospital</span>
           </motion.a>
@@ -56,7 +70,7 @@ export default function HeroSection() {
             href={WA_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-dark text-[15px] sm:text-[16px] py-3! pl-5! pr-5!"
+            className="btn-dark text-[15px] sm:text-[16px] py-3! pl-5! pr-5! 2xl:py-4! 2xl:px-6! justify-center xs:justify-start min-h-[44px]"
             style={{ background: '#25D366' }}
           >
             <WhatsAppIc s={17} c="#fff" />
@@ -64,7 +78,7 @@ export default function HeroSection() {
           </motion.a>
 
           <motion.div variants={fadeUp}>
-            <Link to="/book-an-appointment" className="btn-outline btn-outline-white text-[15px] sm:text-[16px] py-3! px-5!">
+            <Link to="/book-an-appointment" className="btn-outline btn-outline-white text-[15px] sm:text-[16px] py-3! px-5! 2xl:py-4! 2xl:px-6! flex justify-center xs:justify-start min-h-[44px]">
               <CalendarCheck s={16} c="#fff" />
               <span>Book an Appointment</span>
             </Link>

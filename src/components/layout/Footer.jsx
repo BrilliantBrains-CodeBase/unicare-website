@@ -34,12 +34,12 @@ export default function Footer() {
   return (
     <footer role="contentinfo" className="bg-white border-t border-(--line)">
       {/* ── Main grid ── */}
-      <div className="max-w-[1320px] mx-auto px-4 sm:px-6 pt-14 pb-10">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-8">
+      <div className="max-w-[1320px] 2xl:max-w-400 mx-auto px-4 sm:px-6 2xl:px-20 pt-14 2xl:pt-20 pb-10 2xl:pb-14">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-8 2xl:gap-16">
 
           {/* Col 1 — Brand */}
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={vp}>
-            <Logo horizontal className="h-10 w-auto mb-4" />
+            <Logo horizontal className="h-10 2xl:h-16 w-auto mb-4" />
             <p className="text-[13px] text-(--muted) leading-relaxed mb-5 max-w-[220px]">
               Expert Care, Close to Home. A family hospital in Kokapet, Hyderabad. Founded by practising doctors.
             </p>
@@ -127,7 +127,7 @@ export default function Footer() {
             <span
               key={i}
               className="font-display leading-[0.9] tracking-[-0.04em] shrink-0 pr-16 select-none"
-              style={{ color: 'var(--navy)', fontSize: 'clamp(48px, 10vw, 160px)', fontWeight: 700 }}
+              style={{ color: 'var(--navy)', fontSize: 'clamp(48px, 10vw, 200px)', fontWeight: 700 }}
             >
               UNICARE HOSPITALS
             </span>
@@ -137,7 +137,7 @@ export default function Footer() {
 
       {/* ── Bottom strip ── */}
       <div className="border-t border-(--line)">
-        <div className="max-w-[1320px] mx-auto px-4 sm:px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-3 text-[12px] text-(--muted)">
+        <div className="max-w-[1320px] 2xl:max-w-400 mx-auto px-4 sm:px-6 2xl:px-20 py-4 flex flex-col sm:flex-row items-center justify-between gap-3 text-[12px] text-(--muted)">
           <span>© 2026 UniCare Hospitals. All rights reserved.</span>
           <div className="flex items-center gap-4">
             <Link to="/privacy-policy" className="hover:text-(--navy) transition-colors">Privacy Policy</Link>

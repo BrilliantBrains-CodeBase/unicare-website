@@ -33,7 +33,7 @@ function Layout() {
   return (
     <>
       <Header />
-      <main id="main-content" className="pt-16 lg:pt-35 pb-16 lg:pb-0 min-h-dvh">
+      <main id="main-content" className="pt-16 lg:pt-27 pb-16 lg:pb-0 min-h-dvh overflow-x-hidden">
         <Outlet />
       </main>
       <Footer />

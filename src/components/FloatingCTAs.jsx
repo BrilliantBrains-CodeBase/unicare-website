@@ -16,7 +16,7 @@ export default function FloatingCTAs() {
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Chat with UniCare on WhatsApp"
-        className="fixed right-5 lg:right-8 bottom-24 lg:bottom-8 z-9998 w-13 h-13 lg:w-14 lg:h-14 rounded-full flex items-center justify-center transition-transform hover:scale-110"
+        className="fixed right-5 lg:right-8 bottom-24 lg:bottom-8 z-9998 w-13 h-13 lg:w-14 lg:h-14 2xl:w-16 2xl:h-16 rounded-full flex items-center justify-center transition-transform hover:scale-110"
         style={{
           background: '#25D366',
           boxShadow: '0 4px 20px rgba(37,211,102,0.45)',

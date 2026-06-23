@@ -128,3 +128,65 @@ export const WhatsAppIc = ({ s = 20, c = 'currentColor' }) => (
     <path d="M12 0C5.373 0 0 5.373 0 12c0 2.115.554 4.1 1.523 5.824L.057 23.57a.75.75 0 0 0 .918.924l5.9-1.498A11.954 11.954 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.694 9.694 0 0 1-4.92-1.336l-.352-.21-3.648.928.964-3.535-.23-.363A9.693 9.693 0 0 1 2.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/>
   </svg>
 );
+
+// ── Specialty icons (strokeWidth 1.8 for refined medical aesthetic) ──
+
+export const MaternityIc = ({ s = 18, c = 'currentColor' }) => (
+  <svg width={s} height={s} viewBox="0 0 24 24" fill="none" stroke={c} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8Z"/>
+    <circle cx="12" cy="11" r="2.2"/>
+  </svg>
+);
+
+export const PaediatricsIc = ({ s = 18, c = 'currentColor' }) => (
+  <svg width={s} height={s} viewBox="0 0 24 24" fill="none" stroke={c} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <circle cx="12" cy="5" r="3"/>
+    <path d="M12 9v5"/>
+    <path d="M9 12h6"/>
+    <path d="M10 14l-1.5 4.5"/>
+    <path d="M14 14l1.5 4.5"/>
+  </svg>
+);
+
+export const OrthoIc = ({ s = 18, c = 'currentColor' }) => (
+  <svg width={s} height={s} viewBox="0 0 24 24" fill="none" stroke={c} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M9 4a2 2 0 1 0 0 4h.7l4.6 8H14a2 2 0 1 0 0 4 2 2 0 0 0 0-4h-.7L8.7 8H9a2 2 0 0 0 0-4Z"/>
+  </svg>
+);
+
+export const GeneralMedicIc = ({ s = 18, c = 'currentColor' }) => (
+  <svg width={s} height={s} viewBox="0 0 24 24" fill="none" stroke={c} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M6 3v5a6 6 0 0 0 12 0V3"/>
+    <path d="M6 3h2"/>
+    <path d="M16 3h2"/>
+    <path d="M18 14v3a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2v-3"/>
+    <circle cx="12" cy="19.5" r="1.5" fill={c} stroke="none"/>
+  </svg>
+);
+
+export const GeneralSurgIc = ({ s = 18, c = 'currentColor' }) => (
+  <svg width={s} height={s} viewBox="0 0 24 24" fill="none" stroke={c} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M19.5 7.5 11 16l-2.5 5 5-2.5L22 10a2.12 2.12 0 0 0-3-3Z"/>
+    <path d="M4 20l4-4"/>
+    <path d="M14 10l-3 3"/>
+  </svg>
+);
+
+export const PharmacyIc = ({ s = 18, c = 'currentColor' }) => (
+  <svg width={s} height={s} viewBox="0 0 24 24" fill="none" stroke={c} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M7.5 14.5h9l1.5-7h-12l1.5 7Z"/>
+    <path d="M5.5 7.5h13"/>
+    <path d="M9 20h6"/>
+    <path d="M12 3v4"/>
+    <path d="M10 5l2-2 2 2"/>
+  </svg>
+);
+
+export const DiagnosticsIc = ({ s = 18, c = 'currentColor' }) => (
+  <svg width={s} height={s} viewBox="0 0 24 24" fill="none" stroke={c} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <rect x="9" y="2" width="6" height="11" rx="3"/>
+    <path d="M9 8h6"/>
+    <path d="M12 13v3"/>
+    <circle cx="12" cy="18" r="1.5"/>
+  </svg>
+);

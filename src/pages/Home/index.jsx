@@ -1,6 +1,13 @@
 import SEO from '../../components/SEO';
 import { hospitalSchema } from '../../lib/schema';
 import HeroSection from './components/HeroSection';
+import TrustBar from './components/TrustBar';
+import SpecialtiesSection from './components/SpecialtiesSection';
+import WhyChooseUs from './components/WhyChooseUs';
+import DoctorsPreview from './components/DoctorsPreview';
+import FindUs from './components/FindUs';
+import MobileAppSection from './components/MobileAppSection';
+import FAQSection from './components/FAQSection';
 
 export default function Home() {
   return (
@@ -13,6 +20,13 @@ export default function Home() {
         schema={hospitalSchema()}
       />
       <HeroSection />
+      <TrustBar />
+      <SpecialtiesSection />
+      <DoctorsPreview />
+      <WhyChooseUs />
+      <FindUs />
+      <MobileAppSection />
+      <FAQSection />
     </>
   );
 }
