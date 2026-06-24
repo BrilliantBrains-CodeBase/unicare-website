@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Phone, WhatsAppIc, CalendarCheck, Pin } from '../../../components/icons';
 import { fadeUp, stagger } from '../../../lib/animations';
-import heroBg from '../../../assets/hero-bg.png';
+import heroBg from '../../../assets/hero-thumbnail.png';
 
 const HERO_VIDEO = '/hero-video.mp4';
 

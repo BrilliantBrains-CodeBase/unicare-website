@@ -95,7 +95,7 @@ function DoctorCard({ doc, isOpen, onToggle }) {
           {doc.shortRole}
         </p>
 
-        <div className="flex items-center gap-2 shrink-0" onClick={(e) => e.stopPropagation()}>
+        <div className="flex items-center gap-2 shrink-0 pb-4" onClick={(e) => e.stopPropagation()}>
           <Link
             to="/book-an-appointment"
             className="flex-1 min-w-0 h-10 flex items-center justify-center gap-1.5 rounded-full text-[11px] font-semibold text-white hover:opacity-85 cursor-pointer"

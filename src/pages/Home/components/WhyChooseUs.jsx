@@ -79,7 +79,7 @@ export default function WhyChooseUs() {
 
       {/* Cards */}
       {/* Max-width cap so each card never exceeds ~360px */}
-      <div className="max-w-280 mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-6">
 
         {/* 3 horizontal rectangle cards inline */}
         <motion.div
