@@ -27,15 +27,6 @@ const doctors = [
     waLink: `https://wa.me/919090546363?text=${encodeURIComponent("Hello, I'd like to book an appointment with Dr. A.N. Varuna Vyas.")}`,
   },
   {
-    img: drBhargava,
-    name: 'Dr. Bhargava Vyas A.N.',
-    qual: 'MBBS, MS (General Surgery), FIAGES, FMAS',
-    shortRole: 'Founder & General Surgery',
-    fullRole: 'Founder & Clinical Lead, General and Minimal Access Surgery',
-    opdTimings: 'Mon – Sat: 10:00 AM – 1:00 PM\nMon – Sat: 5:00 PM – 8:00 PM',
-    waLink: `https://wa.me/919090546363?text=${encodeURIComponent("Hello, I'd like to book an appointment with Dr. Bhargava Vyas A.N.")}`,
-  },
-  {
     img: drDeeepak,
     name: 'Dr. Deepak Thiriveedi',
     qual: 'MBBS, MD (General Medicine), DM (Endocrinology), SCE Endocrinology & Diabetes (UK)',
@@ -88,21 +79,21 @@ function DoctorCard({ doc, isOpen, onToggle }) {
         onMouseDown={(e) => e.stopPropagation()} // prevent Swiper drag conflict
       >
         {/* Always-visible: name, role, CTAs */}
-        <h3 className="text-[15px] font-bold leading-snug shrink-0 text-white">
+        <h3 className="text-[17px] font-bold leading-snug shrink-0 text-white">
           {doc.name}
         </h3>
-        <p className="text-[11px] mt-0.5 mb-3 shrink-0" style={{ color: 'rgba(255,255,255,0.65)' }}>
+        <p className="text-[13px] mt-0.5 mb-3 shrink-0" style={{ color: 'rgba(255,255,255,0.65)' }}>
           {doc.shortRole}
         </p>
 
         <div className="flex items-center gap-2 shrink-0 pb-4" onClick={(e) => e.stopPropagation()}>
           <Link
             to="/book-an-appointment"
-            className="flex-1 min-w-0 h-10 flex items-center justify-center gap-1.5 rounded-full text-[11px] font-semibold text-white hover:opacity-85 cursor-pointer"
+            className="flex-1 min-w-0 h-10 flex items-center justify-center gap-1.5 rounded-full text-[13px] font-semibold text-white hover:opacity-85 cursor-pointer"
             style={{ background: 'var(--teal)' }}
             aria-label="Book an appointment"
           >
-            <CalendarCheck s={12} c="#fff" />
+            <CalendarCheck s={13} c="#fff" />
             Book Now
           </Link>
           <a
@@ -124,26 +115,26 @@ function DoctorCard({ doc, isOpen, onToggle }) {
         </div>
 
         {/* Expanded on hover — qualifications, full role, OPD timings */}
-        <div className="doctor-card-expanded-content mt-3">
+        <div className="doctor-card-expanded-content mt-3 pb-5">
 
           <div className="h-px mb-3 mt-1" style={{ background: 'rgba(255,255,255,0.12)' }} />
 
-          <p className="text-[11.5px] leading-relaxed mb-2.5" style={{ color: 'rgba(255,255,255,0.65)' }}>
+          <p className="text-[13px] leading-relaxed mb-2.5" style={{ color: 'rgba(255,255,255,0.65)' }}>
             {doc.qual}
           </p>
 
-          <p className="text-[12px] font-semibold mb-3" style={{ color: 'var(--teal)' }}>
+          <p className="text-[13.5px] font-semibold mb-3" style={{ color: 'var(--teal)' }}>
             {doc.fullRole}
           </p>
 
           <div className="h-px mb-3" style={{ background: 'rgba(255,255,255,0.12)' }} />
 
           <div>
-            <p className="text-[10px] font-bold uppercase tracking-wider mb-1.5"
+            <p className="text-[11px] font-bold uppercase tracking-wider mb-1.5"
                style={{ color: 'rgba(255,255,255,0.40)' }}>
               OPD Timings
             </p>
-            <p className="text-[12px] leading-relaxed whitespace-pre-line text-white">
+            <p className="text-[13px] leading-relaxed whitespace-pre-line text-white">
               {doc.opdTimings}
             </p>
           </div>
