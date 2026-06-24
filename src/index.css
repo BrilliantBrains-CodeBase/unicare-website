@@ -212,11 +212,64 @@ button.pill:hover {
   backface-visibility: hidden;
 }
 
+/* ── Doctor card hover-expand ── */
+.doctor-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 26px;
+}
+
+.doctor-card-info {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100%;
+  transform: translateY(calc(100% - 130px));
+  background: white;
+  border-radius: 26px;
+  padding: 18px 20px 20px;
+  transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.doctor-card:hover .doctor-card-info {
+  transform: translateY(0);
+}
+
+.doctor-card-expanded-content {
+  opacity: 0;
+  transition: opacity 0.22s ease 0.18s;
+  flex: 1;
+  overflow-y: auto;
+  min-height: 0;
+}
+
+.doctor-card:hover .doctor-card-expanded-content {
+  opacity: 1;
+}
+
+/* Touch devices — always expanded (no hover capability) */
+@media (hover: none) {
+  .doctor-card-info {
+    transform: translateY(0) !important;
+    background: rgba(255,255,255,0.96);
+  }
+  .doctor-card-expanded-content {
+    opacity: 1 !important;
+    transition: none !important;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .marquee-track  { animation: none !important; }
   .pin-pulse      { animation: none !important; }
   .ken-burns      { animation: none !important; }
   .hover-lift     { transition: none !important; }
+  .doctor-card-info { transition: none !important; }
+  .doctor-card-expanded-content { transition: none !important; opacity: 1 !important; }
   * {
     transition-duration: .01ms !important;
     animation-duration:  .01ms !important;
