@@ -162,7 +162,7 @@ export default function DoctorsPreview() {
       >
         <span className="block text-[12px] font-bold tracking-[1.2px] uppercase mb-3"
               style={{ color: 'var(--teal)' }}>
-          Meet our Doctors
+          Doctors
         </span>
         <h2 className="h2-two-lines font-normal" style={{ color: 'var(--navy)' }}>
           The Doctors Who Built This Hospital{' '}
@@ -232,7 +232,7 @@ export default function DoctorsPreview() {
           style={{ background: 'var(--navy)' }}
         >
           <CalendarCheck s={16} c="#fff" />
-          Meet All Our Doctors
+          Meet Our Doctors
         </Link>
       </motion.div>
 
