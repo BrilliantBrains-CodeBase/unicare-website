@@ -72,8 +72,8 @@ export default function WhyChooseUs() {
           Why Choose UniCare
         </span>
         <h2 className="h2-two-lines font-normal" style={{ color: 'var(--navy)' }}>
-          Why are Kokapet families{' '}
-          <strong className="font-bold">switching to Unicare?</strong>
+          Why Are Kokapet Families{' '}
+          <strong className="font-bold">Switching To Unicare?</strong>
         </h2>
       </motion.div>
 

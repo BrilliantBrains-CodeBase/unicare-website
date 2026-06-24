@@ -89,7 +89,7 @@ export default function Blog() {
 
       <CTABand
         chip="Ask Our Doctors"
-        heading="Have a question an article cannot answer? Ask our doctors."
+        heading="Have A Question An Article Cannot Answer? Ask Our Doctors."
         subtext="Call, WhatsApp or book an appointment — our specialists respond within the hour."
       />
     </>

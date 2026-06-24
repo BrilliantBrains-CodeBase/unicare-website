@@ -120,7 +120,8 @@ export default function Footer() {
               <li className="flex items-start gap-2 text-(--muted)">
                 <Pin s={13} c="var(--teal)" className="mt-0.5 shrink-0" />
                 <span className="text-[12.5px] flex flex-col gap-0.5">
-                  <span>A 201, 2nd Floor, Saanvi Antalya Homes</span>
+                  <span>A 201, 2nd Floor</span>
+                  <span>Saanvi Antalya Homes</span>
                   <span>Kokapet, Telangana</span>
                 </span>
               </li>

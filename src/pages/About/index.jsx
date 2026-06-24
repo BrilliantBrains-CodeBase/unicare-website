@@ -19,7 +19,7 @@ export default function About() {
 
       <CTABand
         chip="Visit Us"
-        heading="Ready to meet your specialist? We are five minutes away."
+        heading="Ready To Meet Your Specialist? We Are Five Minutes Away."
         subtext="Call, WhatsApp or book online — our team will confirm your appointment and guide you to the right specialist."
       />
     </>

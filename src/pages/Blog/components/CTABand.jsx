@@ -23,7 +23,7 @@ export default function CTABand() {
           Got a question?
         </p>
         <h2 className="font-display text-[26px] sm:text-[32px] lg:text-[38px] text-(--navy) leading-[1.15] tracking-[-0.02em] max-w-[560px] mx-auto">
-          Have a question an article cannot answer? Ask our doctors.
+          Have A Question An Article Cannot Answer? Ask Our Doctors.
         </h2>
 
         <motion.div

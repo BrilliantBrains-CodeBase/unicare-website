@@ -19,7 +19,7 @@ export default function Packages() {
 
       <CTABand
         chip="Book a Package"
-        heading="Have questions about our packages? Talk to our team."
+        heading="Have Questions About Our Packages? Talk To Our Team."
         subtext="Call us, WhatsApp or book online — our team will help you pick the right health panel and schedule your visit."
       />
     </>

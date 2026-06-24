@@ -46,7 +46,7 @@ export default function HeroSection() {
         </motion.div>
 
         <motion.h1
-          className="font-display font-normal text-white text-[30px] xs:text-[36px] sm:text-[54px] lg:text-[76px] 2xl:text-[96px] leading-[0.98] tracking-[-0.03em] max-w-184 2xl:max-w-none"
+          className="font-display font-normal text-white text-[30px] xs:text-[36px] sm:text-[54px] lg:text-[62px] 2xl:text-[96px] leading-[0.98] tracking-[-0.03em] max-w-184 2xl:max-w-none"
           variants={fadeUp} initial="hidden" animate="visible"
         >
           Expert Care,<br />Close to Home.

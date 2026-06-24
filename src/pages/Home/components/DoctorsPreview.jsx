@@ -165,8 +165,8 @@ export default function DoctorsPreview() {
           Meet our Doctors
         </span>
         <h2 className="h2-two-lines font-normal" style={{ color: 'var(--navy)' }}>
-          The doctors who built this hospital{' '}
-          <strong className="font-bold">are the ones who treat you.</strong>
+          The Doctors Who Built This Hospital{' '}
+          <strong className="font-bold">Are The Ones Who Treat You.</strong>
         </h2>
       </motion.div>
 

@@ -193,7 +193,7 @@ export default function Doctors() {
 
       <CTABand
         chip="Book an Appointment"
-        heading="Choose your family's specialist today."
+        heading="Choose Your Family's Specialist Today."
         subtext="Call us, message on WhatsApp, or book online — our team will confirm your slot within the hour."
       />
     </>

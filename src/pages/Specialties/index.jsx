@@ -313,7 +313,7 @@ export default function Specialties() {
 
       <CTABand
         chip="Need Guidance?"
-        heading="Not sure which specialist you need? Our team will guide you."
+        heading="Not Sure Which Specialist You Need? Our Team Will Guide You."
         subtext="Call +91 90905 46363, message on WhatsApp, or book online. We will point you to the right doctor."
       />
     </>
