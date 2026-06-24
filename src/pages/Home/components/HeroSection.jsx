@@ -3,9 +3,8 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Phone, WhatsAppIc, CalendarCheck, Pin } from '../../../components/icons';
 import { fadeUp, stagger } from '../../../lib/animations';
-import heroBg from '../../../assets/hero-bg.png';
-
-const HERO_VIDEO = '/hero-video.mp4';
+const HERO_VIDEO   = '/hero-video.mp4';
+const HERO_POSTER  = '/hero-poster.jpg';
 
 const PHONE = '+919090546363';
 const WA_MSG = encodeURIComponent('Hello, I would like to book an appointment at UniCare Hospitals.');
@@ -27,7 +26,7 @@ export default function HeroSection() {
     <section data-hero className="lg:mx-6 2xl:mx-8 lg:rounded-t-[44px] 2xl:rounded-t-[60px] relative isolate overflow-hidden -mt-22 min-h-150 sm:min-h-165 lg:min-h-0 lg:aspect-video flex items-center">
       <video
         src={HERO_VIDEO}
-        poster={heroBg}
+        poster={HERO_POSTER}
         autoPlay
         loop
         muted
