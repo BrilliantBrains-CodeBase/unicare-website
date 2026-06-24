@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -62,11 +63,15 @@ const doctors = [
   },
 ];
 
-function DoctorCard({ doc }) {
+// Detect touch/hover-less devices once at module level
+const isTouchDevice = typeof window !== 'undefined' && window.matchMedia('(hover: none)').matches;
+
+function DoctorCard({ doc, isOpen, onToggle }) {
   return (
     <div
-      className="doctor-card"
-      style={{ height: 'clamp(320px, 26vw, 480px)', boxShadow: '0 8px 32px rgba(1,34,87,0.12)' }}
+      className={`doctor-card${isOpen ? ' is-open' : ''}`}
+      style={{ aspectRatio: '4/5', boxShadow: '0 8px 32px rgba(1,34,87,0.12)' }}
+      onClick={isTouchDevice ? onToggle : undefined}
     >
       {/* Doctor photo — sits behind the expanding panel */}
       <img
@@ -82,18 +87,18 @@ function DoctorCard({ doc }) {
         onMouseDown={(e) => e.stopPropagation()} // prevent Swiper drag conflict
       >
         {/* Always-visible: name, role, CTAs */}
-        <h3 className="text-[15px] font-bold leading-snug shrink-0" style={{ color: 'var(--navy)' }}>
+        <h3 className="text-[15px] font-bold leading-snug shrink-0 text-white">
           {doc.name}
         </h3>
-        <p className="text-[11px] mt-0.5 mb-3 shrink-0" style={{ color: 'var(--muted)' }}>
+        <p className="text-[11px] mt-0.5 mb-3 shrink-0" style={{ color: 'rgba(255,255,255,0.65)' }}>
           {doc.shortRole}
         </p>
 
-        <div className="grid grid-cols-4 gap-2 items-center shrink-0">
+        <div className="flex items-center gap-2 shrink-0" onClick={(e) => e.stopPropagation()}>
           <Link
             to="/book-an-appointment"
-            className="col-span-2 h-10 flex items-center justify-center gap-1.5 rounded-full text-[11px] font-semibold text-white hover:opacity-85 cursor-pointer"
-            style={{ background: 'var(--navy)' }}
+            className="flex-1 min-w-0 h-10 flex items-center justify-center gap-1.5 rounded-full text-[11px] font-semibold text-white hover:opacity-85 cursor-pointer"
+            style={{ background: 'var(--teal)' }}
             aria-label="Book an appointment"
           >
             <CalendarCheck s={12} c="#fff" />
@@ -102,27 +107,27 @@ function DoctorCard({ doc }) {
           <a
             href={doc.waLink} target="_blank" rel="noopener noreferrer"
             aria-label="WhatsApp"
-            className="h-10 w-10 rounded-full flex items-center justify-center mx-auto hover:opacity-80 cursor-pointer"
-            style={{ background: '#E8F8F0' }}
+            className="h-7 w-7 shrink-0 rounded-full flex items-center justify-center hover:opacity-80 cursor-pointer"
+            style={{ background: 'rgba(255,255,255,0.12)' }}
           >
-            <WhatsAppIc s={16} c="#25D366" />
+            <WhatsAppIc s={14} c="#25D366" />
           </a>
           <a
             href={`tel:${PHONE}`}
             aria-label="Call"
-            className="h-10 w-10 rounded-full flex items-center justify-center mx-auto hover:opacity-80 cursor-pointer"
-            style={{ background: 'var(--soft)' }}
+            className="h-7 w-7 shrink-0 rounded-full flex items-center justify-center hover:opacity-80 cursor-pointer"
+            style={{ background: 'rgba(255,255,255,0.12)' }}
           >
-            <Phone s={13} c="var(--navy)" />
+            <Phone s={12} c="#fff" />
           </a>
         </div>
 
         {/* Expanded on hover — qualifications, full role, OPD timings */}
         <div className="doctor-card-expanded-content mt-3">
 
-          <div className="h-px mb-3 mt-1" style={{ background: 'var(--line)' }} />
+          <div className="h-px mb-3 mt-1" style={{ background: 'rgba(255,255,255,0.12)' }} />
 
-          <p className="text-[11.5px] leading-relaxed mb-2.5" style={{ color: 'var(--muted)' }}>
+          <p className="text-[11.5px] leading-relaxed mb-2.5" style={{ color: 'rgba(255,255,255,0.65)' }}>
             {doc.qual}
           </p>
 
@@ -130,14 +135,14 @@ function DoctorCard({ doc }) {
             {doc.fullRole}
           </p>
 
-          <div className="h-px mb-3" style={{ background: 'var(--line)' }} />
+          <div className="h-px mb-3" style={{ background: 'rgba(255,255,255,0.12)' }} />
 
           <div>
             <p className="text-[10px] font-bold uppercase tracking-wider mb-1.5"
-               style={{ color: 'rgba(1,34,87,0.45)' }}>
+               style={{ color: 'rgba(255,255,255,0.40)' }}>
               OPD Timings
             </p>
-            <p className="text-[12px] leading-relaxed whitespace-pre-line" style={{ color: 'var(--navy)' }}>
+            <p className="text-[12px] leading-relaxed whitespace-pre-line text-white">
               {doc.opdTimings}
             </p>
           </div>
@@ -149,6 +154,12 @@ function DoctorCard({ doc }) {
 }
 
 export default function DoctorsPreview() {
+  const [openIdx, setOpenIdx] = useState(null);
+
+  function handleCardToggle(i) {
+    setOpenIdx(prev => (prev === i ? null : i)); // close if already open, else open
+  }
+
   return (
     <section className="py-20 overflow-hidden">
 
@@ -160,7 +171,7 @@ export default function DoctorsPreview() {
               style={{ color: 'var(--teal)' }}>
           Meet our Doctors
         </span>
-        <h2 className="text-[36px] lg:text-[42px] 2xl:text-[52px] font-bold leading-[1.3]" style={{ color: 'var(--navy)' }}>
+        <h2 className="h2-two-lines font-bold" style={{ color: 'var(--navy)' }}>
           The doctors who built this hospital{' '}
           <strong className="font-extrabold">are the ones who treat you.</strong>
         </h2>
@@ -168,15 +179,24 @@ export default function DoctorsPreview() {
 
       <Swiper
         modules={[Autoplay]}
-        slidesPerView="auto"
         spaceBetween={20}
         loop
         autoplay={{ delay: 3000, disableOnInteraction: false }}
+        breakpoints={{
+          0:    { slidesPerView: 1.2 },
+          480:  { slidesPerView: 1.8 },
+          768:  { slidesPerView: 2.3 },
+          1024: { slidesPerView: 3 },
+        }}
         style={{ overflow: 'visible', padding: '8px 24px 32px' }}
       >
         {doctors.map((doc, i) => (
-          <SwiperSlide key={i} style={{ width: 'clamp(220px, 22vw, 320px)' }}>
-            <DoctorCard doc={doc} />
+          <SwiperSlide key={i}>
+            <DoctorCard
+              doc={doc}
+              isOpen={openIdx === i}
+              onToggle={() => handleCardToggle(i)}
+            />
           </SwiperSlide>
         ))}
       </Swiper>

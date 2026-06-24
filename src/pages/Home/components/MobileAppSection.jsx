@@ -1,25 +1,16 @@
 import { motion } from 'framer-motion';
 import { fadeUp, vp } from '../../../lib/animations';
-import { IconBrandGooglePlay, IconBrandApple } from '@tabler/icons-react';
-import mobileAppImg from '../../../assets/mobile-app.jpg';
-import userIcon     from '../../../assets/user.png';
+import mobileAppImg       from '../../../assets/mobile-app.jpg';
+import googlePlayBadge    from '../../../assets/google-play-badge.svg';
+import drVaruna  from '../../../assets/Dr.Varuna.png';
+import drDeeepak from '../../../assets/Dr.Deepak.png';
+import drVeena   from '../../../assets/Dr.Veena.png';
+import drNitin   from '../../../assets/Dr.Nitin.png';
 
-const appButtons = [
-  {
-    icon: IconBrandGooglePlay,
-    label: 'GET IT ON',
-    store: 'Google Play',
-    href: '#',
-    bg: '#E67A66',   // coral — optionalColorFour from website-new
-  },
-  {
-    icon: IconBrandApple,
-    label: 'GET IT ON',
-    store: 'Apple Store',
-    href: '#',
-    bg: 'var(--navy)',
-  },
-];
+const doctorAvatars = [drVaruna, drDeeepak, drVeena, drNitin];
+const doctorNames   = ['Dr. Varuna Vyas', 'Dr. Deepak Thiriveedi', 'Dr. Mareddy Veena', 'Dr. M. Nitin Rao'];
+
+const APPLE_BADGE = 'https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg';
 
 export default function MobileAppSection() {
   return (
@@ -49,14 +40,25 @@ export default function MobileAppSection() {
             </span>
 
             {/* Heading */}
-            <h2 className="leading-[1.3] mb-0" style={{ fontSize: 'clamp(28px, 3vw, 52px)', color: 'var(--navy)' }}>
+            <h2 className="h2-two-lines font-bold mb-0" style={{ color: 'var(--navy)' }}>
               Download Our Mobile App For The{' '}
               <strong className="font-extrabold">Best Experience</strong>
             </h2>
 
-            {/* Info row */}
+            {/* Info row — 4 overlapping doctor circles */}
             <div className="flex items-center mt-6 mb-9">
-              <img src={userIcon} alt="" aria-hidden="true" className="shrink-0" />
+              <div className="flex shrink-0">
+                {doctorAvatars.map((src, i) => (
+                  <img
+                    key={i}
+                    src={src}
+                    alt={doctorNames[i]}
+                    className="w-11 h-11 rounded-full object-cover object-top border-2 border-[#C4DCF3]"
+                    style={{ marginLeft: i === 0 ? 0 : -12 }}
+                    loading="lazy"
+                  />
+                ))}
+              </div>
               <div className="ml-4">
                 <h5 className="text-[14px] font-semibold mb-0" style={{ color: 'var(--navy)' }}>
                   All your favorite doctors
@@ -67,24 +69,18 @@ export default function MobileAppSection() {
               </div>
             </div>
 
-            {/* App store buttons — forced 2-col grid so they always sit side by side */}
-            <div className="grid grid-cols-2 gap-3">
-              {appButtons.map(({ icon: Icon, label, store, href, bg }) => (
-                <a
-                  key={store}
-                  href={href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center rounded-[10px] px-5 py-4 transition-opacity hover:opacity-85 cursor-pointer no-underline"
-                  style={{ background: bg }}
-                >
-                  <Icon size={30} color="#fff" stroke={1.5} />
-                  <div className="ml-4">
-                    <span className="block text-[12px] text-white mb-1">{label}</span>
-                    <h5 className="text-[16px] font-medium text-white mb-0">{store}</h5>
-                  </div>
-                </a>
-              ))}
+            {/* Official app store badges */}
+            <div className="flex flex-col gap-3">
+              <a href="#" target="_blank" rel="noopener noreferrer"
+                 className="transition-opacity hover:opacity-85 cursor-pointer">
+                <img src={googlePlayBadge} alt="Get it on Google Play"
+                     className="w-40 h-auto" />
+              </a>
+              <a href="#" target="_blank" rel="noopener noreferrer"
+                 className="transition-opacity hover:opacity-85 cursor-pointer">
+                <img src={APPLE_BADGE} alt="Download on the App Store"
+                     className="w-40 h-auto" />
+              </a>
             </div>
 
           </div>

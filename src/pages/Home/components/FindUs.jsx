@@ -42,7 +42,7 @@ export default function FindUs() {
 
   return (
     // overflow-hidden is critical — it clips the address strip that bleeds left
-    <section className="py-16 lg:py-24 2xl:py-32 overflow-hidden">
+    <section className="pt-10 pb-16 lg:pb-24 2xl:pb-32 overflow-hidden">
       <div className="max-w-330 2xl:max-w-400 mx-auto px-4 sm:px-8 2xl:px-20">
         <div className="grid grid-cols-1 xl:grid-cols-2 gap-10 xl:gap-14 items-start">
 
@@ -124,8 +124,8 @@ export default function FindUs() {
                 Book an Appointment
               </span>
               <h2
-                className="leading-[1.3] mb-0"
-                style={{ fontSize: 'clamp(28px, 3vw, 52px)', color: 'var(--navy)' }}
+                className="h2-two-lines font-bold mb-0"
+                style={{ color: 'var(--navy)' }}
               >
                 <strong className="font-extrabold">Book an appointment</strong>{' '}
                 for an in-clinic consultation

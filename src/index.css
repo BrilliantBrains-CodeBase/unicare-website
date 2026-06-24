@@ -212,6 +212,16 @@ button.pill:hover {
   backface-visibility: hidden;
 }
 
+/* ── Two-line h2 utility ── */
+.h2-two-lines {
+  font-size: clamp(1.25rem, 3.5vw, 3rem);
+  line-height: 1.25;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
 /* ── Doctor card hover-expand ── */
 .doctor-card {
   position: relative;
@@ -221,22 +231,22 @@ button.pill:hover {
 
 .doctor-card-info {
   position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 100%;
-  transform: translateY(calc(100% - 130px));
-  background: white;
-  border-radius: 26px;
+  left: 12px;
+  right: 12px;
+  bottom: 12px;         /* always floats 12px from card bottom */
+  max-height: 115px;    /* collapsed: just name + role + buttons */
+  background: var(--navy);
+  border-radius: 20px;
   padding: 18px 20px 20px;
-  transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 -6px 24px rgba(1,34,87,0.18);
+  transition: max-height 0.45s cubic-bezier(0.4, 0, 0.2, 1);
   overflow: hidden;
   display: flex;
   flex-direction: column;
 }
 
 .doctor-card:hover .doctor-card-info {
-  transform: translateY(0);
+  max-height: calc(100% - 24px);   /* expands to fill card with 12px top gap */
 }
 
 .doctor-card-expanded-content {
@@ -251,15 +261,19 @@ button.pill:hover {
   opacity: 1;
 }
 
-/* Touch devices — always expanded (no hover capability) */
+/* Click-to-toggle state — mirrors hover, used on touch devices */
+.doctor-card.is-open .doctor-card-info {
+  max-height: calc(100% - 24px);
+}
+.doctor-card.is-open .doctor-card-expanded-content {
+  opacity: 1;
+}
+
+/* Touch devices — default collapsed, use .is-open to expand */
 @media (hover: none) {
   .doctor-card-info {
-    transform: translateY(0) !important;
-    background: rgba(255,255,255,0.96);
-  }
-  .doctor-card-expanded-content {
-    opacity: 1 !important;
-    transition: none !important;
+    background: rgba(1,34,87,0.96);
+    max-height: 115px;   /* same collapsed look on touch */
   }
 }
 

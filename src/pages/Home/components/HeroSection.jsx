@@ -46,10 +46,10 @@ export default function HeroSection() {
         </motion.div>
 
         <motion.h1
-          className="font-display text-white text-[36px] xs:text-[42px] sm:text-[64px] lg:text-[88px] 2xl:text-[110px] leading-[0.98] tracking-[-0.03em] max-w-184 2xl:max-w-none"
+          className="font-display font-semibold text-white text-[36px] xs:text-[42px] sm:text-[64px] lg:text-[88px] 2xl:text-[110px] leading-[0.98] tracking-[-0.03em] max-w-184 2xl:max-w-none"
           variants={fadeUp} initial="hidden" animate="visible"
         >
-          Expert Care, Close to Home.
+          Expert Care,<br />Close to Home.
         </motion.h1>
 
         <motion.p
@@ -59,8 +59,8 @@ export default function HeroSection() {
           A new generation of family hospital, founded by practising doctors. Located in the heart of Kokapet.
         </motion.p>
 
-        <motion.div className="mt-7 sm:mt-9 2xl:mt-12 flex flex-col xs:flex-row flex-wrap items-stretch xs:items-center gap-3 2xl:gap-5" variants={ctaStagger} initial="hidden" animate="visible">
-          <motion.a variants={fadeUp} href={`tel:${PHONE}`} className="btn-dark text-[15px] sm:text-[16px] 2xl:text-[16px] py-3! pl-5! pr-5! 2xl:py-4! 2xl:px-6! justify-center xs:justify-start min-h-[44px]">
+        <motion.div className="mt-7 sm:mt-9 2xl:mt-12 flex flex-col sm:flex-row sm:items-center gap-3 2xl:gap-5" variants={ctaStagger} initial="hidden" animate="visible">
+          <motion.a variants={fadeUp} href={`tel:${PHONE}`} className="btn-dark text-[15px] sm:text-[16px] 2xl:text-[16px] py-3! pl-5! pr-5! 2xl:py-4! 2xl:px-6! justify-center min-h-11 w-full sm:w-auto">
             <Phone s={15} c="#fff" />
             <span>Call Hospital</span>
           </motion.a>
@@ -70,15 +70,15 @@ export default function HeroSection() {
             href={WA_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-dark text-[15px] sm:text-[16px] py-3! pl-5! pr-5! 2xl:py-4! 2xl:px-6! justify-center xs:justify-start min-h-[44px]"
+            className="btn-dark text-[15px] sm:text-[16px] py-3! pl-5! pr-5! 2xl:py-4! 2xl:px-6! justify-center min-h-11 w-full sm:w-auto"
             style={{ background: '#25D366' }}
           >
             <WhatsAppIc s={17} c="#fff" />
             <span>WhatsApp Us</span>
           </motion.a>
 
-          <motion.div variants={fadeUp}>
-            <Link to="/book-an-appointment" className="btn-outline btn-outline-white text-[15px] sm:text-[16px] py-3! px-5! 2xl:py-4! 2xl:px-6! flex justify-center xs:justify-start min-h-[44px]">
+          <motion.div variants={fadeUp} className="w-full sm:w-auto">
+            <Link to="/book-an-appointment" className="btn-outline btn-outline-white text-[15px] sm:text-[16px] py-3! px-5! 2xl:py-4! 2xl:px-6! flex justify-center min-h-11 w-full">
               <CalendarCheck s={16} c="#fff" />
               <span>Book an Appointment</span>
             </Link>
