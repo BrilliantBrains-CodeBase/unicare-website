@@ -1,4 +1,4 @@
-import { useState, useRef, useLayoutEffect } from 'react';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import SEO from '../../components/SEO';
@@ -6,113 +6,93 @@ import PageBanner from '../../components/PageBanner';
 import FilterBar from '../../components/FilterBar';
 import CTABand from '../../components/CTABand';
 import { Phone, WhatsAppIc, CalendarCheck } from '../../components/icons';
-import { fadeUp, stagger, vp } from '../../lib/animations';
+import { fadeUp, vp } from '../../lib/animations';
 import { physicianSchema } from '../../lib/schema';
 import { doctors } from '../../data/doctors';
 
-const PHONE  = '+919090546363';
-const FILTERS =['All', 'Gynecology & OB', 'Pediatrics', 'Surgery', 'Endocrinology & Diabetes', 'Orthopedics'];
-
-// Renders qualification pills, clipping to a single line and showing "+N" for overflow
-function QualPills({ qualString }) {
-  const containerRef = useRef(null);
-  const [maxV, setMaxV]  = useState(null);
-  const quals = qualString.split(', ');
-
-  // Reset measurement when qualifications change (e.g. after filter switch)
-  useLayoutEffect(() => { setMaxV(null); }, [qualString]);
-
-  // Measure after every render; bail out once measured
-  useLayoutEffect(() => {
-    if (maxV !== null) return;
-    const el = containerRef.current;
-    if (!el) return;
-    const pills = [...el.querySelectorAll('[data-pill]')];
-    if (!pills.length) return;
-    const base = pills[0].offsetTop;
-    let count = 0;
-    for (const p of pills) {
-      if (p.offsetTop > base + 2) break;
-      count++;
-    }
-    setMaxV(count);
-  });
-
-  const shown = maxV !== null ? quals.slice(0, maxV) : quals;
-  const extra = maxV !== null ? quals.length - maxV : 0;
-
-  return (
-    <div ref={containerRef} className="flex flex-wrap justify-center gap-1.5">
-      {shown.map(q => (
-        <span
-          key={q}
-          data-pill
-          className="px-2 py-0.5 rounded-full text-[10px] font-medium border border-(--line) text-(--navy) shrink-0"
-          style={{ background: 'var(--teal-soft)' }}
-        >
-          {q}
-        </span>
-      ))}
-      {extra > 0 && (
-        <span
-          className="px-2 py-0.5 rounded-full text-[10px] font-semibold text-white shrink-0"
-          style={{ background: 'var(--navy)' }}
-        >
-          +{extra}
-        </span>
-      )}
-    </div>
-  );
-}
+const FILTERS = ['All', 'Gynecology & OB', 'Pediatrics', 'Surgery', 'Endocrinology & Diabetes', 'Orthopedics'];
 
 function DoctorCard({ doc }) {
-  const roleLabel    = doc.role.split('—')[0].trim();
-  const roleSubtitle = doc.role.split('—')[1]?.trim();
+  const shortRole = doc.role.split('—')[0].trim();
+  const fullRole  = doc.role.split('—')[1]?.trim() ?? doc.role;
+  const waLink    = `https://wa.me/919090546363?text=${encodeURIComponent(`Hello, I'd like to book an appointment with ${doc.name}.`)}`;
 
   return (
-    <div className="rounded-2xl overflow-hidden flex flex-col group hover-lift border border-(--line) bg-white">
-      {/* Photo */}
-      <div className="relative overflow-hidden h-72 sm:h-80" style={{ background: 'var(--teal-soft)' }}>
-        <img
-          src={doc.photo}
-          alt={doc.name}
-          className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
-        />
-      </div>
+    <div
+      className="doctor-card"
+      style={{ aspectRatio: '4/5', boxShadow: '0 8px 32px rgba(1,34,87,0.12)' }}
+    >
+      {/* Photo — behind the expanding panel */}
+      <img
+        src={doc.photo}
+        alt={doc.name}
+        className="absolute inset-0 w-full h-full object-cover object-top"
+        loading="lazy"
+      />
 
-      {/* Info */}
-      <div className="px-5 pt-5 pb-5 flex flex-col gap-3 text-center">
-        <div>
-          <h3 className="font-display text-[18px] sm:text-[19px] text-(--navy) leading-snug">{doc.name}</h3>
-          <p className="text-[13px] text-(--muted) mt-1 leading-snug">{roleLabel}</p>
-          {roleSubtitle && (
-            <p className="text-[11.5px] mt-0.5 leading-snug" style={{ color: 'var(--muted)', opacity: 0.7 }}>{roleSubtitle}</p>
-          )}
-        </div>
+      {/* Expanding info panel — same as DoctorsPreview */}
+      <div className="doctor-card-info" onMouseDown={(e) => e.stopPropagation()}>
 
-        {/* Qualification pills — single line, overflow as "+N" */}
-        <QualPills qualString={doc.qualifications} />
+        {/* Always visible: name + role + action buttons */}
+        <h3 className="text-[17px] font-bold leading-snug shrink-0 text-white">
+          {doc.name}
+        </h3>
+        <p className="text-[13px] mt-0.5 mb-3 shrink-0" style={{ color: 'rgba(255,255,255,0.65)' }}>
+          {shortRole}
+        </p>
 
-        {/* Contact buttons */}
-        <div className="flex items-center justify-center gap-2 pt-3 border-t border-(--line) flex-wrap">
-          <a href={`tel:${doc.phone}`} className="btn-dark text-[12px]! py-2! px-4! gap-1.5!">
-            <Phone s={12} c="#fff" />
-            <span>Call</span>
+        <div className="flex items-center gap-2 shrink-0 pb-4" onClick={(e) => e.stopPropagation()}>
+          <Link
+            to="/book-an-appointment"
+            className="flex-1 min-w-0 h-10 flex items-center justify-center gap-1.5 rounded-full text-[13px] font-semibold text-white hover:opacity-85 cursor-pointer"
+            style={{ background: 'var(--teal)' }}
+            aria-label="Book an appointment"
+          >
+            <CalendarCheck s={13} c="#fff" />
+            Book Now
+          </Link>
+          <a
+            href={waLink}
+            target="_blank" rel="noopener noreferrer"
+            aria-label="WhatsApp"
+            className="h-8 w-8 shrink-0 rounded-full flex items-center justify-center hover:opacity-80 cursor-pointer"
+            style={{ background: 'rgba(255,255,255,0.12)' }}
+          >
+            <WhatsAppIc s={14} c="#25D366" />
           </a>
           <a
-            href={doc.waUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-dark text-[12px]! py-2! px-4! gap-1.5!"
-            style={{ background: '#25D366' }}
+            href={`tel:${doc.phone}`}
+            aria-label="Call"
+            className="h-8 w-8 shrink-0 rounded-full flex items-center justify-center hover:opacity-80 cursor-pointer"
+            style={{ background: 'rgba(255,255,255,0.12)' }}
           >
-            <WhatsAppIc s={13} c="#fff" />
-            <span>WhatsApp</span>
+            <Phone s={12} c="#fff" />
           </a>
-          <Link to="/book-an-appointment" className="btn-outline text-[12px]! py-2! px-4! gap-1.5!">
-            <CalendarCheck s={12} />
-            <span>Book</span>
-          </Link>
+        </div>
+
+        {/* Expanded on hover: qualifications, full role, OPD timings */}
+        <div className="doctor-card-expanded-content mt-3 pb-5">
+          <div className="h-px mb-3 mt-1" style={{ background: 'rgba(255,255,255,0.12)' }} />
+
+          <p className="text-[13px] leading-relaxed mb-2.5" style={{ color: 'rgba(255,255,255,0.65)' }}>
+            {doc.qualifications}
+          </p>
+
+          <p className="text-[13.5px] font-semibold mb-3" style={{ color: 'var(--teal)' }}>
+            {fullRole}
+          </p>
+
+          <div className="h-px mb-3" style={{ background: 'rgba(255,255,255,0.12)' }} />
+
+          <div>
+            <p className="text-[11px] font-bold uppercase tracking-wider mb-1.5"
+               style={{ color: 'rgba(255,255,255,0.40)' }}>
+              OPD Timings
+            </p>
+            <p className="text-[13px] leading-relaxed whitespace-pre-line text-white">
+              {doc.opdTimings}
+            </p>
+          </div>
         </div>
       </div>
     </div>
