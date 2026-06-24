@@ -28,7 +28,7 @@ export default function FAQSection() {
   return (
     <section className="pb-24 2xl:pb-32 overflow-hidden">
       <div className="max-w-330 2xl:max-w-400 mx-auto px-4 sm:px-6 lg:px-8 2xl:px-20">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-0 lg:items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-0 lg:items-center">
 
           {/* ── Left: full-height image — hidden on xs, visible sm+ ── */}
           <motion.div
