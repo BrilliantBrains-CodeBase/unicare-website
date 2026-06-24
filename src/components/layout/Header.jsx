@@ -319,12 +319,6 @@ export default function Header() {
               {ADDRESS}
             </span>
             <span className="flex items-center gap-3 text-[12px]">
-              <span
-                className="rounded-full px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-white"
-                style={{ background: 'rgba(220,38,38,0.85)' }}
-              >
-                Emergency 24/7
-              </span>
               <a
                 href={`tel:${PHONE}`}
                 className="flex items-center gap-1.5 text-white/70 hover:text-white transition-colors"

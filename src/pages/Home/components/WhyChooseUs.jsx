@@ -36,25 +36,24 @@ const cards = [
 
 function OverviewCard({ card }) {
   return (
-    // aspect-square keeps all 3 cards perfectly square at any screen width
     <div
-      className="rounded-[20px] relative overflow-hidden aspect-square"
-      style={{ background: card.bg, padding: 'clamp(24px, 3vw, 44px)' }}
+      className="rounded-[20px] overflow-hidden flex flex-row items-center gap-0"
+      style={{ background: card.bg }}
     >
-      {/* Title */}
-      <h3 className="text-[22px] 2xl:text-[26px] leading-[1.4] text-white mb-3">
-        {card.title}
-        <strong className="font-black block">{card.titleBold}</strong>
-      </h3>
+      {/* Left — content */}
+      <div className="flex-1 min-w-0 px-5 py-6">
+        <h3 className="text-[18px] leading-[1.35] text-white mb-2">
+          {card.title}
+          <strong className="font-black block">{card.titleBold}</strong>
+        </h3>
+        <p className="text-[13px] leading-relaxed" style={{ color: 'rgba(255,255,255,0.80)' }}>
+          {card.text}
+        </p>
+      </div>
 
-      {/* Body */}
-      <p className="text-[14px] leading-relaxed" style={{ color: 'rgba(255,255,255,0.80)' }}>
-        {card.text}
-      </p>
-
-      {/* Decorative image — absolute bottom-right */}
-      <div className="absolute bottom-6 right-6 pointer-events-none select-none opacity-80">
-        <img src={card.img} alt="" aria-hidden="true" />
+      {/* Right — small decorative graphic */}
+      <div className="shrink-0 flex items-center justify-center pr-4 opacity-80 pointer-events-none select-none">
+        <img src={card.img} alt="" aria-hidden="true" className="w-16 h-auto" />
       </div>
     </div>
   );
@@ -79,11 +78,12 @@ export default function WhyChooseUs() {
       </motion.div>
 
       {/* Cards */}
-      <div className="max-w-330 2xl:max-w-400 mx-auto px-6 2xl:px-20">
+      {/* Max-width cap so each card never exceeds ~360px */}
+      <div className="max-w-280 mx-auto px-6">
 
-        {/* Desktop: 3-col grid */}
+        {/* 3 horizontal rectangle cards inline */}
         <motion.div
-          className="hidden md:grid md:grid-cols-3 gap-6 2xl:gap-8"
+          className="hidden md:grid md:grid-cols-3 gap-5"
           variants={fadeUp} initial="hidden" whileInView="visible" viewport={vp}
         >
           {cards.map((card, i) => (
@@ -116,7 +116,7 @@ export default function WhyChooseUs() {
         >
           <Link
             to="/about-us"
-            className="inline-flex items-center gap-2 rounded-full border-[1.5px] border-[var(--navy)] px-6 py-2.5 text-[14px] font-semibold text-[var(--navy)] hover:bg-[var(--navy)] hover:text-white transition-all"
+            className="inline-flex items-center gap-2 rounded-full border-[1.5px] border-(--navy) px-6 py-2.5 text-[14px] font-semibold text-(--navy) hover:bg-(--navy) hover:text-white transition-all"
           >
             <ArrowRight s={15} c="currentColor" />
             Learn More About UniCare

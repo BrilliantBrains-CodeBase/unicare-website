@@ -1,9 +1,10 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper/modules';
 import 'swiper/css';
+import { ArrowLeft, ArrowRight } from '../../../components/icons';
 import { fadeUp, vp } from '../../../lib/animations';
 import { Phone, WhatsAppIc, CalendarCheck } from '../../../components/icons';
 
@@ -107,7 +108,7 @@ function DoctorCard({ doc, isOpen, onToggle }) {
           <a
             href={doc.waLink} target="_blank" rel="noopener noreferrer"
             aria-label="WhatsApp"
-            className="h-7 w-7 shrink-0 rounded-full flex items-center justify-center hover:opacity-80 cursor-pointer"
+            className="h-8 w-8 shrink-0 rounded-full flex items-center justify-center hover:opacity-80 cursor-pointer"
             style={{ background: 'rgba(255,255,255,0.12)' }}
           >
             <WhatsAppIc s={14} c="#25D366" />
@@ -115,7 +116,7 @@ function DoctorCard({ doc, isOpen, onToggle }) {
           <a
             href={`tel:${PHONE}`}
             aria-label="Call"
-            className="h-7 w-7 shrink-0 rounded-full flex items-center justify-center hover:opacity-80 cursor-pointer"
+            className="h-8 w-8 shrink-0 rounded-full flex items-center justify-center hover:opacity-80 cursor-pointer"
             style={{ background: 'rgba(255,255,255,0.12)' }}
           >
             <Phone s={12} c="#fff" />
@@ -155,9 +156,10 @@ function DoctorCard({ doc, isOpen, onToggle }) {
 
 export default function DoctorsPreview() {
   const [openIdx, setOpenIdx] = useState(null);
+  const swiperRef = useRef(null);
 
   function handleCardToggle(i) {
-    setOpenIdx(prev => (prev === i ? null : i)); // close if already open, else open
+    setOpenIdx(prev => (prev === i ? null : i));
   }
 
   return (
@@ -177,29 +179,57 @@ export default function DoctorsPreview() {
         </h2>
       </motion.div>
 
-      <Swiper
-        modules={[Autoplay]}
-        spaceBetween={20}
-        loop
-        autoplay={{ delay: 3000, disableOnInteraction: false }}
-        breakpoints={{
-          0:    { slidesPerView: 1.2 },
-          480:  { slidesPerView: 1.8 },
-          768:  { slidesPerView: 2.3 },
-          1024: { slidesPerView: 3 },
-        }}
-        style={{ overflow: 'visible', padding: '8px 24px 32px' }}
-      >
-        {doctors.map((doc, i) => (
-          <SwiperSlide key={i}>
-            <DoctorCard
-              doc={doc}
-              isOpen={openIdx === i}
-              onToggle={() => handleCardToggle(i)}
-            />
-          </SwiperSlide>
-        ))}
-      </Swiper>
+      {/* Carousel with side nav buttons */}
+      <div className="relative w-4/5 mx-auto">
+
+        {/* Prev button */}
+        <button
+          onClick={() => swiperRef.current?.slidePrev()}
+          aria-label="Previous doctor"
+          className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 z-10 w-11 h-11 rounded-full flex items-center justify-center cursor-pointer transition-all hover:scale-110 shrink-0"
+          style={{ background: 'var(--navy)', boxShadow: '0 4px 16px rgba(1,34,87,0.25)' }}
+        >
+          <ArrowLeft s={18} c="#fff" />
+        </button>
+
+        {/* Next button */}
+        <button
+          onClick={() => swiperRef.current?.slideNext()}
+          aria-label="Next doctor"
+          className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 z-10 w-11 h-11 rounded-full flex items-center justify-center cursor-pointer transition-all hover:scale-110 shrink-0"
+          style={{ background: 'var(--navy)', boxShadow: '0 4px 16px rgba(1,34,87,0.25)' }}
+        >
+          <ArrowRight s={18} c="#fff" />
+        </button>
+
+        <div className="overflow-hidden">
+        <Swiper
+          onBeforeInit={(swiper) => { swiperRef.current = swiper; }}
+          modules={[Autoplay]}
+          spaceBetween={20}
+          loop
+          autoplay={{ delay: 3000, disableOnInteraction: false }}
+          breakpoints={{
+            0:    { slidesPerView: 1.2 },
+            480:  { slidesPerView: 1.8 },
+            768:  { slidesPerView: 2.3 },
+            1024: { slidesPerView: 3 },
+          }}
+          style={{ padding: '8px 0 32px' }}
+        >
+          {doctors.map((doc, i) => (
+            <SwiperSlide key={i}>
+              <DoctorCard
+                doc={doc}
+                isOpen={openIdx === i}
+                onToggle={() => handleCardToggle(i)}
+              />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+        </div>
+
+      </div>
 
       <motion.div
         className="max-w-330 2xl:max-w-400 mx-auto px-6 2xl:px-20 text-center mt-8"

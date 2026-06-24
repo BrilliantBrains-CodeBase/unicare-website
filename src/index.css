@@ -212,14 +212,11 @@ button.pill:hover {
   backface-visibility: hidden;
 }
 
-/* ── Two-line h2 utility ── */
+/* ── H2 fluid sizing utility ── */
 .h2-two-lines {
-  font-size: clamp(1.25rem, 3.5vw, 3rem);
-  line-height: 1.25;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+  font-size: clamp(1.1rem, 2.6vw, 2.5rem);
+  line-height: 1.28;
+  text-wrap: balance;
 }
 
 /* ── Doctor card hover-expand ── */

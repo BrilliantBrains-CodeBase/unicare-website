@@ -92,13 +92,15 @@ export default function Footer() {
             <ul className="space-y-2.5" role="list">
               <li className="flex items-start gap-2 text-(--muted)">
                 <Pin s={13} c="var(--teal)" className="mt-0.5 shrink-0" />
-                <span className="text-[12.5px]">{ADDRESS}</span>
+                <span className="text-[12.5px] flex flex-col gap-0.5">
+                  <span>A 201, 2nd Floor, Saanvi Antalya Homes</span>
+                  <span>Kokapet, Telangana</span>
+                </span>
               </li>
               <li className="flex items-start gap-2 text-(--muted)">
                 <Phone s={13} c="var(--teal)" className="mt-0.5 shrink-0" />
-                <span className="text-[12.5px]">
+                <span className="text-[12.5px] flex flex-col gap-0.5">
                   <a href={`tel:${PHONE}`} className="hover:text-(--navy) hover:underline transition-colors">{PHONE_DISPLAY}</a>
-                  {', '}
                   <a href={`tel:${PHONE_2}`} className="hover:text-(--navy) hover:underline transition-colors">{PHONE_2_DISPLAY}</a>
                 </span>
               </li>
