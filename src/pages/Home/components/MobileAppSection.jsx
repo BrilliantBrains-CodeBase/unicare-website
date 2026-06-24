@@ -40,9 +40,9 @@ export default function MobileAppSection() {
             </span>
 
             {/* Heading */}
-            <h2 className="h2-two-lines font-bold mb-0" style={{ color: 'var(--navy)' }}>
+            <h2 className="h2-two-lines font-normal mb-0" style={{ color: 'var(--navy)' }}>
               Download Our Mobile App For The{' '}
-              <strong className="font-extrabold">Best Experience</strong>
+              <strong className="font-bold">Best Experience</strong>
             </h2>
 
             {/* Info row — 4 overlapping doctor circles */}

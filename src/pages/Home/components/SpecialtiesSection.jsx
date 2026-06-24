@@ -118,9 +118,9 @@ export default function SpecialtiesSection() {
                   style={{ color: 'var(--teal)' }}>
               Our Specialties
             </span>
-            <h2 className="h2-two-lines font-bold" style={{ color: 'var(--navy)' }}>
+            <h2 className="h2-two-lines font-normal" style={{ color: 'var(--navy)' }}>
               One hospital for every chapter{' '}
-              <strong className="font-extrabold">of your family's health.</strong>
+              <strong className="font-bold">of your family's health.</strong>
             </h2>
           </motion.div>
 

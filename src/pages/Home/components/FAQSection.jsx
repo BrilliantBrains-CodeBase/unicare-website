@@ -58,11 +58,11 @@ export default function FAQSection() {
                 FAQ
               </span>
               <h2
-                className="h2-two-lines font-bold mb-0"
+                className="h2-two-lines font-normal mb-0"
                 style={{ color: 'var(--navy)' }}
               >
                 We Are Here{' '}
-                <strong className="font-extrabold">To Answer Your Questions</strong>
+                <strong className="font-bold">To Answer Your Questions</strong>
               </h2>
             </div>
 

@@ -21,7 +21,7 @@ export default function TrustBar() {
         >
           {allItems.map((item, i) => (
             <span key={i} className="inline-flex items-center shrink-0">
-              <span className="text-[20px] sm:text-[32px] lg:text-[44px] 2xl:text-[52px] font-bold text-white leading-none px-6 sm:px-10 lg:px-14 2xl:px-16 tracking-tight">
+              <span className="text-[20px] sm:text-[32px] lg:text-[44px] 2xl:text-[52px] font-normal text-white leading-none px-6 sm:px-10 lg:px-14 2xl:px-16 tracking-tight">
                 {item}
               </span>
               <span className="text-white/55 text-[16px] sm:text-[26px] lg:text-[32px] 2xl:text-[40px] leading-none shrink-0">✚</span>

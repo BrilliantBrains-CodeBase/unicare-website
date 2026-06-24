@@ -124,10 +124,10 @@ export default function FindUs() {
                 Book an Appointment
               </span>
               <h2
-                className="h2-two-lines font-bold mb-0"
+                className="h2-two-lines font-normal mb-0"
                 style={{ color: 'var(--navy)' }}
               >
-                <strong className="font-extrabold">Book an appointment</strong>{' '}
+                <strong className="font-bold">Book an appointment</strong>{' '}
                 for an in-clinic consultation
               </h2>
             </div>

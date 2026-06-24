@@ -21,6 +21,15 @@ const quickLinks = [
   { label: 'Contact',             to: '/contact' },
 ];
 
+const specialtyLinks = [
+  { label: "Maternity & Women's Health",   to: '/specialties/maternity-womens-health' },
+  { label: 'Paediatrics & Neonatal Care',  to: '/specialties/pediatrics' },
+  { label: 'Orthopaedics',                 to: '/specialties/orthopedics' },
+  { label: 'General Medicine & Endocrinology', to: '/specialties/general-medicine-endocrinology' },
+  { label: 'General & Minimal Access Surgery', to: '/specialties/general-minimal-access-surgery' },
+  { label: 'Diagnostics & Lab',            to: '/specialties/diagnostics-lab' },
+];
+
 const socialLinks = [
   { label: 'Instagram', href: 'https://www.instagram.com/unicarehospitals/', Icon: InstaIc },
   { label: 'X',         href: 'https://x.com/unicarehyd',                    Icon: XIc },
@@ -35,11 +44,11 @@ export default function Footer() {
     <footer role="contentinfo" className="bg-white border-t border-(--line)">
       {/* ── Main grid ── */}
       <div className="max-w-[1320px] 2xl:max-w-400 mx-auto px-4 sm:px-6 2xl:px-20 pt-14 2xl:pt-20 pb-10 2xl:pb-14">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-8 2xl:gap-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8 2xl:gap-12">
 
           {/* Col 1 — Brand */}
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={vp}>
-            <Logo horizontal className="h-10 2xl:h-16 w-auto mb-4" />
+            <Logo horizontal className="h-14 2xl:h-20 w-auto mb-4" />
             <p className="text-[13px] text-(--muted) leading-relaxed mb-5 max-w-[220px]">
               Expert Care, Close to Home. A family hospital in Kokapet, Hyderabad. Founded by practising doctors.
             </p>
@@ -85,7 +94,25 @@ export default function Footer() {
             </ul>
           </motion.div>
 
-          {/* Col 3 — Contact */}
+          {/* Col 3 — Specialties */}
+          <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={vp}>
+            <h3 className="text-[12px] font-semibold uppercase tracking-widest text-(--navy) mb-4">Specialties</h3>
+            <ul className="space-y-2" role="list">
+              {specialtyLinks.map(({ label, to }) => (
+                <li key={to}>
+                  <Link
+                    to={to}
+                    className="text-[13px] text-(--muted) hover:text-(--navy) transition-colors flex items-center gap-1.5 group"
+                  >
+                    <ArrowRight s={11} c="var(--teal)" />
+                    {label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </motion.div>
+
+          {/* Col 4 — Contact */}
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={vp}>
             <h3 className="text-[12px] font-semibold uppercase tracking-widest text-(--navy) mb-4">Contact Us</h3>
 
