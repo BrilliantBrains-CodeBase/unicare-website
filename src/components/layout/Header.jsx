@@ -345,7 +345,7 @@ export default function Header() {
 
           {/* Logo */}
           <Link to="/" aria-label="UniCare Hospitals — Home" className="shrink-0 mr-6">
-            <Logo horizontal className={`h-16 xl:h-18 2xl:h-22 w-auto transition-all duration-300 ${!pinned ? 'brightness-0 invert' : ''}`} />
+            <Logo horizontal className="h-16 xl:h-18 2xl:h-22 w-auto" />
           </Link>
 
           {/* CENTER pill containing all nav links */}
