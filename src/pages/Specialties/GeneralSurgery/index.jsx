@@ -7,12 +7,12 @@ export default function GeneralSurgery() {
     <>
       <SEO
         title="Laparoscopic Surgeon in Kokapet | General Surgery Hyderabad"
-        description="Advanced laparoscopic and general surgery at Unicare Hospitals, Kokapet, led by founder Dr. Bhargava Vyas A.N., MS, FIAGES, FMAS. Book a surgical opinion."
+        description="Advanced laparoscopic and general surgery at UniCare Hospitals, Kokapet, led by founder Dr. Bhargava Vyas A.N., MS, FIAGES, FMAS. Book a surgical opinion."
         url="/specialties/general-minimal-access-surgery"
         keywords="laparoscopic surgeon Kokapet, general surgeon Narsingi, hernia surgery Hyderabad, gallbladder surgery Kokapet, appendix surgery West Hyderabad"
         schema={medicalSpecialtySchema({
           name: 'General & Minimal Access Surgery',
-          description: 'Advanced laparoscopic and general surgery at Unicare Hospitals, Kokapet.',
+          description: 'Advanced laparoscopic and general surgery at UniCare Hospitals, Kokapet.',
           url: 'https://www.unicareglobalhospitals.com/specialties/general-minimal-access-surgery',
         })}
       />

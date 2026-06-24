@@ -6,13 +6,13 @@ export default function Pharmacy() {
   return (
     <>
       <SEO
-        title="Hospital Pharmacy in Kokapet | Unicare Hospitals"
-        description="In-house pharmacy at Unicare Hospitals, Kokapet. Prescribed medicines, genuine stock and pharmacist guidance, right after your consultation."
+        title="Hospital Pharmacy in Kokapet | UniCare Hospitals"
+        description="In-house pharmacy at UniCare Hospitals, Kokapet. Prescribed medicines, genuine stock and pharmacist guidance, right after your consultation."
         url="/specialties/pharmacy"
         keywords="pharmacy in Kokapet, medical store Kokapet, hospital pharmacy Narsingi"
         schema={medicalSpecialtySchema({
           name: 'Pharmacy',
-          description: 'In-house pharmacy at Unicare Hospitals, Kokapet.',
+          description: 'In-house pharmacy at UniCare Hospitals, Kokapet.',
           url: 'https://www.unicareglobalhospitals.com/specialties/pharmacy',
         })}
       />

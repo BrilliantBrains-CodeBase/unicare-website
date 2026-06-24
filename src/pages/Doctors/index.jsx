@@ -136,8 +136,8 @@ export default function Doctors() {
   return (
     <>
       <SEO
-        title="Our Doctors | Unicare Hospitals Kokapet, Hyderabad"
-        description="Meet the founder-led medical team at Unicare Hospitals, Kokapet: gynecology, surgery, endocrinology and pediatrics specialists. View profiles and book."
+        title="Our Doctors | UniCare Hospitals Kokapet, Hyderabad"
+        description="Meet the founder-led medical team at UniCare Hospitals, Kokapet: gynecology, surgery, endocrinology and pediatrics specialists. View profiles and book."
         url="/doctors"
         keywords="doctors in Kokapet, best doctors near Narsingi, specialist doctors West Hyderabad"
         schema={doctors.map(d => physicianSchema({ name: d.name, jobTitle: d.role, specialty: d.specialty, image: d.photo }))}
@@ -146,7 +146,7 @@ export default function Doctors() {
       <PageBanner
         chip="Our Doctors"
         title="Doctors who put their names on the building."
-        subtitle="Most hospitals are owned by businesses and staffed by doctors. Unicare is the opposite: built by doctors, for the families of West Hyderabad."
+        subtitle="Most hospitals are owned by businesses and staffed by doctors. UniCare is the opposite: built by doctors, for the families of West Hyderabad."
       />
 
       {/* Filter bar */}

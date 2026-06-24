@@ -88,10 +88,10 @@ export default function FindUs() {
                 </span>
                 <div>
                   <h5 className="text-[14px] font-semibold tracking-[1.2px] mb-0" style={{ color: 'var(--navy)' }}>
-                    A 201, Saanvi Antalya Homes, Kokapet
+                    A 201, Saanvi Antalya Homes, Behind Allu Cinemas, Kokapet
                   </h5>
                   <span className="block text-[13px] mt-1" style={{ color: 'var(--muted)' }}>
-                    Narsingi – 5 min &nbsp;·&nbsp; Financial District – 10 min &nbsp;·&nbsp; Gachibowli – 15 min
+                    Narsingi – 5 min <br /> Financial District – 10 min <br /> Gachibowli – 15 min
                   </span>
                 </div>
               </div>
@@ -140,7 +140,7 @@ export default function FindUs() {
                 padding: 'clamp(24px, 3vw, 45px) clamp(20px, 3vw, 45px) clamp(24px, 3vw, 45px) clamp(24px, 12vw, 165px)',
               }}
             >
-              {/* Vertical "Unicare" watermark — sits in the 165px left padding zone */}
+              {/* Vertical "UniCare" watermark — sits in the 165px left padding zone */}
               <span
                 className="hidden md:inline absolute select-none pointer-events-none font-black"
                 style={{
@@ -155,7 +155,7 @@ export default function FindUs() {
                 }}
                 aria-hidden="true"
               >
-                Unicare
+                UniCare
               </span>
 
               <form onSubmit={handleSubmit} className="flex flex-col gap-5">

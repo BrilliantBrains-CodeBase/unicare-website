@@ -5,8 +5,8 @@ export default function BookAppointment() {
   return (
     <>
       <SEO
-        title="Book an Appointment | Unicare Hospitals Kokapet"
-        description="Book a doctor appointment at Unicare Hospitals, Kokapet in under a minute. Call, WhatsApp or use the online form. Same-day confirmations."
+        title="Book an Appointment | UniCare Hospitals Kokapet"
+        description="Book a doctor appointment at UniCare Hospitals, Kokapet in under a minute. Call, WhatsApp or use the online form. Same-day confirmations."
         url="/book-an-appointment"
         keywords="book doctor appointment Kokapet, doctor appointment near Narsingi, gynecologist appointment Kokapet"
       />

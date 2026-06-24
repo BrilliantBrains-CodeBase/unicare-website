@@ -49,7 +49,7 @@ export default function Footer() {
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={vp}>
             <Logo className="h-28 2xl:h-36 w-auto mb-5" />
             <p className="text-[15px] text-(--muted) leading-relaxed mb-5 max-w-60">
-              Expert Care, Close to Home. A family hospital in Kokapet, Hyderabad. Founded by practising doctors.
+              Expert Care, Close to Home.<br /> A family hospital in Kokapet, Hyderabad. Founded by practising doctors.
             </p>
             {/* Social row */}
             <motion.div
@@ -138,13 +138,6 @@ export default function Footer() {
                   <a href={`mailto:${EMAIL}`} className="hover:text-(--navy) hover:underline transition-colors truncate">{EMAIL}</a>
                   <a href={`mailto:${EMAIL_2}`} className="hover:text-(--navy) hover:underline transition-colors truncate">{EMAIL_2}</a>
                 </span>
-              </li>
-              <li className="flex items-start gap-2.5 text-(--muted)">
-                <Globe s={15} c="var(--teal)" className="mt-0.5 shrink-0" />
-                <a href={`https://${WEBSITE}`} target="_blank" rel="noopener noreferrer"
-                   className="text-[14.5px] hover:text-(--navy) hover:underline transition-colors">
-                  {WEBSITE}
-                </a>
               </li>
             </ul>
           </motion.div>

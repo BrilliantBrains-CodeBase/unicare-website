@@ -29,8 +29,8 @@ export default function Blog() {
   return (
     <>
       <SEO
-        title="Health Blog | Unicare Hospitals Kokapet"
-        description="Practical health advice from the doctors at Unicare Hospitals, Kokapet: pregnancy, child health, diabetes, surgery recovery and preventive care."
+        title="Health Blog | UniCare Hospitals Kokapet"
+        description="Practical health advice from the doctors at UniCare Hospitals, Kokapet: pregnancy, child health, diabetes, surgery recovery and preventive care."
         url="/blog"
         keywords="health blog Kokapet, hospital blog Hyderabad, pregnancy advice Kokapet, child health tips, diabetes management Hyderabad"
       />
@@ -38,7 +38,7 @@ export default function Blog() {
       <PageBanner
         chip="Health Blog"
         title="Health advice from doctors you can visit."
-        subtitle="Practical guidance on pregnancy, child health, diabetes, surgery and more — written by the Unicare team in Kokapet."
+        subtitle="Practical guidance on pregnancy, child health, diabetes, surgery and more — written by the UniCare team in Kokapet."
       />
 
       {/* Filter bar */}

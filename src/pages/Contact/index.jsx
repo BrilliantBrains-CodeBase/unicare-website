@@ -60,10 +60,10 @@ export default function Contact() {
   return (
     <>
       <SEO
-        title="Contact Unicare Hospitals Kokapet | Address, Phone, Directions"
-        description="Reach Unicare Hospitals at Saanvi Antalya Homes, Kokapet, Telangana. Call +91 90905 46363, WhatsApp us or get directions from anywhere in West Hyderabad."
+        title="Contact UniCare Hospitals Kokapet | Address, Phone, Directions"
+        description="Reach UniCare Hospitals at Saanvi Antalya Homes, Kokapet, Telangana. Call +91 90905 46363, WhatsApp us or get directions from anywhere in West Hyderabad."
         url="/contact"
-        keywords="Unicare Hospitals contact number, Unicare Hospitals Kokapet address, hospital near me Kokapet"
+        keywords="UniCare Hospitals contact number, UniCare Hospitals Kokapet address, hospital near me Kokapet"
       />
 
       {/* Hero — full-width map banner */}

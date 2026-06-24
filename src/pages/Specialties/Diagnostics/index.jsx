@@ -7,12 +7,12 @@ export default function Diagnostics() {
     <>
       <SEO
         title="Diagnostic Center in Kokapet | Blood Tests and Lab Near Narsingi"
-        description="Blood tests, health panels and diagnostics with same-day reports at Unicare Hospitals, Kokapet. Home to accurate, doctor-reviewed lab testing."
+        description="Blood tests, health panels and diagnostics with same-day reports at UniCare Hospitals, Kokapet. Home to accurate, doctor-reviewed lab testing."
         url="/specialties/diagnostics-lab"
         keywords="diagnostic center Kokapet, blood test near Narsingi, lab test Gachibowli, full body checkup Kokapet"
         schema={medicalSpecialtySchema({
           name: 'Diagnostics & Lab',
-          description: 'Blood tests, health panels and diagnostics with same-day reports at Unicare Hospitals, Kokapet.',
+          description: 'Blood tests, health panels and diagnostics with same-day reports at UniCare Hospitals, Kokapet.',
           url: 'https://www.unicareglobalhospitals.com/specialties/diagnostics-lab',
         })}
       />

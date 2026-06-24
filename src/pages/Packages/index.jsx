@@ -6,8 +6,8 @@ export default function Packages() {
   return (
     <>
       <SEO
-        title="Health Checkup Packages in Kokapet | Unicare Hospitals"
-        description="Preventive health checkup packages at Unicare Hospitals, Kokapet: full body, diabetes, women's health and senior citizen panels with doctor review."
+        title="Health Checkup Packages in Kokapet | UniCare Hospitals"
+        description="Preventive health checkup packages at UniCare Hospitals, Kokapet: full body, diabetes, women's health and senior citizen panels with doctor review."
         url="/health-checkup-packages"
         keywords="health checkup packages Kokapet, full body checkup near Gachibowli, master health checkup West Hyderabad"
       />

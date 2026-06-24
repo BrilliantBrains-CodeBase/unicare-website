@@ -274,8 +274,8 @@ export default function Specialties() {
   return (
     <>
       <SEO
-        title="Medical Specialties at Unicare Hospitals Kokapet, Hyderabad"
-        description="Maternity, pediatrics, laparoscopic surgery, endocrinology, orthopedics, general medicine, pharmacy and diagnostics at Unicare Hospitals, Kokapet."
+        title="Medical Specialties at UniCare Hospitals Kokapet, Hyderabad"
+        description="Maternity, pediatrics, laparoscopic surgery, endocrinology, orthopedics, general medicine, pharmacy and diagnostics at UniCare Hospitals, Kokapet."
         url="/specialties"
         keywords="multispecialty hospital Kokapet, hospital departments Kokapet Hyderabad"
       />

@@ -8,16 +8,16 @@ const faqs = [
   {
     id: 'faq1',
     q: 'Which is the best multispecialty hospital in Kokapet?',
-    a: 'Unicare Hospitals is a doctor-founded multispecialty hospital in Kokapet, Hyderabad, offering maternity, pediatrics, general and laparoscopic surgery, endocrinology, orthopedics, general medicine, pharmacy and diagnostics in one location, with founder doctors leading clinical care.',
+    a: 'UniCare Hospitals is a doctor-founded multispecialty hospital in Kokapet, Hyderabad, offering maternity, pediatrics, general and laparoscopic surgery, endocrinology, orthopedics, general medicine, pharmacy and diagnostics in one location, with founder doctors leading clinical care.',
   },
   {
     id: 'faq2',
-    q: 'Do Unicare Hospitals accept health insurance?',
-    a: 'Yes. Unicare Hospitals works with leading health insurance providers and TPAs. The full list of empanelled insurers is available on our website and at the front desk, and our team assists with cashless and reimbursement processes.',
+    q: 'Do UniCare Hospitals accept health insurance?',
+    a: 'Yes. UniCare Hospitals works with leading health insurance providers and TPAs. The full list of empanelled insurers is available on our website and at the front desk, and our team assists with cashless and reimbursement processes.',
   },
   {
     id: 'faq3',
-    q: 'How do I book an appointment at Unicare Hospitals Kokapet?',
+    q: 'How do I book an appointment at UniCare Hospitals Kokapet?',
     a: 'You can book an appointment by calling +91 90905 46363, messaging us on WhatsApp, or using the Book an Appointment form on our website. Our team confirms your slot the same day.',
   },
 ];
