@@ -101,7 +101,7 @@ function MobileDrawer({ isOpen, onClose, isSpecActive }) {
             {/* Teal header strip */}
             <div className="h-16 flex items-center justify-between px-4 shrink-0" style={{ background: 'var(--teal)' }}>
               <Link to="/" onClick={onClose} aria-label="UniCare Hospitals — Home">
-                <Logo className="h-14 w-auto brightness-0 invert" />
+                <Logo className="h-14 w-auto" />
               </Link>
               <button
                 onClick={onClose}
@@ -346,7 +346,7 @@ export default function Header() {
 
           {/* Logo — at viewport left edge */}
           <Link to="/" aria-label="UniCare Hospitals — Home" className="shrink-0 mr-6 ml-8 pt-6 pb-2 z-10">
-            <Logo className={`h-24 xl:h-28 2xl:h-32 w-auto transition-all duration-300 ${!pinned ? 'brightness-0 invert' : ''}`} />
+            <Logo className="h-24 xl:h-28 2xl:h-32 w-auto" />
           </Link>
 
           {/* CENTER pill containing all nav links */}
@@ -516,7 +516,7 @@ export default function Header() {
         {/* ── Mobile bar ── */}
         <div className="xl:hidden flex items-center justify-between px-4 h-[64px]">
           <Link to="/" aria-label="UniCare Hospitals — Home" className="shrink-0">
-            <Logo className={`h-14 w-auto transition-all duration-300 ${!pinned ? 'brightness-0 invert' : ''}`} />
+            <Logo className="h-14 w-auto" />
           </Link>
           <button
             onClick={() => setMobileOpen(o => !o)}
