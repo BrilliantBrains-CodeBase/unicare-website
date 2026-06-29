@@ -35,10 +35,6 @@ export default function HeroSection() {
         aria-hidden="true"
         className="absolute inset-0 w-full h-full object-cover"
       />
-      <div
-        className="absolute inset-0"
-        style={{ background: 'linear-gradient(180deg, rgba(1,34,87,.65) 0%, rgba(1,34,87,.1) 45%, rgba(1,34,87,.72) 100%)' }}
-      />
 
       <div className="relative z-10 max-w-330 2xl:max-w-400 mx-auto px-4 sm:px-6 lg:px-10 2xl:px-20 w-full pt-32 lg:pt-28 2xl:pt-32 pb-16 lg:pb-24 2xl:pb-32">
         <motion.div className="chip mb-5 sm:mb-6 w-fit text-[12px] sm:text-[13px] px-3.5 py-2" variants={fadeUp} initial="hidden" animate="visible">
