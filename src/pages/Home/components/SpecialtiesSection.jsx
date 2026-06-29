@@ -20,7 +20,7 @@ import polygon2     from '../../../assets/polygon2.png';
 const specialties = [
   {
     img: maternityImg, poly: polygon1, polyPos: 'right', Icon: IconHeartHandshake,
-    name: 'Gynecology & OB',
+    name: 'Gynecology & Obstetrics',
     desc: 'Pregnancy care, safe deliveries, fertility support and gynecological treatment led by founder Dr. A.N. Varuna Vyas.',
     to: '/specialties/maternity-womens-health',
   },
@@ -105,8 +105,8 @@ export default function SpecialtiesSection() {
   const row2 = specialties.slice(2, 4); // card → img | card → img
 
   return (
-    <section className="py-6 2xl:py-10">
-      <div className="mx-5 2xl:mx-8 rounded-[20px] 2xl:rounded-[28px] py-24 2xl:py-28" style={{ background: '#EAEDF0' }}>
+    <section className="pt-6 pb-16 2xl:pt-10 2xl:pb-20">
+      <div className="mx-5 2xl:mx-8 rounded-[20px] 2xl:rounded-[28px] pt-24 pb-12 2xl:pt-28 2xl:pb-14" style={{ background: '#EAEDF0' }}>
         <div className="max-w-330 2xl:max-w-400 mx-auto px-6 2xl:px-20">
 
           {/* Section heading */}

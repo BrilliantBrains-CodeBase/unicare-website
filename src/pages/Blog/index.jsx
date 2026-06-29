@@ -9,7 +9,7 @@ import posts from '../../../data/blog/posts.json';
 import PostCard from './components/PostCard';
 import CTABand from '../../components/CTABand';
 
-const CATEGORIES = ['All', 'Gynecology & OB', 'Child Health', 'Diabetes and Hormones', 'Surgery', 'General Health'];
+const CATEGORIES = ['All', 'Gynecology & Obstetrics', 'Child Health', 'Diabetes and Hormones', 'Surgery', 'General Health'];
 const gridStagger = stagger(0.07, 0.1);
 
 export default function Blog() {

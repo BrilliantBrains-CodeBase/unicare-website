@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { fadeUp, stagger } from '../../../lib/animations';
 
 const CATEGORY_GRADIENTS = {
-  'Gynecology & OB':       'linear-gradient(135deg, #9B1B6E 0%, #D65EA0 100%)',
+  'Gynecology & Obstetrics':       'linear-gradient(135deg, #9B1B6E 0%, #D65EA0 100%)',
   'Child Health':           'linear-gradient(135deg, #1B3F9B 0%, #5C7AE8 100%)',
   'Diabetes and Hormones':  'linear-gradient(135deg, #9B5B1B 0%, #E8975C 100%)',
   'Surgery':                'linear-gradient(135deg, #1B6B3F 0%, #3BAA6B 100%)',

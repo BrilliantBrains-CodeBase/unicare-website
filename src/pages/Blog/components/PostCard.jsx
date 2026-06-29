@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { scaleIn } from '../../../lib/animations';
 
 const CATEGORY_GRADIENTS = {
-  'Gynecology & OB':       'linear-gradient(135deg, #9B1B6E 0%, #D65EA0 100%)',
+  'Gynecology & Obstetrics':       'linear-gradient(135deg, #9B1B6E 0%, #D65EA0 100%)',
   'Child Health':           'linear-gradient(135deg, #1B3F9B 0%, #5C7AE8 100%)',
   'Diabetes and Hormones':  'linear-gradient(135deg, #9B5B1B 0%, #E8975C 100%)',
   'Surgery':                'linear-gradient(135deg, #1B6B3F 0%, #3BAA6B 100%)',
@@ -11,7 +11,7 @@ const CATEGORY_GRADIENTS = {
 };
 
 const CATEGORY_CHIP = {
-  'Gynecology & OB':       { bg: 'rgba(155,27,110,0.15)', text: '#7A0F55' },
+  'Gynecology & Obstetrics':       { bg: 'rgba(155,27,110,0.15)', text: '#7A0F55' },
   'Child Health':           { bg: 'rgba(27,63,155,0.12)', text: '#1B3F9B' },
   'Diabetes and Hormones':  { bg: 'rgba(155,91,27,0.12)', text: '#7A4510' },
   'Surgery':                { bg: 'rgba(27,107,63,0.12)', text: '#145231' },

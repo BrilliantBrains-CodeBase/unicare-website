@@ -13,7 +13,7 @@ export const doctors = [
     name: 'Dr. A.N. Varuna Vyas',
     qualifications: 'MBBS, DGO, DNB, FRM',
     role: "Founder & Clinical Lead — Women's Health and Reproductive Care",
-    specialty: 'Gynecology & OB',
+    specialty: 'Gynecology & Obstetrics',
     opdTimings: 'To be confirmed',
     photo: drVarunaImg,
     color: '#2CAAA0',

@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { fadeUp, vp } from '../../../lib/animations';
 import { ArrowRight, Pin } from '../../../components/icons';
@@ -24,10 +25,20 @@ const fieldCls =
   'w-full h-[60px] rounded-[7px] bg-[#E1E6EB] border border-[#E1E6EB] outline-none px-5 text-[13.5px] tracking-[1.55px] transition-colors focus:border-[var(--teal)] focus:bg-white text-[var(--navy)] placeholder:text-[var(--muted)]';
 
 export default function FindUs() {
+  const [searchParams] = useSearchParams();
   const [form, setForm] = useState({
     name: '', email: '', phone: '', reason: '',
     physician: '', time: '10:00 AM', date: '',
   });
+
+  useEffect(() => {
+    const doc = searchParams.get('doctor');
+    if (!doc) return;
+    setForm(f => ({ ...f, physician: doc.toUpperCase() }));
+    setTimeout(() => {
+      document.getElementById('appointment-form')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 100);
+  }, [searchParams]);
 
   const set = (e) => setForm({ ...form, [e.target.name]: e.target.value });
 
@@ -42,7 +53,7 @@ export default function FindUs() {
 
   return (
     // overflow-hidden is critical — it clips the address strip that bleeds left
-    <section className="pt-10 pb-16 lg:pb-24 2xl:pb-32 overflow-hidden">
+    <section id="appointment-form" className="pt-10 pb-16 lg:pb-24 2xl:pb-32 overflow-hidden scroll-mt-24">
       <div className="max-w-330 2xl:max-w-400 mx-auto px-4 sm:px-8 2xl:px-20">
         <div className="grid grid-cols-1 xl:grid-cols-2 gap-10 xl:gap-14 items-start">
 

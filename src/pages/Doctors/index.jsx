@@ -10,7 +10,7 @@ import { fadeUp, vp } from '../../lib/animations';
 import { physicianSchema } from '../../lib/schema';
 import { doctors } from '../../data/doctors';
 
-const FILTERS = ['All', 'Gynecology & OB', 'Pediatrics', 'Surgery', 'Endocrinology & Diabetes', 'Orthopedics'];
+const FILTERS = ['All', 'Gynecology & Obstetrics', 'Pediatrics', 'Surgery', 'Endocrinology & Diabetes', 'Orthopedics'];
 
 function DoctorCard({ doc }) {
   const shortRole = doc.role.split('—')[0].trim();

@@ -22,8 +22,8 @@ export default function Home() {
       <HeroSection />
       <TrustBar />
       <SpecialtiesSection />
-      <DoctorsPreview />
       <WhyChooseUs />
+      <DoctorsPreview />
       <FindUs />
       <MobileAppSection />
       <FAQSection />

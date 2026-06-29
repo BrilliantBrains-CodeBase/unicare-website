@@ -88,7 +88,7 @@ function DoctorCard({ doc, isOpen, onToggle }) {
 
         <div className="flex items-center gap-2 shrink-0 pb-4" onClick={(e) => e.stopPropagation()}>
           <Link
-            to="/book-an-appointment"
+            to={`/?doctor=${encodeURIComponent(doc.name)}#appointment-form`}
             className="flex-1 min-w-0 h-10 flex items-center justify-center gap-1.5 rounded-full text-[13px] font-semibold text-white hover:opacity-85 cursor-pointer"
             style={{ background: 'var(--teal)' }}
             aria-label="Book an appointment"
@@ -154,7 +154,8 @@ export default function DoctorsPreview() {
   }
 
   return (
-    <section className="py-20 overflow-hidden">
+    <section className="pt-6 pb-16 2xl:pt-10 2xl:pb-20 overflow-hidden">
+      <div className="mx-5 2xl:mx-8 rounded-[20px] 2xl:rounded-[28px] pt-16 pb-12 2xl:pt-20 2xl:pb-14" style={{ background: '#EAEDF0' }}>
 
       <motion.div
         className="max-w-[860px] mx-auto px-6 text-center mb-12"
@@ -162,7 +163,7 @@ export default function DoctorsPreview() {
       >
         <span className="block text-[12px] font-bold tracking-[1.2px] uppercase mb-3"
               style={{ color: 'var(--teal)' }}>
-          Doctors
+          Our Doctors
         </span>
         <h2 className="h2-two-lines font-normal" style={{ color: 'var(--navy)' }}>
           The Doctors Who Built This Hospital{' '}
@@ -236,6 +237,7 @@ export default function DoctorsPreview() {
         </Link>
       </motion.div>
 
+      </div>
     </section>
   );
 }

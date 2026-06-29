@@ -2,255 +2,122 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import SEO from '../../components/SEO';
-import PageBanner from '../../components/PageBanner';
+import SpecialtiesBanner from './components/SpecialtiesBanner';
 import FilterBar from '../../components/FilterBar';
-import CTABand from '../../components/CTABand';
-import { Arrow } from '../../components/icons';
-import { scaleIn, fadeUp, stagger, vp } from '../../lib/animations';
+import TestimonialsSection from './components/TestimonialsSection';
+import InsuranceSection from './components/InsuranceSection';
+import { ArrowRight } from '../../components/icons';
+import { fadeUp, stagger, vp } from '../../lib/animations';
+import {
+  IconHeartHandshake,
+  IconBabyCarriage,
+  IconBone,
+  IconStethoscope,
+  IconScissors,
+  IconDroplet,
+  IconPill,
+  IconMicroscope,
+} from '@tabler/icons-react';
 
-const cardStagger = stagger(0.07, 0.1);
+const cardStagger = stagger(0.06, 0.05);
 
 const FILTERS = ['All', 'Women & Children', 'Surgery & Ortho', 'Medicine & Diabetes', 'Support Services'];
 
 const SPECIALTIES = [
   {
-    tag: 'Gynecology & OB',
-    category: 'Women & Children',
-    desc: 'Pregnancy care, safe deliveries, fertility support and gynecological treatment.',
-    to: '/specialties/maternity-womens-health',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
-        <circle cx="12" cy="6" r="2.5"/>
-        <path d="M6 22 C6 22 6 17 8 15 C10 13 12 13 12 13 C12 13 14 13 16 15 C18 17 18 22 18 22"/>
-        <ellipse cx="12" cy="18" rx="4" ry="4"/>
-        <path d="M10 18 L12 16.5 L14 18"/>
-      </svg>
-    ),
-    bullets: [
-      'Antenatal care and pregnancy monitoring, trimester by trimester',
-      'Normal and caesarean deliveries with experienced anesthesia and pediatric support',
-      'Fertility evaluation and reproductive medicine consultations',
-    ],
-  },
-  {
-    tag: 'Paediatrics',
-    category: 'Women & Children',
-    desc: 'Newborn and child care by two MD paediatricians.',
-    to: '/specialties/pediatrics',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
-        <circle cx="12" cy="5.5" r="2.5"/>
-        <path d="M8 22 L8 15 Q8 11 12 11 Q16 11 16 15 L16 22"/>
-        <path d="M8 18 L16 18"/>
-        <path d="M5 13 L8 14"/>
-        <path d="M19 13 L16 14"/>
-      </svg>
-    ),
-    bullets: [
-      'Newborn care and neonatal support from birth',
-      'Complete vaccination and immunization schedules',
-      'Growth, development and nutrition monitoring',
-    ],
-  },
-  {
-    tag: 'Orthopaedics',
+    tag: 'Orthopedics',
     category: 'Surgery & Ortho',
     desc: 'Bone, joint, spine and sports injury care.',
     to: '/specialties/orthopedics',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
-        <path d="M6 4 C6 4 4 5 4 7 C4 9 6 9 6 9 L9 12 L6 15 C6 15 4 15 4 17 C4 19 6 20 6 20"/>
-        <path d="M18 4 C18 4 20 5 20 7 C20 9 18 9 18 9 L15 12 L18 15 C18 15 20 15 20 17 C20 19 18 20 18 20"/>
-        <path d="M9 12 L15 12"/>
-        <circle cx="12" cy="12" r="1.5" fill="currentColor" stroke="none"/>
-      </svg>
-    ),
-    bullets: [
-      'Fracture care, casting and trauma management',
-      'Knee, hip, shoulder and back pain evaluation and treatment',
-      'Sports injury assessment and recovery planning',
-    ],
+    Icon: IconBone,
   },
   {
     tag: 'General Medicine',
     category: 'Medicine & Diabetes',
-    desc: 'Fever, infections, lifestyle disease and preventive health for adults.',
+    desc: 'Fever, infections, lifestyle disease management and preventive health for adults.',
     to: '/specialties/general-medicine-endocrinology',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
-        <path d="M5 6 C5 4 7 3 9 4 L9 10 C9 12 7 13 5 12 C3 11 3 9 5 6Z"/>
-        <path d="M9 7 Q14 6 17 9"/>
-        <path d="M9 9 Q13 9 16 12"/>
-        <circle cx="17" cy="13" r="3"/>
-        <path d="M17 11 L17 15M15 13 L19 13"/>
-      </svg>
-    ),
-    bullets: [
-      'Fever, infections and everyday adult illness',
-      'Hypertension and cholesterol management',
-      'Preventive health consultations and annual reviews',
-    ],
+    Icon: IconStethoscope,
   },
   {
-    tag: 'General Surgery',
+    tag: 'Gynecology & Obstetrics',
+    category: 'Women & Children',
+    desc: 'Pregnancy care, safe deliveries, fertility support and gynecological treatment led by founder Dr. A.N. Varuna Vyas.',
+    to: '/specialties/maternity-womens-health',
+    Icon: IconHeartHandshake,
+  },
+  {
+    tag: 'Pediatrics and Neonatal Care',
+    category: 'Women & Children',
+    desc: 'Newborn and child care by two MD pediatricians, Dr. Mareddy Veena and Dr. M. Nitin Rao.',
+    to: '/specialties/pediatrics',
+    Icon: IconBabyCarriage,
+  },
+  {
+    tag: 'General and Minimal Access Surgery',
     category: 'Surgery & Ortho',
-    desc: 'Laparoscopic and minimal access procedures.',
+    desc: 'Laparoscopic and minimal access procedures led by founder Dr. Bhargava Vyas A.N., FIAGES, FMAS.',
     to: '/specialties/general-minimal-access-surgery',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
-        <path d="M4 4 L16 16"/>
-        <path d="M4 4 C4 4 2 4.5 2 6 C2 7.5 4 8 4 8 L8 8"/>
-        <path d="M14 14 L20 20"/>
-        <path d="M20 18 L22 16 L18 14"/>
-        <circle cx="11" cy="11" r="3"/>
-        <path d="M11 9 L11 13M9 11 L13 11"/>
-      </svg>
-    ),
-    bullets: [
-      'Laparoscopic gallbladder removal (cholecystectomy)',
-      'Laparoscopic and open hernia repair',
-      'Appendix surgery (appendicectomy)',
-    ],
+    Icon: IconScissors,
   },
   {
-    tag: 'Endocrinology & Diabetes',
+    tag: 'Endocrinology and Diabetes',
     category: 'Medicine & Diabetes',
-    desc: 'Diabetes, thyroid and hormonal care.',
+    desc: 'Diabetes, thyroid and hormonal care with DM endocrinologist Dr. Deepak Thiriveedi.',
     to: '/specialties/general-medicine-endocrinology',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
-        <path d="M12 3 C9 3 6 6 6 10 C6 15 12 21 12 21 C12 21 18 15 18 10 C18 6 15 3 12 3Z"/>
-        <path d="M9 10 L11 12 L13 8 L15 12"/>
-        <path d="M8 7 C10 6 14 6 16 7"/>
-      </svg>
-    ),
-    bullets: [
-      'Type 1 and Type 2 diabetes diagnosis, treatment and long-term management',
-      'Thyroid disorders: hypothyroidism, hyperthyroidism, thyroid nodules',
-      'Obesity and metabolic syndrome management',
-    ],
+    Icon: IconDroplet,
   },
   {
     tag: 'Pharmacy',
     category: 'Support Services',
-    desc: 'Round-the-clock prescribed medicines on-site.',
+    desc: 'Round-the-clock access to prescribed medicines without leaving the building.',
     to: '/specialties/pharmacy',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
-        <rect x="4" y="3" width="16" height="18" rx="3"/>
-        <path d="M12 8 L12 16"/>
-        <path d="M8 12 L16 12"/>
-        <path d="M8 7 L16 7"/>
-      </svg>
-    ),
-    bullets: [
-      "Genuine, quality-assured medicines aligned with our doctors’ prescriptions",
-      'Qualified pharmacists who double-check every prescription',
-      'Pediatric formulations, maternity supplements and chronic care medicines stocked',
-    ],
+    Icon: IconPill,
   },
   {
-    tag: 'Diagnostics & Lab',
+    tag: 'Diagnostics and Lab',
     category: 'Support Services',
     desc: 'Blood tests, health panels and imaging with same-day reports.',
     to: '/specialties/diagnostics-lab',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
-        <path d="M9 3 L9 12 L5 18 C4 20 5.5 22 8 22 L16 22 C18.5 22 20 20 19 18 L15 12 L15 3"/>
-        <path d="M7 15 L17 15"/>
-        <path d="M7 7 L17 7"/>
-        <path d="M10 10 L14 10"/>
-      </svg>
-    ),
-    bullets: [
-      'Complete blood counts, fever panels and infection workups',
-      'Diabetes monitoring: fasting glucose, HbA1c, lipid profiles',
-      'Thyroid and hormonal panels supporting our endocrinology service',
-    ],
+    Icon: IconMicroscope,
   },
 ];
 
-function CheckIcon() {
-  return (
-    <svg viewBox="0 0 12 12" fill="none" className="w-3 h-3 shrink-0 mt-0.5" style={{ color: '#2CAAA0' }}>
-      <circle cx="6" cy="6" r="5.5" stroke="currentColor" strokeOpacity=".35"/>
-      <path d="M3.5 6 L5 7.5 L8.5 4" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round"/>
-    </svg>
-  );
-}
-
 function SpecialtyCard({ s }) {
   return (
-    <motion.div variants={scaleIn} className="h-full">
-      <div
-        className="relative rounded-2xl overflow-hidden flex flex-col h-full group hover-lift"
-        style={{ background: 'var(--navy)' }}
-      >
-        {/* Subtle radial glow decoration */}
-        <div
-          className="absolute -top-10 -right-10 w-48 h-48 rounded-full pointer-events-none"
-          style={{ background: 'radial-gradient(circle, rgba(44,170,160,0.12) 0%, transparent 65%)' }}
-        />
-        {/* Faint dot grid */}
-        <svg
-          viewBox="0 0 200 200"
-          className="absolute inset-0 w-full h-full pointer-events-none opacity-[.04]"
-          aria-hidden="true"
-          preserveAspectRatio="xMidYMid slice"
-        >
-          <defs>
-            <pattern id={`dots-${s.tag.replace(/\s/g,'-')}`} width="16" height="16" patternUnits="userSpaceOnUse">
-              <circle cx="1" cy="1" r="1" fill="#2CAAA0"/>
-            </pattern>
-          </defs>
-          <rect width="200" height="200" fill={`url(#dots-${s.tag.replace(/\s/g,'-')})`}/>
-        </svg>
-
-        {/* Content */}
-        <div className="relative z-10 p-5 sm:p-6 flex flex-col flex-1 gap-4">
-
+    <motion.div
+      variants={fadeUp}
+      className="h-full"
+      whileHover={{ y: -4, boxShadow: '0 8px 24px rgba(0,0,0,0.10)' }}
+      transition={{ type: 'spring', stiffness: 280, damping: 22 }}
+    >
+      <div className="h-full">
+        <div className="rounded-[20px] bg-white px-8 py-10 flex flex-col h-full">
           {/* Icon */}
-          <div
-            className="w-12 h-12 rounded-xl flex items-center justify-center shrink-0 text-white"
-            style={{ background: 'rgba(44,170,160,0.18)', color: '#2CAAA0' }}
-          >
-            {s.icon}
+          <div className="mb-7">
+            <s.Icon size={40} color="var(--teal)" stroke={1.5} />
           </div>
 
-          {/* Tag + description */}
-          <div>
-            <h3 className="font-display text-[20px] sm:text-[22px] text-white leading-snug mb-2">
+          {/* Name */}
+          <h3 className="text-[18px] font-bold mb-4" style={{ color: 'var(--navy)' }}>
+            <Link to={s.to} className="transition-colors hover:text-(--teal)">
               {s.tag}
-            </h3>
-            <p className="text-[14px] sm:text-[14.5px] leading-relaxed" style={{ color: 'rgba(255,255,255,0.52)' }}>
-              {s.desc}
-            </p>
-          </div>
+            </Link>
+          </h3>
 
-          {/* Divider */}
-          <div className="border-t" style={{ borderColor: 'rgba(255,255,255,0.08)' }}/>
-
-          {/* Bullets */}
-          <ul className="flex flex-col gap-2.5 flex-1">
-            {s.bullets.map(b => (
-              <li key={b} className="flex items-start gap-2 text-[13.5px] leading-snug" style={{ color: 'rgba(255,255,255,0.65)' }}>
-                <CheckIcon/>
-                <span>{b}</span>
-              </li>
-            ))}
-          </ul>
+          {/* Description */}
+          <p className="text-[15px] leading-relaxed mb-5 flex-1" style={{ color: 'var(--muted)' }}>
+            {s.desc}
+          </p>
 
           {/* Read More */}
           <Link
             to={s.to}
-            className="inline-flex items-center gap-1.5 self-start px-4 py-2 rounded-full text-[13px] font-medium text-white transition-all duration-200"
-            style={{ border: '1px solid rgba(255,255,255,0.22)' }}
-            onMouseEnter={e => { e.currentTarget.style.background = '#2CAAA0'; e.currentTarget.style.borderColor = '#2CAAA0'; }}
-            onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.22)'; }}
+            className="inline-flex items-center gap-1.5 text-[14.5px] font-medium transition-all hover:gap-3"
+            style={{ color: 'var(--navy)' }}
           >
-            Read More <Arrow s={11} c="currentColor"/>
+            <ArrowRight s={16} c="currentColor" />
+            Learn More
           </Link>
-
         </div>
       </div>
     </motion.div>
@@ -260,15 +127,20 @@ function SpecialtyCard({ s }) {
 export default function Specialties() {
   const [activeFilter, setActiveFilter] = useState('All');
   const [searchQuery,  setSearchQuery]  = useState('');
+  const [showAll,      setShowAll]      = useState(false);
 
   const q = searchQuery.toLowerCase();
   const filtered = SPECIALTIES
     .filter(s => activeFilter === 'All' || s.category === activeFilter)
     .filter(s => !q || s.tag.toLowerCase().includes(q) || s.desc.toLowerCase().includes(q));
 
+  const visible = filtered.slice(0, showAll ? filtered.length : 4);
+  const hasMore = filtered.length > 4 && !showAll;
+
   function handleFilter(f) {
     setActiveFilter(f);
     setSearchQuery('');
+    setShowAll(false);
   }
 
   return (
@@ -280,42 +152,79 @@ export default function Specialties() {
         keywords="multispecialty hospital Kokapet, hospital departments Kokapet Hyderabad"
       />
 
-      <PageBanner
-        chip="Our Specialties"
-        title="Specialist care for every member of your family."
-        subtitle="Eight departments. One neighbourhood hospital. Closer to Kokapet, Narsingi and the Financial District than you think."
-      />
+      <SpecialtiesBanner />
 
-      {/* Filter bar */}
-      <section className="px-4 sm:px-6 lg:px-10 pt-8 pb-0">
+      {/* Services grid section — box treatment matching home SpecialtiesSection */}
+      <section className="py-6 2xl:py-10">
+        <div className="mx-4 sm:mx-5 2xl:mx-8 rounded-[20px] 2xl:rounded-[28px] py-14 sm:py-16 2xl:py-20 px-4 sm:px-6 lg:px-10" style={{ background: '#EAEDF0' }}>
         <div className="max-w-330 mx-auto">
-          <FilterBar
-            searchQuery={searchQuery}
-            onSearch={setSearchQuery}
-            searchPlaceholder="Search specialties…"
-            filters={FILTERS}
-            activeFilter={activeFilter}
-            onFilter={handleFilter}
-          />
-        </div>
-      </section>
 
-      {/* Specialty cards grid */}
-      <section className="px-4 sm:px-6 lg:px-10 pt-10 sm:pt-12 pb-12 sm:pb-16 lg:pb-20">
-        <div className="max-w-330 mx-auto">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
-            {filtered.map(s => (
+          {/* Section heading — matches home SpecialtiesSection */}
+          <motion.div
+            className="max-w-158.75 mx-auto text-center mb-12"
+            variants={fadeUp} initial="hidden" whileInView="visible" viewport={vp}
+          >
+            <span className="block text-[12px] font-bold tracking-[1.2px] uppercase mb-3" style={{ color: 'var(--teal)' }}>
+              Our Specialties
+            </span>
+            <h2 className="h2-two-lines font-normal" style={{ color: 'var(--navy)' }}>
+              One Hospital For Every Chapter{' '}
+              <strong className="font-bold">Of Your Family's Health.</strong>
+            </h2>
+          </motion.div>
+
+          {/* Filter bar */}
+          <div className="mb-10">
+            <FilterBar
+              searchQuery={searchQuery}
+              onSearch={(v) => { setSearchQuery(v); setShowAll(false); }}
+              searchPlaceholder="Search specialties…"
+              filters={FILTERS}
+              activeFilter={activeFilter}
+              onFilter={handleFilter}
+            />
+          </div>
+
+          {/* Cards grid — key forces re-mount on filter/search change */}
+          <motion.div
+            key={activeFilter + searchQuery}
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
+            variants={cardStagger}
+            initial="hidden"
+            animate="visible"
+          >
+            {visible.map(s => (
               <SpecialtyCard key={s.tag} s={s} />
             ))}
-          </div>
+          </motion.div>
+
+          {/* Load More */}
+          {hasMore && (
+            <div className="flex justify-center mt-10">
+              <button
+                onClick={() => setShowAll(true)}
+                className="inline-flex items-center gap-3 rounded-full text-white text-[14px] font-semibold px-8 py-3.5 cursor-pointer transition-colors duration-200"
+                style={{ background: 'var(--teal)' }}
+                onMouseEnter={e => e.currentTarget.style.background = 'var(--teal-2)'}
+                onMouseLeave={e => e.currentTarget.style.background = 'var(--teal)'}
+              >
+                <span className="w-7 h-7 rounded-full flex items-center justify-center shrink-0" style={{ background: 'rgba(255,255,255,0.2)' }}>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M12 5v14M5 12l7 7 7-7"/>
+                  </svg>
+                </span>
+                Load More
+              </button>
+            </div>
+          )}
+
+        </div>
         </div>
       </section>
 
-      <CTABand
-        chip="Need Guidance?"
-        heading="Not Sure Which Specialist You Need? Our Team Will Guide You."
-        subtext="Call +91 90905 46363, message on WhatsApp, or book online. We will point you to the right doctor."
-      />
+      <TestimonialsSection />
+
+      <InsuranceSection />
     </>
   );
 }

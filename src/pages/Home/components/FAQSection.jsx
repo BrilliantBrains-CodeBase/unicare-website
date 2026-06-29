@@ -20,7 +20,32 @@ const faqs = [
     q: 'How do I book an appointment at UniCare Hospitals Kokapet?',
     a: 'You can book an appointment by calling +91 90905 46363, messaging us on WhatsApp, or using the Book an Appointment form on our website. Our team confirms your slot the same day.',
   },
+  {
+    id: 'faq4',
+    q: 'Can the whole family be treated at UniCare Hospitals?',
+    a: 'Yes. UniCare is designed as a family hospital. We care for patients across all age groups, from newborns and young children to adults and seniors. Our multispecialty setup means most of your family\'s healthcare needs can be addressed under one roof, without needing to visit multiple facilities.',
+  },
+  {
+    id: 'faq5',
+    q: 'Is the hospital clean, well-maintained, and patient-friendly?',
+    a: 'UniCare Hospitals is a premium facility built to provide a comfortable and reassuring environment for patients and their families. The infrastructure is modern, well-maintained, and designed to feel welcoming rather than clinical. Patient comfort and hygiene are a core part of how we operate.',
+  },
+  {
+    id: 'faq6',
+    q: 'How can I contact UniCare Hospitals for any queries?',
+    a: 'You can reach us by calling +91 90905 46363. Our team is available during hospital hours to assist with appointments, general queries, and directions.',
+  },
 ];
+
+function renderAnswer(text) {
+  const phoneRegex = /(\+?[\d\s]{10,14})/g;
+  const parts = text.split(phoneRegex);
+  return parts.map((part, i) =>
+    phoneRegex.test(part)
+      ? <a key={i} href={`tel:${part.replace(/\s/g, '')}`} className="font-medium hover:underline" style={{ color: 'var(--teal)' }}>{part}</a>
+      : part
+  );
+}
 
 export default function FAQSection() {
   const [openId, setOpenId] = useState('faq1');
@@ -112,7 +137,7 @@ export default function FAQSection() {
                             className="text-[15px] leading-relaxed mb-0"
                             style={{ paddingTop: 17, color: 'var(--muted)' }}
                           >
-                            {faq.a}
+                            {renderAnswer(faq.a)}
                           </p>
                         </motion.div>
                       )}
