@@ -82,7 +82,7 @@ function DoctorCard({ doc, isOpen, onToggle }) {
         <h3 className="text-[17px] font-bold leading-snug shrink-0 text-white">
           {doc.name}
         </h3>
-        <p className="text-[13px] mt-0.5 mb-3 shrink-0" style={{ color: 'rgba(255,255,255,0.65)' }}>
+        <p className="text-[13px] mt-0.5 mb-3 shrink-0 truncate" style={{ color: 'rgba(255,255,255,0.65)' }}>
           {doc.shortRole}
         </p>
 
@@ -172,7 +172,7 @@ export default function DoctorsPreview() {
       </motion.div>
 
       {/* Carousel with side nav buttons */}
-      <div className="relative w-4/5 mx-auto">
+      <div className="relative w-full sm:w-4/5 mx-auto px-4 sm:px-0">
 
         {/* Prev button */}
         <button
