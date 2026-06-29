@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
-import { NavLink, Link, useLocation } from 'react-router-dom';
+import { NavLink, Link, useLocation, useNavigate } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import Logo from '../Logo';
 import {
@@ -101,7 +101,7 @@ function MobileDrawer({ isOpen, onClose, isSpecActive }) {
             {/* Teal header strip */}
             <div className="h-16 flex items-center justify-between px-4 shrink-0" style={{ background: 'var(--teal)' }}>
               <Link to="/" onClick={onClose} aria-label="UniCare Hospitals — Home">
-                <Logo horizontal className="h-9 w-auto brightness-0 invert" />
+                <Logo className="h-14 w-auto brightness-0 invert" />
               </Link>
               <button
                 onClick={onClose}
@@ -256,6 +256,7 @@ export default function Header() {
   const dropdownRef = useRef(null);
   const closeTimer  = useRef(null);
   const location    = useLocation();
+  const navigate    = useNavigate();
 
   const isSpecActive = location.pathname.startsWith('/specialties');
 
@@ -341,11 +342,11 @@ export default function Header() {
         </motion.div>
 
         {/* ── Desktop nav bar ── */}
-        <div className="hidden xl:flex items-center h-18 2xl:h-21 max-w-330 2xl:max-w-400 mx-auto px-6 2xl:px-20">
+        <div className="hidden xl:flex items-center h-32 2xl:h-36 w-full px-6 2xl:px-10 relative">
 
-          {/* Logo */}
-          <Link to="/" aria-label="UniCare Hospitals — Home" className="shrink-0 mr-6">
-            <Logo horizontal className={`h-16 xl:h-18 2xl:h-22 w-auto transition-all duration-300 ${!pinned ? 'brightness-0 invert' : ''}`} />
+          {/* Logo — at viewport left edge */}
+          <Link to="/" aria-label="UniCare Hospitals — Home" className="shrink-0 mr-6 ml-8 pt-6 pb-2 z-10">
+            <Logo className={`h-24 xl:h-28 2xl:h-32 w-auto transition-all duration-300 ${!pinned ? 'brightness-0 invert' : ''}`} />
           </Link>
 
           {/* CENTER pill containing all nav links */}
@@ -375,7 +376,7 @@ export default function Header() {
                 <button
                   aria-haspopup="true"
                   aria-expanded={specOpen}
-                  onClick={() => setSpecOpen(o => !o)}
+                  onClick={() => { navigate('/specialties'); setSpecOpen(false); }}
                   className={`inline-flex items-center gap-1.5 px-3.5 py-2 text-[13.5px] font-medium transition-all rounded-full whitespace-nowrap cursor-pointer ${
                     isSpecActive
                       ? pinned
@@ -467,7 +468,7 @@ export default function Header() {
           </div>
 
           {/* CTAs */}
-          <div className="flex items-center gap-2 shrink-0 ml-6">
+          <div className="flex items-center gap-2 shrink-0 ml-6 mr-8">
 
             {/* Call */}
             <a
@@ -515,7 +516,7 @@ export default function Header() {
         {/* ── Mobile bar ── */}
         <div className="xl:hidden flex items-center justify-between px-4 h-[64px]">
           <Link to="/" aria-label="UniCare Hospitals — Home" className="shrink-0">
-            <Logo horizontal className={`h-10 w-auto transition-all duration-300 ${!pinned ? 'brightness-0 invert' : ''}`} />
+            <Logo className={`h-14 w-auto transition-all duration-300 ${!pinned ? 'brightness-0 invert' : ''}`} />
           </Link>
           <button
             onClick={() => setMobileOpen(o => !o)}

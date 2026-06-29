@@ -81,37 +81,21 @@ export default function InsuranceSection() {
             </h2>
           </div>
 
-          {/* Right: logo pill */}
-          <div className="flex-1 w-full">
-
-            {/* Mobile: auto-sliding marquee carousel */}
-            <div className="lg:hidden rounded-[20px] py-6 overflow-hidden" style={{ background: 'var(--soft)' }}>
-              <div
-                className="flex whitespace-nowrap"
-                style={{ animation: 'marquee 8s linear infinite' }}
-              >
-                {[0, 1].map(i => (
-                  <div key={i} className="flex items-center gap-10 px-8 shrink-0">
-                    <LogoHealthCare />
-                    <LogoWorldHeart />
-                    <LogoHealthyLife />
-                    <LogoSurvivor />
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Desktop: static row */}
+          {/* Right: auto-sliding marquee on all screen sizes */}
+          <div className="flex-1 w-full rounded-[20px] py-6 sm:py-8 overflow-hidden" style={{ background: 'var(--soft)' }}>
             <div
-              className="hidden lg:flex rounded-[20px] px-10 py-8 items-center justify-around gap-6"
-              style={{ background: 'var(--soft)' }}
+              className="flex"
+              style={{ animation: 'marquee 12s linear infinite', willChange: 'transform' }}
             >
-              <LogoHealthCare />
-              <LogoWorldHeart />
-              <LogoHealthyLife />
-              <LogoSurvivor />
+              {[0, 1, 2].map(i => (
+                <div key={i} className="flex items-center gap-10 sm:gap-16 px-8 shrink-0 min-w-max">
+                  <LogoHealthCare />
+                  <LogoWorldHeart />
+                  <LogoHealthyLife />
+                  <LogoSurvivor />
+                </div>
+              ))}
             </div>
-
           </div>
 
         </div>

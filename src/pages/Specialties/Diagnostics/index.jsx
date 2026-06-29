@@ -1,5 +1,6 @@
 import SEO from '../../../components/SEO';
-import PageBanner from '../../../components/PageBanner';
+import PageHeroBanner from '../../../components/PageHeroBanner';
+import bannerImg from '../../../assets/diagnostics.png';
 import { medicalSpecialtySchema } from '../../../lib/schema';
 
 export default function Diagnostics() {
@@ -16,10 +17,10 @@ export default function Diagnostics() {
           url: 'https://www.unicareglobalhospitals.com/specialties/diagnostics-lab',
         })}
       />
-      <PageBanner
-        chip="Diagnostics & Lab"
-        title="Accurate results. Same day."
-        subtitle="Blood tests, health panels and full-body diagnostics with same-day reports — reviewed by our doctors, not just a printout."
+      <PageHeroBanner heading="Accurate results. Same day." breadcrumbLabel="Diagnostics & Lab" image={bannerImg}
+        
+        
+        
       />
     </>
   );

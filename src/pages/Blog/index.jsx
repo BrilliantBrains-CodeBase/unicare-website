@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import SEO from '../../components/SEO';
-import PageBanner from '../../components/PageBanner';
+import PageHeroBanner from '../../components/PageHeroBanner';
+import bannerImg from '../../assets/faq.jpg';
 import FilterBar from '../../components/FilterBar';
 import { fadeUp, stagger, vp } from '../../lib/animations';
 import { getDoctorBySlug } from '../../data/doctors';
@@ -35,10 +36,10 @@ export default function Blog() {
         keywords="health blog Kokapet, hospital blog Hyderabad, pregnancy advice Kokapet, child health tips, diabetes management Hyderabad"
       />
 
-      <PageBanner
-        chip="Health Blog"
-        title="Health advice from doctors you can visit."
-        subtitle="Practical guidance on pregnancy, child health, diabetes, surgery and more — written by the UniCare team in Kokapet."
+      <PageHeroBanner heading="Health advice from doctors you can visit." breadcrumbLabel="Health Blog" image={bannerImg}
+        
+        
+        
       />
 
       {/* Filter bar */}

@@ -1,5 +1,6 @@
 import SEO from '../../../components/SEO';
-import PageBanner from '../../../components/PageBanner';
+import PageHeroBanner from '../../../components/PageHeroBanner';
+import bannerImg from '../../../assets/maternity.png';
 import { medicalSpecialtySchema } from '../../../lib/schema';
 
 export default function Maternity() {
@@ -16,10 +17,10 @@ export default function Maternity() {
           url: 'https://www.unicareglobalhospitals.com/specialties/maternity-womens-health',
         })}
       />
-      <PageBanner
-        chip="Maternity & Women's Health"
-        title="Expert care through every stage of womanhood."
-        subtitle="Pregnancy care, safe deliveries, fertility guidance and gynecology — led by Dr. A.N. Varuna Vyas, Founder & Clinical Lead."
+      <PageHeroBanner heading="Expert care through every stage of womanhood." breadcrumbLabel="Maternity & Women's Health" image={bannerImg}
+        
+        
+        
       />
     </>
   );

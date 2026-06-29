@@ -1,7 +1,8 @@
 import { useRef, useState, useEffect } from 'react';
 import { useSearchParams, useNavigate } from 'react-router-dom';
 import SEO from '../../components/SEO';
-import PageBanner from '../../components/PageBanner';
+import PageHeroBanner from '../../components/PageHeroBanner';
+import bannerImg from '../../assets/general-medicine.png';
 import { Phone, Pin } from '../../components/icons';
 
 const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwGla8dr0IPmb5wKhYMHLgyh5-vxAZQOkXof6nMdXIf_UgRkc1aZDqxlzVYtuZQyvpm/exec';
@@ -76,10 +77,10 @@ export default function BookAppointment() {
         keywords="book doctor appointment Kokapet, doctor appointment near Narsingi, gynecologist appointment Kokapet"
       />
 
-      <PageBanner
-        chip="Book Appointment"
-        title="Book your visit in under a minute."
-        subtitle="Call, WhatsApp or fill the form below. Our team confirms same-day and you're set."
+      <PageHeroBanner heading="Book your visit in under a minute." breadcrumbLabel="Book Appointment" image={bannerImg}
+        
+        
+        
       />
 
       {/* Form section */}

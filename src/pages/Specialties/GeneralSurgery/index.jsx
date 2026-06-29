@@ -1,5 +1,6 @@
 import SEO from '../../../components/SEO';
-import PageBanner from '../../../components/PageBanner';
+import PageHeroBanner from '../../../components/PageHeroBanner';
+import bannerImg from '../../../assets/surgery-ot.png';
 import { medicalSpecialtySchema } from '../../../lib/schema';
 
 export default function GeneralSurgery() {
@@ -16,10 +17,10 @@ export default function GeneralSurgery() {
           url: 'https://www.unicareglobalhospitals.com/specialties/general-minimal-access-surgery',
         })}
       />
-      <PageBanner
-        chip="Surgery"
-        title="Minimal access. Maximum precision."
-        subtitle="Advanced laparoscopic and general surgery led by Dr. Bhargava Vyas A.N., MS, FIAGES, FMAS — smaller incisions, faster recovery."
+      <PageHeroBanner heading="Minimal access. Maximum precision." breadcrumbLabel="Surgery" image={bannerImg}
+        
+        
+        
       />
     </>
   );

@@ -1,5 +1,6 @@
 import SEO from '../../components/SEO';
-import PageBanner from '../../components/PageBanner';
+import PageHeroBanner from '../../components/PageHeroBanner';
+import bannerImg from '../../assets/diagnostics.png';
 import CTABand from '../../components/CTABand';
 
 export default function Packages() {
@@ -11,10 +12,10 @@ export default function Packages() {
         url="/health-checkup-packages"
         keywords="health checkup packages Kokapet, full body checkup near Gachibowli, master health checkup West Hyderabad"
       />
-      <PageBanner
-        chip="Health Packages"
-        title="Preventive care, priced simply."
-        subtitle="Full-body panels, diabetes screens, women's health and senior citizen packages — each reviewed personally by our doctors."
+      <PageHeroBanner heading="Preventive care, priced simply." breadcrumbLabel="Health Packages" image={bannerImg}
+        
+        
+        
       />
 
       <CTABand

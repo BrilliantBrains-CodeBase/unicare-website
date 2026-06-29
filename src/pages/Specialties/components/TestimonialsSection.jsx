@@ -67,7 +67,7 @@ export default function TestimonialsSection() {
             src={shapeImg}
             alt=""
             aria-hidden="true"
-            className="absolute right-0 bottom-0 w-28 sm:w-36 lg:w-44 pointer-events-none"
+            className="hidden sm:block absolute right-0 bottom-0 w-28 sm:w-36 lg:w-44 pointer-events-none"
             animate={{ y: [0, -10, 0] }}
             transition={{ duration: 2.8, repeat: Infinity, ease: 'easeInOut' }}
           />

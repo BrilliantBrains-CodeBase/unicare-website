@@ -1,5 +1,6 @@
 import SEO from '../../components/SEO';
-import PageBanner from '../../components/PageBanner';
+import PageHeroBanner from '../../components/PageHeroBanner';
+import bannerImg from '../../assets/hospital-exterior-main.png';
 import CTABand from '../../components/CTABand';
 
 export default function About() {
@@ -11,10 +12,10 @@ export default function About() {
         url="/about-us"
         keywords="about UniCare Hospitals, doctor founded hospital Hyderabad, hospital in Kokapet Telangana"
       />
-      <PageBanner
-        chip="About Us"
-        title="Founded by doctors. Built for families."
-        subtitle="UniCare Hospitals was created by practicing specialists who wanted to bring expert, honest care closer to where West Hyderabad families live."
+      <PageHeroBanner heading="Founded by doctors. Built for families." breadcrumbLabel="About Us" image={bannerImg}
+        
+        
+        
       />
 
       <CTABand

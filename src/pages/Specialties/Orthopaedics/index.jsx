@@ -1,5 +1,6 @@
 import SEO from '../../../components/SEO';
-import PageBanner from '../../../components/PageBanner';
+import PageHeroBanner from '../../../components/PageHeroBanner';
+import bannerImg from '../../../assets/ortho.png';
 import { medicalSpecialtySchema } from '../../../lib/schema';
 
 export default function Orthopaedics() {
@@ -16,10 +17,10 @@ export default function Orthopaedics() {
           url: 'https://www.unicareglobalhospitals.com/specialties/orthopedics',
         })}
       />
-      <PageBanner
-        chip="Orthopaedics"
-        title="Bone, joint and spine care in Kokapet."
-        subtitle="Consultations for fractures, joint pain, spine issues and sports injuries — with physiotherapy guidance for lasting recovery."
+      <PageHeroBanner heading="Bone, joint and spine care in Kokapet." breadcrumbLabel="Orthopaedics" image={bannerImg}
+        
+        
+        
       />
     </>
   );

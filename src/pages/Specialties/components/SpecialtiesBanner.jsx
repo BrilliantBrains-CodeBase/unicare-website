@@ -4,7 +4,7 @@ import surgeryImg from '../../../assets/surgery-ot.png';
 
 export default function SpecialtiesBanner() {
   return (
-    <div className="pt-4 sm:pt-6 px-4 sm:px-6 lg:px-8 pb-2">
+    <div className="pt-20 xl:pt-24 2xl:pt-28 px-4 sm:px-6 lg:px-8 pb-2">
 
       {/* Image card */}
       <div className="rounded-2xl overflow-hidden h-48 sm:h-56 lg:h-64">

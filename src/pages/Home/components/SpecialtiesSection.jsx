@@ -13,7 +13,7 @@ import {
 import maternityImg from '../../../assets/maternity.png';
 import pediatricImg from '../../../assets/pediatric.png';
 import surgeryImg   from '../../../assets/surgery-ot.png';
-import diagImg      from '../../../assets/diagnostics.png';
+import diagImg      from '../../../assets/endocrinology.png';
 import polygon1     from '../../../assets/polygon1.png';
 import polygon2     from '../../../assets/polygon2.png';
 
@@ -21,25 +21,25 @@ const specialties = [
   {
     img: maternityImg, poly: polygon1, polyPos: 'right', Icon: IconHeartHandshake,
     name: 'Gynecology & Obstetrics',
-    desc: 'Pregnancy care, safe deliveries, fertility support and gynecological treatment led by founder Dr. A.N. Varuna Vyas.',
+    desc: "Founder-led care for pregnancy, fertility and every stage of a woman's health journey.",
     to: '/specialties/maternity-womens-health',
   },
   {
     img: pediatricImg, poly: polygon1, polyPos: 'right', Icon: IconBabyCarriage,
-    name: 'Pediatrics & Neonatal Care',
-    desc: 'Newborn and child care by two MD pediatricians, Dr. Mareddy Veena and Dr. M. Nitin Rao.',
+    name: 'Pediatrics and Neonatal Care',
+    desc: 'Newborn care, vaccinations, growth monitoring and child illness care by MD pediatricians.',
     to: '/specialties/pediatrics',
   },
   {
     img: surgeryImg, poly: polygon2, polyPos: 'left', Icon: IconScissors,
-    name: 'General & Minimal Access Surgery',
-    desc: 'Laparoscopic and minimal access procedures led by founder Dr. Bhargava Vyas FIAGES, FMAS.',
+    name: 'General and Minimal Access Surgery',
+    desc: 'Advanced laparoscopic and minimal access surgery, founded and led in-house.',
     to: '/specialties/general-minimal-access-surgery',
   },
   {
     img: diagImg, poly: polygon2, polyPos: 'left', Icon: IconDroplet,
-    name: 'Endocrinology & Diabetes',
-    desc: 'Diabetes, thyroid and hormonal care with DM endocrinologist Dr. Deepak Thiriveedi, SCE (UK).',
+    name: 'General Medicines',
+    desc: 'DM-qualified endocrinologist for diabetes, thyroid and hormonal disorders.',
     to: '/specialties/general-medicine-endocrinology',
   },
 ];

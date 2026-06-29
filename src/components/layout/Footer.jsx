@@ -21,12 +21,12 @@ const quickLinks = [
 ];
 
 const specialtyLinks = [
-  { label: "Maternity & Women's Health",        to: '/specialties/maternity-womens-health' },
-  { label: 'Paediatrics & Neonatal Care',       to: '/specialties/pediatrics' },
-  { label: 'Orthopaedics',                      to: '/specialties/orthopedics' },
-  { label: 'General Medicine & Endocrinology',  to: '/specialties/general-medicine-endocrinology' },
-  { label: 'General & Minimal Access Surgery',  to: '/specialties/general-minimal-access-surgery' },
-  { label: 'Diagnostics & Lab',                 to: '/specialties/diagnostics-lab' },
+  { label: 'Gynecology & Obstetrics',              to: '/specialties/maternity-womens-health' },
+  { label: 'Pediatrics and Neonatal Care',          to: '/specialties/pediatrics' },
+  { label: 'Orthopedics',                          to: '/specialties/orthopedics' },
+  { label: 'General Medicines',                     to: '/specialties/general-medicine-endocrinology' },
+  { label: 'General and Minimal Access Surgery',   to: '/specialties/general-minimal-access-surgery' },
+  { label: 'Pharmacy, Diagnostics and Lab',        to: '/specialties/pharmacy' },
 ];
 
 const socialLinks = [

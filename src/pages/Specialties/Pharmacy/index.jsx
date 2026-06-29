@@ -1,5 +1,6 @@
 import SEO from '../../../components/SEO';
-import PageBanner from '../../../components/PageBanner';
+import PageHeroBanner from '../../../components/PageHeroBanner';
+import bannerImg from '../../../assets/pharmacy.png';
 import { medicalSpecialtySchema } from '../../../lib/schema';
 
 export default function Pharmacy() {
@@ -16,10 +17,10 @@ export default function Pharmacy() {
           url: 'https://www.unicareglobalhospitals.com/specialties/pharmacy',
         })}
       />
-      <PageBanner
-        chip="Pharmacy"
-        title="Your prescription, filled right here."
-        subtitle="In-house pharmacy with genuine medicines and pharmacist guidance — no extra trip, right after your consultation."
+      <PageHeroBanner heading="Your prescription, filled right here." breadcrumbLabel="Pharmacy" image={bannerImg}
+        
+        
+        
       />
     </>
   );

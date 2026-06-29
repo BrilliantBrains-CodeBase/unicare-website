@@ -5,6 +5,7 @@ import TrustBar from './components/TrustBar';
 import SpecialtiesSection from './components/SpecialtiesSection';
 import WhyChooseUs from './components/WhyChooseUs';
 import DoctorsPreview from './components/DoctorsPreview';
+import InsuranceSection from '../Specialties/components/InsuranceSection';
 import FindUs from './components/FindUs';
 import MobileAppSection from './components/MobileAppSection';
 import FAQSection from './components/FAQSection';
@@ -24,6 +25,7 @@ export default function Home() {
       <SpecialtiesSection />
       <WhyChooseUs />
       <DoctorsPreview />
+      <InsuranceSection />
       <FindUs />
       <MobileAppSection />
       <FAQSection />

@@ -2,7 +2,8 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import SEO from '../../components/SEO';
-import PageBanner from '../../components/PageBanner';
+import PageHeroBanner from '../../components/PageHeroBanner';
+import bannerImg from '../../assets/hero-thumbnail.png';
 import FilterBar from '../../components/FilterBar';
 import CTABand from '../../components/CTABand';
 import { Phone, WhatsAppIc, CalendarCheck } from '../../components/icons';
@@ -123,10 +124,10 @@ export default function Doctors() {
         schema={doctors.map(d => physicianSchema({ name: d.name, jobTitle: d.role, specialty: d.specialty, image: d.photo }))}
       />
 
-      <PageBanner
-        chip="Our Doctors"
-        title="Doctors who put their names on the building."
-        subtitle="Most hospitals are owned by businesses and staffed by doctors. UniCare is the opposite: built by doctors, for the families of West Hyderabad."
+      <PageHeroBanner heading="Doctors who put their names on the building." breadcrumbLabel="Our Doctors" image={bannerImg}
+        
+        
+        
       />
 
       {/* Filter bar */}

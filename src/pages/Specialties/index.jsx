@@ -16,7 +16,6 @@ import {
   IconScissors,
   IconDroplet,
   IconPill,
-  IconMicroscope,
 } from '@tabler/icons-react';
 
 const cardStagger = stagger(0.06, 0.05);
@@ -25,60 +24,53 @@ const FILTERS = ['All', 'Women & Children', 'Surgery & Ortho', 'Medicine & Diabe
 
 const SPECIALTIES = [
   {
-    tag: 'Orthopedics',
-    category: 'Surgery & Ortho',
-    desc: 'Bone, joint, spine and sports injury care.',
-    to: '/specialties/orthopedics',
-    Icon: IconBone,
-  },
-  {
     tag: 'General Medicine',
     category: 'Medicine & Diabetes',
-    desc: 'Fever, infections, lifestyle disease management and preventive health for adults.',
+    desc: 'Everyday illness, preventive health and chronic condition management.',
     to: '/specialties/general-medicine-endocrinology',
     Icon: IconStethoscope,
   },
   {
     tag: 'Gynecology & Obstetrics',
     category: 'Women & Children',
-    desc: 'Pregnancy care, safe deliveries, fertility support and gynecological treatment led by founder Dr. A.N. Varuna Vyas.',
+    desc: "Founder-led care for pregnancy, fertility and every stage of a woman's health journey.",
     to: '/specialties/maternity-womens-health',
     Icon: IconHeartHandshake,
   },
   {
     tag: 'Pediatrics and Neonatal Care',
     category: 'Women & Children',
-    desc: 'Newborn and child care by two MD pediatricians, Dr. Mareddy Veena and Dr. M. Nitin Rao.',
+    desc: 'Newborn care, vaccinations, growth monitoring and child illness care by MD pediatricians.',
     to: '/specialties/pediatrics',
     Icon: IconBabyCarriage,
   },
   {
     tag: 'General and Minimal Access Surgery',
     category: 'Surgery & Ortho',
-    desc: 'Laparoscopic and minimal access procedures led by founder Dr. Bhargava Vyas A.N., FIAGES, FMAS.',
+    desc: 'Advanced laparoscopic and minimal access surgery, founded and led in-house.',
     to: '/specialties/general-minimal-access-surgery',
     Icon: IconScissors,
   },
   {
-    tag: 'Endocrinology and Diabetes',
+    tag: 'General Medicines',
     category: 'Medicine & Diabetes',
-    desc: 'Diabetes, thyroid and hormonal care with DM endocrinologist Dr. Deepak Thiriveedi.',
+    desc: 'DM-qualified endocrinologist for diabetes, thyroid and hormonal disorders.',
     to: '/specialties/general-medicine-endocrinology',
     Icon: IconDroplet,
   },
   {
-    tag: 'Pharmacy',
-    category: 'Support Services',
-    desc: 'Round-the-clock access to prescribed medicines without leaving the building.',
-    to: '/specialties/pharmacy',
-    Icon: IconPill,
+    tag: 'Orthopedics',
+    category: 'Surgery & Ortho',
+    desc: 'Bone, joint and sports injury care for active families. (Doctor onboarding in progress.)',
+    to: '/specialties/orthopedics',
+    Icon: IconBone,
   },
   {
-    tag: 'Diagnostics and Lab',
+    tag: 'Pharmacy, Diagnostics and Lab',
     category: 'Support Services',
-    desc: 'Blood tests, health panels and imaging with same-day reports.',
-    to: '/specialties/diagnostics-lab',
-    Icon: IconMicroscope,
+    desc: 'In-house pharmacy and NABL-grade diagnostics under one roof.',
+    to: '/specialties/pharmacy',
+    Icon: IconPill,
   },
 ];
 

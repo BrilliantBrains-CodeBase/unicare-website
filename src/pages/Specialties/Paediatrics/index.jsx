@@ -1,5 +1,6 @@
 import SEO from '../../../components/SEO';
-import PageBanner from '../../../components/PageBanner';
+import PageHeroBanner from '../../../components/PageHeroBanner';
+import bannerImg from '../../../assets/pediatric.png';
 import { medicalSpecialtySchema } from '../../../lib/schema';
 
 export default function Paediatrics() {
@@ -16,10 +17,10 @@ export default function Paediatrics() {
           url: 'https://www.unicareglobalhospitals.com/specialties/pediatrics',
         })}
       />
-      <PageBanner
-        chip="Child Health"
-        title="Specialist paediatric care, close to home."
-        subtitle="Newborn checks, vaccinations, fevers and growth monitoring — by MD paediatricians Dr. Mareddy Veena and Dr. M. Nitin Rao."
+      <PageHeroBanner heading="Specialist paediatric care, close to home." breadcrumbLabel="Child Health" image={bannerImg}
+        
+        
+        
       />
     </>
   );

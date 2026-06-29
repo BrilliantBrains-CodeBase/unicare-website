@@ -1,5 +1,6 @@
 import SEO from '../../../components/SEO';
-import PageBanner from '../../../components/PageBanner';
+import PageHeroBanner from '../../../components/PageHeroBanner';
+import bannerImg from '../../../assets/general-medicine.png';
 import { medicalSpecialtySchema } from '../../../lib/schema';
 
 export default function GeneralMedicine() {
@@ -16,10 +17,10 @@ export default function GeneralMedicine() {
           url: 'https://www.unicareglobalhospitals.com/specialties/general-medicine-endocrinology',
         })}
       />
-      <PageBanner
-        chip="Diabetes & Hormones"
-        title="Precision care for diabetes and hormonal health."
-        subtitle="Dr. Deepak Thiriveedi, DM Endocrinology (UK), treats diabetes, thyroid conditions and hormonal disorders alongside full general medicine."
+      <PageHeroBanner heading="Precision care for diabetes and hormonal health." breadcrumbLabel="General Medicine" image={bannerImg}
+        
+        
+        
       />
     </>
   );
