@@ -32,13 +32,20 @@ export default function AuthorBioCard({ doctor }) {
 
       <div className="flex gap-4 sm:gap-5 items-start">
         {/* Avatar */}
-        <div
-          className="shrink-0 w-14 h-14 sm:w-16 sm:h-16 rounded-full flex items-center justify-center font-display text-[18px] font-bold text-white select-none"
-          style={{ background: 'var(--navy)' }}
-          aria-hidden="true"
-        >
-          {initials}
-        </div>
+        {doctor.photo
+          ? <img
+              src={doctor.photo}
+              alt={doctor.name}
+              className="shrink-0 w-14 h-14 sm:w-16 sm:h-16 rounded-full object-cover"
+            />
+          : <div
+              className="shrink-0 w-14 h-14 sm:w-16 sm:h-16 rounded-full flex items-center justify-center font-display text-[18px] font-bold text-white select-none"
+              style={{ background: 'var(--navy)' }}
+              aria-hidden="true"
+            >
+              {initials}
+            </div>
+        }
 
         {/* Info */}
         <div className="flex-1 min-w-0">

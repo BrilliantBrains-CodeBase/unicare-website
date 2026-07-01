@@ -1,9 +1,26 @@
+import { useState } from 'react';
 import SEO from '../../components/SEO';
 import PageHeroBanner from '../../components/PageHeroBanner';
 import bannerImg from '../../assets/diagnostics.png';
-import CTABand from '../../components/CTABand';
+import PackageIntro from './components/PackageIntro';
+import PackageList from './components/PackageList';
+import PackageBooking from './components/PackageBooking';
 
 export default function Packages() {
+  const [selectedPackage, setSelectedPackage] = useState('');
+
+  function handlePackageSelect(pkg) {
+    setSelectedPackage(pkg);
+    // Small delay lets React flush the state before we scroll
+    setTimeout(() => {
+      const el = document.getElementById('package-booking');
+      if (el) {
+        const top = el.getBoundingClientRect().top + window.scrollY - 88;
+        window.scrollTo({ top, behavior: 'smooth' });
+      }
+    }, 50);
+  }
+
   return (
     <>
       <SEO
@@ -12,16 +29,13 @@ export default function Packages() {
         url="/health-checkup-packages"
         keywords="health checkup packages Kokapet, full body checkup near Gachibowli, master health checkup West Hyderabad"
       />
-      <PageHeroBanner heading="Preventive care, priced simply." breadcrumbLabel="Health Packages" image={bannerImg}
-        
-        
-        
-      />
+      <PageHeroBanner heading="Preventive care, priced simply." breadcrumbLabel="Health Packages" image={bannerImg} />
 
-      <CTABand
-        chip="Book a Package"
-        heading="Have Questions About Our Packages? Talk To Our Team."
-        subtext="Call us, WhatsApp or book online — our team will help you pick the right health panel and schedule your visit."
+      <PackageIntro />
+      <PackageList onPackageSelect={handlePackageSelect} />
+      <PackageBooking
+        selectedPackage={selectedPackage}
+        onPackageChange={setSelectedPackage}
       />
     </>
   );

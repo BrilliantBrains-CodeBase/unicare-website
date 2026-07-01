@@ -3,20 +3,29 @@ import { Link } from 'react-router-dom';
 import { scaleIn } from '../../../lib/animations';
 
 const CATEGORY_GRADIENTS = {
-  'Gynecology & Obstetrics':       'linear-gradient(135deg, #9B1B6E 0%, #D65EA0 100%)',
-  'Child Health':           'linear-gradient(135deg, #1B3F9B 0%, #5C7AE8 100%)',
-  'Diabetes and Hormones':  'linear-gradient(135deg, #9B5B1B 0%, #E8975C 100%)',
-  'Surgery':                'linear-gradient(135deg, #1B6B3F 0%, #3BAA6B 100%)',
-  'General Health':         'linear-gradient(135deg, #012257 0%, #2CAAA0 100%)',
+  'Gynecology & OB':        'linear-gradient(135deg, #9B1B6E 0%, #D65EA0 100%)',
+  'Child Health':            'linear-gradient(135deg, #1B3F9B 0%, #5C7AE8 100%)',
+  'Diabetes and Hormones':   'linear-gradient(135deg, #9B5B1B 0%, #E8975C 100%)',
+  'Surgery':                 'linear-gradient(135deg, #1B6B3F 0%, #3BAA6B 100%)',
+  'General Health':          'linear-gradient(135deg, #012257 0%, #2CAAA0 100%)',
 };
 
 const CATEGORY_CHIP = {
-  'Gynecology & Obstetrics':       { bg: 'rgba(155,27,110,0.15)', text: '#7A0F55' },
-  'Child Health':           { bg: 'rgba(27,63,155,0.12)', text: '#1B3F9B' },
-  'Diabetes and Hormones':  { bg: 'rgba(155,91,27,0.12)', text: '#7A4510' },
-  'Surgery':                { bg: 'rgba(27,107,63,0.12)', text: '#145231' },
-  'General Health':         { bg: 'var(--teal-soft)',     text: 'var(--navy)' },
+  'Gynecology & OB':        { bg: 'rgba(155,27,110,0.15)', text: '#7A0F55' },
+  'Child Health':            { bg: 'rgba(27,63,155,0.12)',  text: '#1B3F9B' },
+  'Diabetes and Hormones':   { bg: 'rgba(155,91,27,0.12)',  text: '#7A4510' },
+  'Surgery':                 { bg: 'rgba(27,107,63,0.12)',  text: '#145231' },
+  'General Health':          { bg: 'var(--teal-soft)',      text: 'var(--navy)' },
 };
+
+function getInitials(name) {
+  return name
+    .replace('Dr. ', '')
+    .split(' ')
+    .slice(0, 2)
+    .map(w => w[0])
+    .join('');
+}
 
 export default function PostCard({ post, doctor }) {
   const gradient = CATEGORY_GRADIENTS[post.category] || CATEGORY_GRADIENTS['General Health'];
@@ -73,9 +82,26 @@ export default function PostCard({ post, doctor }) {
           </p>
 
           <div className="flex items-center justify-between text-[12px] text-(--muted) border-t border-(--line) pt-3 mt-auto">
-            <span className="font-medium truncate max-w-[55%]">
-              {doctor ? doctor.name : post.authorSlug}
-            </span>
+            {/* Author avatar + name */}
+            <div className="flex items-center gap-2 truncate max-w-[60%]">
+              {doctor?.photo
+                ? <img
+                    src={doctor.photo}
+                    alt=""
+                    aria-hidden="true"
+                    className="w-6 h-6 rounded-full object-cover shrink-0"
+                  />
+                : <span
+                    className="w-6 h-6 rounded-full text-white text-[10px] font-bold flex items-center justify-center shrink-0"
+                    style={{ background: 'var(--navy)' }}
+                  >
+                    {doctor ? getInitials(doctor.name) : '?'}
+                  </span>
+              }
+              <span className="font-medium truncate" style={{ color: 'var(--navy)' }}>
+                {doctor ? doctor.name : '—'}
+              </span>
+            </div>
             <span>{post.readTime}</span>
           </div>
         </div>

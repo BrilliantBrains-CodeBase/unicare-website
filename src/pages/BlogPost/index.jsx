@@ -10,6 +10,7 @@ import PostHero from './components/PostHero';
 import KeyTakeawaysBox from './components/KeyTakeawaysBox';
 import ArticleBody from './components/ArticleBody';
 import AuthorBioCard from './components/AuthorBioCard';
+import RelatedPosts from './components/RelatedPosts';
 import CTABand from '../Blog/components/CTABand';
 
 export default function BlogPost() {
@@ -47,6 +48,7 @@ export default function BlogPost() {
           <KeyTakeawaysBox takeaways={post.keyTakeaways} />
           <ArticleBody content={post.content} />
           <AuthorBioCard doctor={doctor} />
+          <RelatedPosts currentSlug={post.slug} category={post.category} />
 
           {/* Related specialty link */}
           {post.relatedSpecialty && (
@@ -69,8 +71,6 @@ export default function BlogPost() {
         </div>
       </article>
 
-      {/* CTA band */}
-      <CTABand />
     </>
   );
 }
