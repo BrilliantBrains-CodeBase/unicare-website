@@ -5,8 +5,8 @@ import { IconStarFilled, IconShieldHeart } from '@tabler/icons-react';
 import shapeImg       from '../../../assets/shape.png';
 import consultImg     from '../../../assets/general-medicine.png';
 import surgeryImg     from '../../../assets/surgery-ot.png';
-import userImg        from '../../../assets/user.png';
 import googleIcon    from '../../../assets/google-icon.webp';
+import { UserCircle } from 'lucide-react';
 
 /* placeholder — swap once added to content doc */
 const TESTIMONIALS = [
@@ -117,11 +117,12 @@ export default function TestimonialsSection() {
 
               <div className="flex items-center justify-between mt-auto pt-5">
                 <div className="flex items-center gap-3">
-                  <img
-                    src={userImg}
-                    alt={t.name}
-                    className="w-12 h-12 rounded-full object-cover shrink-0"
-                  />
+                  <span
+                    className="w-12 h-12 rounded-full flex items-center justify-center shrink-0"
+                    style={{ background: 'var(--soft)' }}
+                  >
+                    <UserCircle size={26} color="var(--navy)" strokeWidth={1.5} />
+                  </span>
                   <AnimatePresence mode="wait">
                     <motion.div
                       key={idx}

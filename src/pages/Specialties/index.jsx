@@ -24,13 +24,6 @@ const FILTERS = ['All', 'Women & Children', 'Surgery & Ortho', 'Medicine & Diabe
 
 const SPECIALTIES = [
   {
-    tag: 'General Medicine',
-    category: 'Medicine & Diabetes',
-    desc: 'Everyday illness, preventive health and chronic condition management.',
-    to: '/specialties/general-medicine-endocrinology',
-    Icon: IconStethoscope,
-  },
-  {
     tag: 'Gynecology & Obstetrics',
     category: 'Women & Children',
     desc: "Founder-led care for pregnancy, fertility and every stage of a woman's health journey.",
@@ -45,6 +38,13 @@ const SPECIALTIES = [
     Icon: IconBabyCarriage,
   },
   {
+    tag: 'General Medicine',
+    category: 'Medicine & Diabetes',
+    desc: 'Everyday illness, preventive health and chronic condition management.',
+    to: '/specialties/general-medicine-endocrinology',
+    Icon: IconStethoscope,
+  },
+  {
     tag: 'General and Minimal Access Surgery',
     category: 'Surgery & Ortho',
     desc: 'Advanced laparoscopic and minimal access surgery, founded and led in-house.',
@@ -52,7 +52,7 @@ const SPECIALTIES = [
     Icon: IconScissors,
   },
   {
-    tag: 'General Medicines',
+    tag: 'Endocrinology',
     category: 'Medicine & Diabetes',
     desc: 'DM-qualified endocrinologist for diabetes, thyroid and hormonal disorders.',
     to: '/specialties/general-medicine-endocrinology',

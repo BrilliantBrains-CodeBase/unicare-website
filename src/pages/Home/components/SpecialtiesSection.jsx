@@ -38,7 +38,7 @@ const specialties = [
   },
   {
     img: diagImg, poly: polygon2, polyPos: 'left', Icon: IconDroplet,
-    name: 'General Medicines',
+    name: 'Endocrinology',
     desc: 'DM-qualified endocrinologist for diabetes, thyroid and hormonal disorders.',
     to: '/specialties/general-medicine-endocrinology',
   },

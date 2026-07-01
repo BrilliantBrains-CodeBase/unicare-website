@@ -7,7 +7,7 @@ import {
   Phone, Pin, Menu, Close, ChevronDown, ChevronRight,
   WhatsAppIc, CalendarCheck,
   MaternityIc, PaediatricsIc, OrthoIc, GeneralMedicIc,
-  GeneralSurgIc, PharmacyIc, DiagnosticsIc,
+  GeneralSurgIc, PharmacyIc,
 } from '../icons';
 
 const PHONE           = '+919090546363';
@@ -19,13 +19,13 @@ const WA_MSG          = encodeURIComponent('Hello, I would like to book an appoi
 const WA_URL          = `https://wa.me/919090546363?text=${WA_MSG}`;
 
 const specialtyLinks = [
-  { label: "Maternity & Women's Health", sub: 'Labour, NICU, Gynaec',  to: '/specialties/maternity-womens-health',          Icon: MaternityIc },
-  { label: 'Paediatrics',                sub: 'Child & Newborn Care',   to: '/specialties/pediatrics',                       Icon: PaediatricsIc },
-  { label: 'Orthopaedics',               sub: 'Bones, Joints, Spine',   to: '/specialties/orthopedics',                      Icon: OrthoIc },
-  { label: 'General Medicine',           sub: 'Diabetes, Endocrine',    to: '/specialties/general-medicine-endocrinology',   Icon: GeneralMedicIc },
-  { label: 'General Surgery',            sub: 'Minimal Access',         to: '/specialties/general-minimal-access-surgery',   Icon: GeneralSurgIc },
-  { label: 'Pharmacy',                   sub: 'In-house, 24/7',         to: '/specialties/pharmacy',                         Icon: PharmacyIc },
-  { label: 'Diagnostics & Lab',          sub: 'Scans, Blood Tests',     to: '/specialties/diagnostics-lab',                  Icon: DiagnosticsIc },
+  { label: 'Gynecology & Obstetrics',              sub: 'Labour, NICU, Gynaec',  to: '/specialties/maternity-womens-health',          Icon: MaternityIc },
+  { label: 'Pediatrics and Neonatal Care',          sub: 'Child & Newborn Care',   to: '/specialties/pediatrics',                       Icon: PaediatricsIc },
+  { label: 'General Medicine',                     sub: 'Everyday & Preventive',  to: '/specialties/general-medicine-endocrinology',   Icon: GeneralMedicIc },
+  { label: 'General and Minimal Access Surgery',   sub: 'Minimal Access',         to: '/specialties/general-minimal-access-surgery',   Icon: GeneralSurgIc },
+  { label: 'Endocrinology',                        sub: 'Diabetes, Thyroid',      to: '/specialties/general-medicine-endocrinology',   Icon: GeneralMedicIc },
+  { label: 'Orthopedics',                          sub: 'Bones, Joints, Spine',   to: '/specialties/orthopedics',                      Icon: OrthoIc },
+  { label: 'Pharmacy, Diagnostics and Lab',        sub: 'In-house, 24/7',         to: '/specialties/pharmacy',                         Icon: PharmacyIc },
 ];
 
 const mainLinks = [

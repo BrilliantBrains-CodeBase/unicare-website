@@ -1,6 +1,10 @@
 import SEO from '../../components/SEO';
 import PageHeroBanner from '../../components/PageHeroBanner';
 import bannerImg from '../../assets/hospital-exterior-main.png';
+import OurStory from './components/OurStory';
+import MissionVision from './components/MissionVision';
+import OurValues from './components/OurValues';
+import TestimonialsSection from './components/TestimonialsSection';
 import CTABand from '../../components/CTABand';
 
 export default function About() {
@@ -13,16 +17,18 @@ export default function About() {
         keywords="about UniCare Hospitals, doctor founded hospital Hyderabad, hospital in Kokapet Telangana"
       />
       <PageHeroBanner heading="Founded by doctors. Built for families." breadcrumbLabel="About Us" image={bannerImg}
-        
-        
-        
+
+
+
       />
 
-      <CTABand
-        chip="Visit Us"
-        heading="Ready To Meet Your Specialist? We Are Five Minutes Away."
-        subtext="Call, WhatsApp or book online — our team will confirm your appointment and guide you to the right specialist."
-      />
+      <OurStory />
+
+      <MissionVision />
+
+      <OurValues />
+
+      <TestimonialsSection />
     </>
   );
 }

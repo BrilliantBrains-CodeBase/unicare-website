@@ -16,11 +16,6 @@ const faqs = [
     a: 'Yes. UniCare Hospitals works with leading health insurance providers and TPAs. The full list of empanelled insurers is available on our website and at the front desk, and our team assists with cashless and reimbursement processes.',
   },
   {
-    id: 'faq3',
-    q: 'How do I book an appointment at UniCare Hospitals Kokapet?',
-    a: 'You can book an appointment by calling +91 90905 46363, messaging us on WhatsApp, or using the Book an Appointment form on our website. Our team confirms your slot the same day.',
-  },
-  {
     id: 'faq4',
     q: 'Can the whole family be treated at UniCare Hospitals?',
     a: 'Yes. UniCare is designed as a family hospital. We care for patients across all age groups, from newborns and young children to adults and seniors. Our multispecialty setup means most of your family\'s healthcare needs can be addressed under one roof, without needing to visit multiple facilities.',
