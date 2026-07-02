@@ -31,7 +31,6 @@ export default function Orthopaedics() {
       />
       <PageHeroBanner heading="Bone, joint and spine care in Kokapet." breadcrumbLabel="Orthopaedics" image={bannerImg} />
       <DepartmentAbout />
-      <CTABand heading="Do not let pain set your schedule." chip="Book a Consultation" />
     </>
   );
 }

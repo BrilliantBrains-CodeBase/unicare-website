@@ -7,7 +7,7 @@ import {
   Phone, Pin, Menu, Close, ChevronDown, ChevronRight,
   WhatsAppIc, CalendarCheck,
   MaternityIc, PaediatricsIc, OrthoIc, GeneralMedicIc,
-  GeneralSurgIc, PharmacyIc,
+  GeneralSurgIc, PharmacyIc, DiagnosticsIc,
 } from '../icons';
 
 const PHONE           = '+919090546363';
@@ -19,13 +19,14 @@ const WA_MSG          = encodeURIComponent('Hello, I would like to book an appoi
 const WA_URL          = `https://wa.me/919090546363?text=${WA_MSG}`;
 
 const specialtyLinks = [
-  { label: 'Gynecology & Obstetrics',              sub: 'Labour, NICU, Gynaec',  to: '/specialties/maternity-womens-health',          Icon: MaternityIc },
-  { label: 'Pediatrics and Neonatal Care',          sub: 'Child & Newborn Care',   to: '/specialties/pediatrics',                       Icon: PaediatricsIc },
-  { label: 'General Medicine',                     sub: 'Everyday & Preventive',  to: '/specialties/general-medicine-endocrinology',   Icon: GeneralMedicIc },
-  { label: 'General and Minimal Access Surgery',   sub: 'Minimal Access',         to: '/specialties/general-minimal-access-surgery',   Icon: GeneralSurgIc },
-  { label: 'Endocrinology',                        sub: 'Diabetes, Thyroid',      to: '/specialties/general-medicine-endocrinology',   Icon: GeneralMedicIc },
-  { label: 'Orthopedics',                          sub: 'Bones, Joints, Spine',   to: '/specialties/orthopedics',                      Icon: OrthoIc },
-  { label: 'Pharmacy, Diagnostics and Lab',        sub: 'In-house, 24/7',         to: '/specialties/pharmacy',                         Icon: PharmacyIc },
+  { label: 'Gynecology & Obstetrics',            sub: 'Labour, NICU, Gynaec',  to: '/specialties/maternity-womens-health',        Icon: MaternityIc },
+  { label: 'Pediatrics and Neonatal Care',        sub: 'Child & Newborn Care',  to: '/specialties/pediatrics',                     Icon: PaediatricsIc },
+  { label: 'General Medicine',                   sub: 'Everyday & Preventive', to: '/specialties/general-medicine-endocrinology', Icon: GeneralMedicIc },
+  { label: 'General and Minimal Access Surgery', sub: 'Minimal Access',        to: '/specialties/general-minimal-access-surgery', Icon: GeneralSurgIc },
+  { label: 'Endocrinology',                      sub: 'Diabetes, Thyroid',     to: '/specialties/general-medicine-endocrinology', Icon: GeneralMedicIc },
+  { label: 'Orthopedics',                        sub: 'Bones, Joints, Spine',  to: '/specialties/orthopedics',                    Icon: OrthoIc },
+  { label: 'Pharmacy',                           sub: 'In-house medicines',    to: '/specialties/pharmacy',                       Icon: PharmacyIc },
+  { label: 'Diagnostics & Lab',                  sub: 'Blood tests, same-day', to: '/specialties/diagnostics-lab',                Icon: DiagnosticsIc },
 ];
 
 const mainLinks = [
@@ -442,7 +443,6 @@ export default function Header() {
                                 isActive ? 'bg-[var(--teal-soft)]' : 'hover:bg-[var(--soft)]'
                               }`
                             }
-                            style={{ gridColumn: i === 6 ? 'span 2' : undefined }}
                           >
                             <span className="w-9 h-9 rounded-lg bg-[var(--teal-soft)] flex items-center justify-center shrink-0 group-hover:bg-[var(--teal-tint)] transition-colors">
                               <Icon s={18} c="var(--teal)" />

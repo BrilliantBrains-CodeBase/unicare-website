@@ -73,14 +73,14 @@ function ServiceCard({ svc }) {
   return (
     <div className="relative mb-9 group">
       {/* Offset shadow that appears on hover */}
-      <div className="absolute inset-0 rounded-[20px] translate-x-[10px] translate-y-[10px] -z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+      <div className="absolute inset-0 rounded-[20px] translate-x-2.5 translate-y-2.5 -z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
            style={{ background: '#D6D2F1' }} />
       <div className="relative z-10 rounded-[20px] bg-white px-8 py-10 2xl:px-12 2xl:py-14 transition-all duration-500">
         <div className="mb-7">
           <svc.Icon size={40} color="var(--teal)" stroke={1.5} />
         </div>
         <h3 className="text-[18px] 2xl:text-[22px] font-bold mb-4" style={{ color: 'var(--navy)' }}>
-          <Link to={svc.to} className="hover:text-[var(--teal)] transition-colors">
+          <Link to={svc.to} className="hover:text-(--teal) transition-colors">
             {svc.name}
           </Link>
         </h3>
@@ -111,7 +111,7 @@ export default function SpecialtiesSection() {
 
           {/* Section heading */}
           <motion.div
-            className="max-w-[635px] mx-auto text-center mb-12"
+            className="max-w-158.75 mx-auto text-center mb-12"
             variants={fadeUp} initial="hidden" whileInView="visible" viewport={vp}
           >
             <span className="block text-[12px] font-bold tracking-[1.2px] uppercase mb-3"

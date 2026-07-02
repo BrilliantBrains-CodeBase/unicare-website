@@ -26,8 +26,9 @@ const specialtyLinks = [
   { label: 'General Medicine',                     to: '/specialties/general-medicine-endocrinology' },
   { label: 'General and Minimal Access Surgery',   to: '/specialties/general-minimal-access-surgery' },
   { label: 'Endocrinology',                        to: '/specialties/general-medicine-endocrinology' },
-  { label: 'Orthopedics',                          to: '/specialties/orthopedics' },
-  { label: 'Pharmacy, Diagnostics and Lab',        to: '/specialties/pharmacy' },
+  { label: 'Orthopedics',         to: '/specialties/orthopedics' },
+  { label: 'Pharmacy',            to: '/specialties/pharmacy' },
+  { label: 'Diagnostics & Lab',   to: '/specialties/diagnostics-lab' },
 ];
 
 const socialLinks = [

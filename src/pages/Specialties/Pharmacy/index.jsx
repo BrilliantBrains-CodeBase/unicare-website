@@ -21,7 +21,6 @@ export default function Pharmacy() {
       />
       <PageHeroBanner heading="Your prescription, filled right here." breadcrumbLabel="Pharmacy" image={bannerImg} />
       <DepartmentAbout />
-      <CTABand heading="Visiting Unicare? Your medicines are already here." chip="Get Directions" />
     </>
   );
 }

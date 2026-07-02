@@ -31,7 +31,6 @@ export default function Diagnostics() {
       />
       <PageHeroBanner heading="Accurate results. Same day." breadcrumbLabel="Diagnostics & Lab" image={bannerImg} />
       <DepartmentAbout />
-      <CTABand heading="Book your tests where your doctor is." chip="Book Now" />
     </>
   );
 }

@@ -39,7 +39,6 @@ export default function GeneralSurgery() {
       />
       <PageHeroBanner heading="Minimal access. Maximum precision." breadcrumbLabel="Surgery" image={bannerImg} />
       <DepartmentAbout />
-      <CTABand heading="Get a surgical opinion you can trust." chip="Book a Consultation" />
     </>
   );
 }

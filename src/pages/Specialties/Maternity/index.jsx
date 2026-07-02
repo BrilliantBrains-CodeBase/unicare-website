@@ -39,7 +39,6 @@ export default function Maternity() {
       />
       <PageHeroBanner heading="Expert care through every stage of womanhood." breadcrumbLabel="Maternity & Women's Health" image={bannerImg} />
       <DepartmentAbout />
-      <CTABand heading="Begin your pregnancy journey with a doctor who stays with you." chip="Book a Consultation" />
     </>
   );
 }

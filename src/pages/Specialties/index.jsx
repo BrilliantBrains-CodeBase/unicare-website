@@ -16,6 +16,7 @@ import {
   IconScissors,
   IconDroplet,
   IconPill,
+  IconMicroscope,
 } from '@tabler/icons-react';
 
 const cardStagger = stagger(0.06, 0.05);
@@ -66,11 +67,18 @@ const SPECIALTIES = [
     Icon: IconBone,
   },
   {
-    tag: 'Pharmacy, Diagnostics and Lab',
+    tag: 'Pharmacy',
     category: 'Support Services',
-    desc: 'In-house pharmacy and NABL-grade diagnostics under one roof.',
+    desc: 'In-house pharmacy stocked with the medicines our doctors prescribe, dispensed by qualified pharmacists.',
     to: '/specialties/pharmacy',
     Icon: IconPill,
+  },
+  {
+    tag: 'Diagnostics & Lab',
+    category: 'Support Services',
+    desc: 'Blood tests, diabetes panels, maternity tests and preventive health checks with same-day reports.',
+    to: '/specialties/diagnostics-lab',
+    Icon: IconMicroscope,
   },
 ];
 

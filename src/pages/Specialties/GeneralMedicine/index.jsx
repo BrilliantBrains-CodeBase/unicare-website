@@ -39,7 +39,6 @@ export default function GeneralMedicine() {
       />
       <PageHeroBanner heading="Precision care for diabetes and hormonal health." breadcrumbLabel="General Medicine" image={bannerImg} />
       <DepartmentAbout />
-      <CTABand heading="Take control of your diabetes with a super-specialist." chip="Book a Consultation" />
     </>
   );
 }
