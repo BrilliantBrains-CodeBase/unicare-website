@@ -56,7 +56,7 @@ const SPECIALTIES = [
     tag: 'Endocrinology',
     category: 'Medicine & Diabetes',
     desc: 'DM-qualified endocrinologist for diabetes, thyroid and hormonal disorders.',
-    to: '/specialties/general-medicine-endocrinology',
+    to: '/specialties/endocrinology',
     Icon: IconDroplet,
   },
   {

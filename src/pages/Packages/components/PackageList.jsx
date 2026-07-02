@@ -1,81 +1,82 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { IconArrowDownRight } from '@tabler/icons-react';
+import FilterBar from '../../../components/FilterBar';
 import { fadeUp, vp } from '../../../lib/animations';
 
-const TABS = ['ALL', 'BLOOD TESTS', 'HORMONE & FERTILITY', 'CARDIAC', 'IMAGING & DIAGNOSTICS'];
+const TABS = ['All', 'Blood Tests', 'Hormone & Fertility', 'Cardiac', 'Imaging & Diagnostics'];
 
 const GROUPS = [
   {
     id: 'cbp',
     label: 'Complete Blood Picture (CBP) / Complete Blood Count (CBC)',
-    tabs: ['ALL', 'BLOOD TESTS'],
+    tabs: ['All', 'Blood Tests'],
     items: [],
   },
   {
     id: 'sugar',
     label: 'Blood Sugar Tests',
-    tabs: ['ALL', 'BLOOD TESTS'],
+    tabs: ['All', 'Blood Tests'],
     items: ['FBS / PPBS', 'HbA1c'],
   },
   {
     id: 'renal',
     label: 'Renal (Kidney) Profile',
-    tabs: ['ALL', 'BLOOD TESTS'],
+    tabs: ['All', 'Blood Tests'],
     items: [],
   },
   {
     id: 'lft',
     label: 'Liver Function Tests (LFT)',
-    tabs: ['ALL', 'BLOOD TESTS'],
+    tabs: ['All', 'Blood Tests'],
     items: [],
   },
   {
     id: 'thyroid',
     label: 'Thyroid Profile',
-    tabs: ['ALL', 'BLOOD TESTS'],
+    tabs: ['All', 'Blood Tests'],
     items: [],
   },
   {
     id: 'vitamin',
     label: 'Vitamin Profile',
-    tabs: ['ALL', 'BLOOD TESTS'],
+    tabs: ['All', 'Blood Tests'],
     items: ['Vitamin D', 'Vitamin B12'],
   },
   {
     id: 'hormone',
     label: 'Hormone Tests',
-    tabs: ['ALL', 'HORMONE & FERTILITY'],
+    tabs: ['All', 'Hormone & Fertility'],
     items: [],
   },
   {
     id: 'lipid',
     label: 'Lipid Profile (Cholesterol Tests)',
-    tabs: ['ALL', 'BLOOD TESTS'],
+    tabs: ['All', 'Blood Tests'],
     items: [],
   },
   {
     id: 'cardiac',
     label: 'Cardiac Markers',
-    tabs: ['ALL', 'CARDIAC'],
+    tabs: ['All', 'Cardiac'],
     items: [],
   },
   {
     id: 'fertility',
     label: 'Fertility Tests',
-    tabs: ['ALL', 'HORMONE & FERTILITY'],
+    tabs: ['All', 'Hormone & Fertility'],
     items: [],
   },
   {
     id: 'antenatal',
     label: 'Antenatal Profile',
-    tabs: ['ALL', 'HORMONE & FERTILITY'],
+    tabs: ['All', 'Hormone & Fertility'],
     items: [],
   },
   {
     id: 'imaging',
     label: 'Imaging & Diagnostic Procedures',
-    tabs: ['ALL', 'IMAGING & DIAGNOSTICS'],
+    tabs: ['All', 'Imaging & Diagnostics'],
     items: [
       'Ultrasound Scanning',
       'Antenatal Scan',
@@ -135,11 +136,13 @@ function GroupBlock({ group, onSelect }) {
 }
 
 export default function PackageList({ onPackageSelect }) {
-  const [activeTab, setActiveTab] = useState('ALL');
+  const [activeTab,   setActiveTab]   = useState('All');
+  const [searchQuery, setSearchQuery] = useState('');
 
-  const visible = activeTab === 'ALL'
-    ? GROUPS
-    : GROUPS.filter(g => g.tabs.includes(activeTab));
+  const q = searchQuery.toLowerCase();
+  const visible = GROUPS
+    .filter(g => activeTab === 'All' || g.tabs.includes(activeTab))
+    .filter(g => !q || g.label.toLowerCase().includes(q) || g.items.some(item => item.toLowerCase().includes(q)));
 
   return (
     <section className="bg-white pb-16 sm:pb-20 px-4 sm:px-6 lg:px-10">
@@ -151,31 +154,16 @@ export default function PackageList({ onPackageSelect }) {
           whileInView="visible"
           viewport={vp}
         >
-          {/* Filter tab pills */}
-          <div className="flex flex-wrap justify-center gap-2.5 mb-8">
-            {TABS.map(tab => (
-              <button
-                key={tab}
-                onClick={() => setActiveTab(tab)}
-                className="relative text-[10px] font-semibold tracking-[0.12em] uppercase rounded-full px-4 cursor-pointer transition-colors duration-200"
-                style={{
-                  minHeight: 36,
-                  border: '1px solid var(--line)',
-                  background: activeTab === tab ? 'transparent' : '#fff',
-                  color: activeTab === tab ? '#fff' : 'var(--navy)',
-                }}
-              >
-                {activeTab === tab && (
-                  <motion.span
-                    layoutId="pkg-pill-bg"
-                    className="absolute inset-0 rounded-full"
-                    style={{ background: 'var(--navy)' }}
-                    transition={{ type: 'spring', stiffness: 400, damping: 35 }}
-                  />
-                )}
-                <span className="relative z-10">{tab}</span>
-              </button>
-            ))}
+          {/* Filter bar */}
+          <div className="mb-8">
+            <FilterBar
+              searchQuery={searchQuery}
+              onSearch={setSearchQuery}
+              searchPlaceholder="Search tests…"
+              filters={TABS}
+              activeFilter={activeTab}
+              onFilter={(f) => { setActiveTab(f); setSearchQuery(''); }}
+            />
           </div>
 
           {/* Content card */}

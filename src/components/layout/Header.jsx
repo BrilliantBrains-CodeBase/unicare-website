@@ -23,7 +23,7 @@ const specialtyLinks = [
   { label: 'Pediatrics and Neonatal Care',        sub: 'Child & Newborn Care',  to: '/specialties/pediatrics',                     Icon: PaediatricsIc },
   { label: 'General Medicine',                   sub: 'Everyday & Preventive', to: '/specialties/general-medicine-endocrinology', Icon: GeneralMedicIc },
   { label: 'General and Minimal Access Surgery', sub: 'Minimal Access',        to: '/specialties/general-minimal-access-surgery', Icon: GeneralSurgIc },
-  { label: 'Endocrinology',                      sub: 'Diabetes, Thyroid',     to: '/specialties/general-medicine-endocrinology', Icon: GeneralMedicIc },
+  { label: 'Endocrinology',                      sub: 'Diabetes, Thyroid',     to: '/specialties/endocrinology',                  Icon: GeneralMedicIc },
   { label: 'Orthopedics',                        sub: 'Bones, Joints, Spine',  to: '/specialties/orthopedics',                    Icon: OrthoIc },
   { label: 'Pharmacy',                           sub: 'In-house medicines',    to: '/specialties/pharmacy',                       Icon: PharmacyIc },
   { label: 'Diagnostics & Lab',                  sub: 'Blood tests, same-day', to: '/specialties/diagnostics-lab',                Icon: DiagnosticsIc },

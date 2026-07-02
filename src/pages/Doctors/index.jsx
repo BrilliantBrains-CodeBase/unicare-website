@@ -5,6 +5,7 @@ import SEO from '../../components/SEO';
 import PageHeroBanner from '../../components/PageHeroBanner';
 import bannerImg from '../../assets/hero-thumbnail.png';
 import CTABand from '../../components/CTABand';
+import FilterBar from '../../components/FilterBar';
 import { Phone, WhatsAppIc, CalendarCheck } from '../../components/icons';
 import { fadeUp, vp } from '../../lib/animations';
 import { physicianSchema } from '../../lib/schema';
@@ -103,15 +104,20 @@ function DoctorCard({ doc }) {
 }
 
 export default function Doctors() {
-  const [activeFilter, setActiveFilter] = useState('All');
-  const [showAll,      setShowAll]      = useState(false);
+  const [activeFilter,  setActiveFilter]  = useState('All');
+  const [searchQuery,   setSearchQuery]   = useState('');
+  const [showAll,       setShowAll]       = useState(false);
 
-  const filtered = doctors.filter(d => activeFilter === 'All' || d.specialty === activeFilter);
-  const visible  = filtered.slice(0, showAll ? filtered.length : 3);
-  const hasMore  = filtered.length > 3 && !showAll;
+  const q = searchQuery.toLowerCase();
+  const filtered = doctors
+    .filter(d => activeFilter === 'All' || d.specialty === activeFilter)
+    .filter(d => !q || d.name.toLowerCase().includes(q) || d.specialty.toLowerCase().includes(q));
+  const visible = filtered.slice(0, showAll ? filtered.length : 3);
+  const hasMore = filtered.length > 3 && !showAll;
 
   function handleFilter(f) {
     setActiveFilter(f);
+    setSearchQuery('');
     setShowAll(false);
   }
 
@@ -164,37 +170,22 @@ export default function Doctors() {
               </p>
             </motion.div>
 
-            {/* Filter pill tabs */}
+            {/* Filter bar */}
             <motion.div
-              className="flex flex-wrap justify-center gap-2 mb-10"
+              className="mb-10"
               variants={fadeUp}
               initial="hidden"
               whileInView="visible"
               viewport={vp}
             >
-              {FILTERS.map(f => (
-                <button
-                  key={f}
-                  onClick={() => handleFilter(f)}
-                  className="relative text-[12px] font-semibold tracking-[0.08em] rounded-full px-5 cursor-pointer transition-colors duration-200"
-                  style={{
-                    minHeight: 38,
-                    border: '1px solid var(--line)',
-                    background: activeFilter === f ? 'transparent' : '#fff',
-                    color:      activeFilter === f ? '#fff'  : 'var(--navy)',
-                  }}
-                >
-                  {activeFilter === f && (
-                    <motion.span
-                      layoutId="doc-pill-bg"
-                      className="absolute inset-0 rounded-full"
-                      style={{ background: 'var(--navy)' }}
-                      transition={{ type: 'spring', stiffness: 400, damping: 35 }}
-                    />
-                  )}
-                  <span className="relative z-10">{f}</span>
-                </button>
-              ))}
+              <FilterBar
+                searchQuery={searchQuery}
+                onSearch={(v) => { setSearchQuery(v); setShowAll(false); }}
+                searchPlaceholder="Search doctors…"
+                filters={FILTERS}
+                activeFilter={activeFilter}
+                onFilter={handleFilter}
+              />
             </motion.div>
 
             {/* Doctor cards grid */}

@@ -11,7 +11,8 @@ import Specialties     from './pages/Specialties/index.jsx';
 import Maternity       from './pages/Specialties/Maternity/index.jsx';
 import Paediatrics     from './pages/Specialties/Paediatrics/index.jsx';
 import Orthopaedics    from './pages/Specialties/Orthopaedics/index.jsx';
-import GeneralMedicine from './pages/Specialties/GeneralMedicine/index.jsx';
+import GeneralMedicine  from './pages/Specialties/GeneralMedicine/index.jsx';
+import Endocrinology   from './pages/Specialties/Endocrinology/index.jsx';
 import GeneralSurgery  from './pages/Specialties/GeneralSurgery/index.jsx';
 import Pharmacy        from './pages/Specialties/Pharmacy/index.jsx';
 import Diagnostics     from './pages/Specialties/Diagnostics/index.jsx';
@@ -56,6 +57,7 @@ export default function App() {
           <Route path="/specialties/pediatrics"     element={<Paediatrics />} />
           <Route path="/specialties/orthopedics"    element={<Orthopaedics />} />
           <Route path="/specialties/general-medicine-endocrinology" element={<GeneralMedicine />} />
+          <Route path="/specialties/endocrinology"                  element={<Endocrinology />} />
           <Route path="/specialties/general-minimal-access-surgery" element={<GeneralSurgery />} />
           <Route path="/specialties/pharmacy"       element={<Pharmacy />} />
           <Route path="/specialties/diagnostics-lab" element={<Diagnostics />} />

@@ -25,7 +25,7 @@ const specialtyLinks = [
   { label: 'Pediatrics and Neonatal Care',          to: '/specialties/pediatrics' },
   { label: 'General Medicine',                     to: '/specialties/general-medicine-endocrinology' },
   { label: 'General and Minimal Access Surgery',   to: '/specialties/general-minimal-access-surgery' },
-  { label: 'Endocrinology',                        to: '/specialties/general-medicine-endocrinology' },
+  { label: 'Endocrinology',                        to: '/specialties/endocrinology' },
   { label: 'Orthopedics',         to: '/specialties/orthopedics' },
   { label: 'Pharmacy',            to: '/specialties/pharmacy' },
   { label: 'Diagnostics & Lab',   to: '/specialties/diagnostics-lab' },

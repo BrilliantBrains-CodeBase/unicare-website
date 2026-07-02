@@ -15,41 +15,38 @@ const deptDoctors = doctors.filter(d => d.specialty === 'Endocrinology & Diabete
 const OTHER_SPECIALTIES = [
   { label: "Maternity & Women's Health",       to: '/specialties/maternity-womens-health' },
   { label: 'Pediatrics',                       to: '/specialties/pediatrics' },
-  { label: 'Endocrinology',                    to: '/specialties/endocrinology' },
+  { label: 'General Medicine',                 to: '/specialties/general-medicine-endocrinology' },
   { label: 'General & Minimal Access Surgery', to: '/specialties/general-minimal-access-surgery' },
   { label: 'Orthopedics',                      to: '/specialties/orthopedics' },
   { label: 'Pharmacy',                         to: '/specialties/pharmacy' },
   { label: 'Diagnostics & Lab',                to: '/specialties/diagnostics-lab' },
 ];
 
-const ENDO_SERVICES = [
-  'Type 1 and Type 2 diabetes diagnosis, treatment and long-term management',
-  'Thyroid disorders: hypothyroidism, hyperthyroidism, thyroid nodules',
-  'Obesity and metabolic syndrome management',
-  'Hormonal disorders including PCOS-related endocrine care',
-  'Osteoporosis and calcium or vitamin D disorders',
-  'Gestational diabetes care, in coordination with our maternity team',
-];
-
-const GM_SERVICES = [
-  'Fever, infections and everyday adult illness',
-  'Hypertension and cholesterol management',
-  'Preventive health consultations and annual reviews',
-  'Management of chronic conditions with in-house lab monitoring',
+const SERVICES = [
+  'Diabetes Care — Type 1 and Type 2 diagnosis, insulin therapy and long-term management',
+  'Thyroid Disorders — hypothyroidism, hyperthyroidism and thyroid nodules',
+  'Obesity & Metabolic Health — weight management and metabolic syndrome',
+  'Hormonal Disorders — evaluation and treatment of endocrine imbalances',
+  "PCOS & Women's Endocrine Health — hormonal support for PCOS and related conditions",
+  'Osteoporosis & Bone Health — calcium, vitamin D and bone density management',
+  'Gestational Diabetes Care — in coordination with our maternity team',
+  'Adrenal & Pituitary Disorders — specialist evaluation and management',
+  'Diabetes Complication Prevention — eye, kidney and nerve protection monitoring',
+  'Lifestyle & Nutrition Guidance — personalised plans alongside medical treatment',
 ];
 
 const FAQS = [
   {
-    q: 'Is there an endocrinologist in Kokapet?',
-    a: 'Yes. Dr. Deepak Thiriveedi, MBBS, MD, DM (Endocrinology), with the UK SCE in Endocrinology and Diabetes, consults at Unicare Hospitals in Kokapet. He treats diabetes, thyroid disorders, obesity and hormonal conditions for patients across West Hyderabad.',
+    q: 'Do you provide treatment for diabetes at Unicare Hospitals?',
+    a: 'Yes. Unicare Hospitals offers comprehensive diabetes care including diagnosis, medication management, insulin therapy, lifestyle counselling and long-term monitoring to help patients maintain healthy blood sugar levels.',
   },
   {
-    q: 'Which is the best diabetes doctor near Gachibowli or the Financial District?',
-    a: 'Unicare Hospitals in Kokapet, close to Gachibowli and Financial District, offers diabetes care led by DM endocrinologist Dr. Deepak Thiriveedi, with in-house lab testing for HbA1c and glucose monitoring, so diagnosis, testing and treatment happen in one visit.',
+    q: 'Can I consult for thyroid problems at Unicare Hospitals?',
+    a: 'Yes. We evaluate and treat common thyroid conditions including hypothyroidism, hyperthyroidism, thyroid nodules and other thyroid hormone disorders with appropriate investigations and personalized treatment plans.',
   },
   {
-    q: 'Do I need a referral to see an endocrinologist at Unicare?',
-    a: 'No referral is needed. You can book a direct consultation with our endocrinologist by calling +91 90905 46363, messaging on WhatsApp, or using the online booking form. Bring any previous reports for a more complete first consultation.',
+    q: 'Do you treat hormonal disorders and obesity?',
+    a: 'Yes. Our endocrinology services include treatment for obesity, metabolic syndrome, PCOS-related hormonal imbalance, osteoporosis, adrenal disorders and other endocrine conditions through evidence-based medical care.',
   },
 ];
 
@@ -64,7 +61,12 @@ function DoctorCard({ doc }) {
         <h3 className="text-[17px] font-bold leading-snug shrink-0 text-white">{doc.name}</h3>
         <p className="text-[13px] mt-0.5 mb-3 shrink-0" style={{ color: 'rgba(255,255,255,0.65)' }}>{shortRole}</p>
         <div className="flex items-center gap-2 shrink-0 pb-4" onClick={e => e.stopPropagation()}>
-          <Link to="/book-an-appointment" className="flex-1 min-w-0 h-10 flex items-center justify-center gap-1.5 rounded-full text-[13px] font-semibold text-white hover:opacity-85 cursor-pointer" style={{ background: 'var(--teal)' }} aria-label="Book an appointment">
+          <Link
+            to={`/book-an-appointment?doctor=${encodeURIComponent(doc.name)}`}
+            className="flex-1 min-w-0 h-10 flex items-center justify-center gap-1.5 rounded-full text-[13px] font-semibold text-white hover:opacity-85 cursor-pointer"
+            style={{ background: 'var(--teal)' }}
+            aria-label="Book an appointment"
+          >
             <CalendarCheck s={13} c="#fff" /> Book Now
           </Link>
           <a href={doc.waUrl} target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" className="h-8 w-8 shrink-0 rounded-full flex items-center justify-center hover:opacity-80 cursor-pointer" style={{ background: 'rgba(255,255,255,0.12)' }}>
@@ -118,15 +120,21 @@ export default function DepartmentAbout() {
       <div className="max-w-330 mx-auto">
         <div className="flex flex-col-reverse lg:grid lg:grid-cols-12 gap-10 xl:gap-14 lg:items-start">
 
+          {/* Sidebar */}
           <div className="lg:col-span-4 lg:sticky lg:top-28">
             <motion.div className="flex flex-col gap-6 rounded-2xl p-6" style={{ background: 'var(--soft)' }} variants={fadeUp} initial="hidden" whileInView="visible" viewport={vp}>
               <div>
                 <p className="text-[11px] font-bold tracking-[1.1px] uppercase mb-3" style={{ color: 'var(--teal)' }}>Other Specialties</p>
                 <div className="flex flex-col gap-1.5">
                   {OTHER_SPECIALTIES.map(s => (
-                    <Link key={s.to} to={s.to} className="block text-[13px] font-medium px-4 py-2.5 rounded-xl transition-colors duration-150" style={{ background: '#fff', border: '1px solid var(--line)', color: 'var(--navy)' }}
+                    <Link
+                      key={s.to}
+                      to={s.to}
+                      className="block text-[13px] font-medium px-4 py-2.5 rounded-xl transition-colors duration-150"
+                      style={{ background: '#fff', border: '1px solid var(--line)', color: 'var(--navy)' }}
                       onMouseEnter={e => { e.currentTarget.style.borderColor = 'var(--teal)'; e.currentTarget.style.color = 'var(--teal)'; }}
-                      onMouseLeave={e => { e.currentTarget.style.borderColor = 'var(--line)'; e.currentTarget.style.color = 'var(--navy)'; }}>
+                      onMouseLeave={e => { e.currentTarget.style.borderColor = 'var(--line)'; e.currentTarget.style.color = 'var(--navy)'; }}
+                    >
                       {s.label}
                     </Link>
                   ))}
@@ -134,39 +142,40 @@ export default function DepartmentAbout() {
               </div>
               <div>
                 <p className="text-[11px] font-bold tracking-[1.1px] uppercase mb-3" style={{ color: 'var(--teal)' }}>Get Directions</p>
-                <a href="https://www.google.com/maps/dir/?api=1&destination=UniCare+Hospitals,+Kokapet,+Hyderabad" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center h-10 w-full rounded-xl text-[13px] font-semibold text-white transition-opacity hover:opacity-85" style={{ background: 'var(--teal)' }}>
+                <a
+                  href="https://www.google.com/maps/dir/?api=1&destination=UniCare+Hospitals,+Kokapet,+Hyderabad"
+                  target="_blank" rel="noopener noreferrer"
+                  className="flex items-center justify-center h-10 w-full rounded-xl text-[13px] font-semibold text-white transition-opacity hover:opacity-85"
+                  style={{ background: 'var(--teal)' }}
+                >
                   Get Directions
                 </a>
               </div>
               <div className="rounded-xl overflow-hidden" style={{ height: 200 }}>
-                <iframe src="https://www.google.com/maps?q=unicare+hospitals+kokapet+hyderabad&output=embed" width="100%" height="200" style={{ border: 0 }} allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade" title="UniCare Hospitals location" />
+                <iframe
+                  src="https://www.google.com/maps?q=unicare+hospitals+kokapet+hyderabad&output=embed"
+                  width="100%" height="200" style={{ border: 0 }}
+                  allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"
+                  title="UniCare Hospitals location"
+                />
               </div>
             </motion.div>
           </div>
 
+          {/* Main content */}
           <motion.div className="lg:col-span-8" variants={fadeUp} initial="hidden" whileInView="visible" viewport={vp}>
-            <img src={bannerImg} alt="General Medicine and Endocrinology at UniCare Hospitals" className="w-full rounded-2xl object-cover mb-8" style={{ aspectRatio: '4/3' }} loading="lazy" />
+            <img src={bannerImg} alt="Endocrinology at UniCare Hospitals Kokapet" className="w-full rounded-2xl object-cover mb-8" style={{ aspectRatio: '4/3' }} loading="lazy" />
 
             <h2 className="font-display leading-[1.2] mb-4" style={{ color: 'var(--navy)', fontSize: 'clamp(24px, 3.5vw, 38px)' }}>
-              Specialist diabetes and hormone care, without the corporate hospital queue.
+              Better hormones. Better health. Better every day.
             </h2>
             <p className="text-[15px] sm:text-[16px] leading-[1.8] mb-8" style={{ color: 'var(--muted)' }}>
-              Diabetes, thyroid disorders and hormonal conditions need more than a quick prescription. They need a specialist who studies your numbers, adjusts your treatment and stays with you year after year. At Unicare Hospitals, that specialist is a DM-qualified endocrinologist, minutes from your home in Kokapet.
+              Hormonal disorders often develop quietly but they can affect your energy, weight, metabolism, fertility, bones and overall well-being. At Unicare Hospitals, our endocrinology team provides evidence-based diagnosis, personalised treatment and long-term care to help you regain control of your health, close to home in Kokapet.
             </p>
 
-            <p id="services" className="text-[11px] font-bold tracking-[1.1px] uppercase mb-4" style={{ color: 'var(--teal)' }}>Endocrinology Services</p>
-            <div className="flex flex-col gap-3 mb-8">
-              {ENDO_SERVICES.map((s, i) => (
-                <div key={i} className="flex items-start gap-3">
-                  <CheckIcon />
-                  <span className="text-[14.5px] leading-relaxed" style={{ color: 'var(--navy)' }}>{s}</span>
-                </div>
-              ))}
-            </div>
-
-            <p className="text-[11px] font-bold tracking-[1.1px] uppercase mb-4" style={{ color: 'var(--teal)' }}>General Medicine Services</p>
+            <p id="services" className="text-[11px] font-bold tracking-[1.1px] uppercase mb-4" style={{ color: 'var(--teal)' }}>Our Services</p>
             <div className="flex flex-col gap-3 mb-10">
-              {GM_SERVICES.map((s, i) => (
+              {SERVICES.map((s, i) => (
                 <div key={i} className="flex items-start gap-3">
                   <CheckIcon />
                   <span className="text-[14.5px] leading-relaxed" style={{ color: 'var(--navy)' }}>{s}</span>
@@ -209,7 +218,16 @@ export default function DepartmentAbout() {
                 </button>
               )}
               <div className="overflow-hidden">
-                <Swiper onSwiper={s => { swiperRef.current = s; setNavVisible(!s.isLocked); }} onBreakpoint={s => setNavVisible(!s.isLocked)} modules={[Autoplay]} spaceBetween={20} loop={deptDoctors.length > 1} autoplay={{ delay: 3000, disableOnInteraction: false }} breakpoints={{ 0: { slidesPerView: 1 }, 640: { slidesPerView: 2 } }} style={{ padding: '8px 0 32px' }}>
+                <Swiper
+                  onSwiper={s => { swiperRef.current = s; setNavVisible(!s.isLocked); }}
+                  onBreakpoint={s => setNavVisible(!s.isLocked)}
+                  modules={[Autoplay]}
+                  spaceBetween={20}
+                  loop={deptDoctors.length > 1}
+                  autoplay={{ delay: 3000, disableOnInteraction: false }}
+                  breakpoints={{ 0: { slidesPerView: 1 }, 640: { slidesPerView: 2 } }}
+                  style={{ padding: '8px 0 32px' }}
+                >
                   {deptDoctors.map(doc => (
                     <SwiperSlide key={doc.slug}><DoctorCard doc={doc} /></SwiperSlide>
                   ))}
