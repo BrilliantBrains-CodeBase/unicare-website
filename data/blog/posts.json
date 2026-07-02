@@ -8,6 +8,7 @@
     "readTime": "6 min read",
     "publishedDate": "2026-06-01",
     "authorSlug": "dr-an-varuna-vyas",
+    "tags": ["Pregnancy", "Gynecology", "Maternity", "Antenatal Care"],
     "excerpt": "A practical guide from Dr. A.N. Varuna Vyas on the appointments, tests and habits that matter most in your first 12 weeks.",
     "keyTakeaways": [
       "Book your first antenatal appointment within the first 8 weeks — early blood tests and an ultrasound scan establish your due date and rule out complications.",
@@ -43,6 +44,7 @@
     "readTime": "5 min read",
     "publishedDate": "2026-06-03",
     "authorSlug": "dr-m-nitin-rao",
+    "tags": ["Child Health", "Pediatrics", "Fever", "Parenting"],
     "excerpt": "Dr. M. Nitin Rao explains the difference between a fever you manage at home and one that needs a same-day paediatrician visit.",
     "keyTakeaways": [
       "A temperature above 38°C (100.4°F) is a fever. In children under three months, any fever warrants an immediate doctor visit — do not wait and watch.",
@@ -76,6 +78,7 @@
     "readTime": "5 min read",
     "publishedDate": "2026-06-05",
     "authorSlug": "dr-mareddy-veena",
+    "tags": ["Child Health", "Vaccination", "Immunization", "Newborn"],
     "excerpt": "Dr. Mareddy Veena walks through the IAP vaccination schedule from birth to 5 years — what each vaccine protects against and what to expect after.",
     "keyTakeaways": [
       "India's National Immunization Schedule covers BCG, hepatitis B, polio, DTP, Hib, rotavirus, PCV, measles and typhoid — all available at UniCare Hospitals, Kokapet.",
@@ -111,6 +114,7 @@
     "readTime": "6 min read",
     "publishedDate": "2026-06-08",
     "authorSlug": "dr-deepak-thiriveedi",
+    "tags": ["Diabetes", "Endocrinology", "Blood Tests", "HbA1c"],
     "excerpt": "Dr. Deepak Thiriveedi explains what HbA1c actually measures, what your number means, and how to bring it down without drastic measures.",
     "keyTakeaways": [
       "HbA1c measures your average blood sugar over the past 2–3 months. Below 5.7% is normal; 5.7–6.4% is prediabetes; 6.5% or above confirms diabetes.",
@@ -146,6 +150,7 @@
     "readTime": "5 min read",
     "publishedDate": "2026-06-10",
     "authorSlug": "dr-bhargava-vyas",
+    "tags": ["Surgery", "Laparoscopy", "Gallstones", "General Health"],
     "excerpt": "Dr. Bhargava Vyas A.N. gives an honest answer on when gallstones need to come out — and when watchful waiting is perfectly reasonable.",
     "keyTakeaways": [
       "Most gallstones are silent — discovered by chance on ultrasound. Silent stones with no symptoms do not always need surgery.",
@@ -181,6 +186,7 @@
     "readTime": "6 min read",
     "publishedDate": "2026-06-12",
     "authorSlug": "dr-deepak-thiriveedi",
+    "tags": ["Thyroid", "Endocrinology", "Hormones", "General Health"],
     "excerpt": "Dr. Deepak Thiriveedi explains how hypothyroidism causes fatigue that sleep cannot fix — and how a single blood test diagnoses it.",
     "keyTakeaways": [
       "Hypothyroidism (underactive thyroid) is one of the most commonly missed causes of unexplained fatigue, especially in women over 30.",

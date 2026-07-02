@@ -40,6 +40,37 @@ export default function ArticleBody({ content }) {
             </ul>
           );
         }
+        if (block.type === 'blockquote') {
+          return (
+            <blockquote
+              key={i}
+              className="rounded-2xl p-6 sm:p-8 my-8 relative overflow-hidden"
+              style={{ background: 'var(--soft)' }}
+            >
+              <span
+                className="absolute top-2 left-5 font-display leading-none select-none pointer-events-none"
+                style={{ fontSize: 80, color: 'var(--teal)', opacity: 0.15 }}
+                aria-hidden="true"
+              >
+                "
+              </span>
+              <p
+                className="text-[16px] sm:text-[18px] italic leading-[1.7] relative z-10"
+                style={{ color: 'var(--navy)' }}
+              >
+                {block.text}
+              </p>
+              {block.attribution && (
+                <footer
+                  className="mt-4 text-[13px] font-semibold uppercase tracking-wider"
+                  style={{ color: 'var(--teal)' }}
+                >
+                  — {block.attribution}
+                </footer>
+              )}
+            </blockquote>
+          );
+        }
         return null;
       })}
     </div>

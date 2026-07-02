@@ -1,7 +1,9 @@
 import SEO from '../../../components/SEO';
 import PageHeroBanner from '../../../components/PageHeroBanner';
+import CTABand from '../../../components/CTABand';
 import bannerImg from '../../../assets/pharmacy.png';
 import { medicalSpecialtySchema } from '../../../lib/schema';
+import DepartmentAbout from './components/DepartmentAbout';
 
 export default function Pharmacy() {
   return (
@@ -17,11 +19,9 @@ export default function Pharmacy() {
           url: 'https://www.unicareglobalhospitals.com/specialties/pharmacy',
         })}
       />
-      <PageHeroBanner heading="Your prescription, filled right here." breadcrumbLabel="Pharmacy" image={bannerImg}
-        
-        
-        
-      />
+      <PageHeroBanner heading="Your prescription, filled right here." breadcrumbLabel="Pharmacy" image={bannerImg} />
+      <DepartmentAbout />
+      <CTABand heading="Visiting Unicare? Your medicines are already here." chip="Get Directions" />
     </>
   );
 }

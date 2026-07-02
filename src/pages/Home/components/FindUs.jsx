@@ -98,9 +98,6 @@ export default function FindUs() {
                   <Pin s={18} c="#fff" />
                 </span>
                 <div>
-                  <h5 className="text-[14px] font-semibold tracking-[1.2px] mb-0" style={{ color: 'var(--navy)' }}>
-                    A 201, Saanvi Antalya Homes, Behind Allu Cinemas, Kokapet
-                  </h5>
                   <span className="block text-[13px] mt-1" style={{ color: 'var(--muted)' }}>
                     Narsingi – 5 min <br /> Financial District – 10 min <br /> Gachibowli – 15 min
                   </span>

@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import Logo from '../Logo';
-import { Phone, Mail, Pin, Globe, InstaIc, XIc, FbIc, LinkedInIc, ArrowRight } from '../icons';
+import { Phone, Mail, Pin, Clock, Globe, InstaIc, XIc, FbIc, LinkedInIc, ArrowRight } from '../icons';
 import { fadeUp, scaleIn, stagger, vp } from '../../lib/animations';
 
 const PHONE          = '+919090546363';
@@ -138,6 +138,14 @@ export default function Footer() {
                 <span className="text-[14.5px] flex flex-col gap-0.5">
                   <a href={`mailto:${EMAIL}`} className="hover:text-(--navy) hover:underline transition-colors truncate">{EMAIL}</a>
                   <a href={`mailto:${EMAIL_2}`} className="hover:text-(--navy) hover:underline transition-colors truncate">{EMAIL_2}</a>
+                </span>
+              </li>
+              <li className="flex items-start gap-2.5 text-(--muted)">
+                <Clock s={15} c="var(--teal)" className="mt-0.5 shrink-0" />
+                <span className="text-[14.5px] flex flex-col gap-0.5">
+                  <span className="text-(--navy) text-[11px] font-semibold uppercase tracking-widest">OPD Timings</span>
+                  <span>Mon – Sat: 10:00 AM – 2:00 PM</span>
+                  <span>Mon – Sat: 5:00 PM – 8:00 PM</span>
                 </span>
               </li>
             </ul>

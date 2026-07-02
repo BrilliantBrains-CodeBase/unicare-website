@@ -16,6 +16,7 @@ import GeneralSurgery  from './pages/Specialties/GeneralSurgery/index.jsx';
 import Pharmacy        from './pages/Specialties/Pharmacy/index.jsx';
 import Diagnostics     from './pages/Specialties/Diagnostics/index.jsx';
 import Doctors         from './pages/Doctors/index.jsx';
+import DoctorProfile   from './pages/Doctors/DoctorProfile/index.jsx';
 import Packages        from './pages/Packages/index.jsx';
 import Blog            from './pages/Blog/index.jsx';
 import BlogPost        from './pages/BlogPost/index.jsx';
@@ -33,7 +34,7 @@ function Layout() {
   return (
     <>
       <Header />
-      <main id="main-content" className="pt-16 lg:pt-27 pb-16 lg:pb-0 min-h-dvh overflow-x-hidden">
+      <main id="main-content" className="pt-16 lg:pt-27 pb-16 lg:pb-0 min-h-dvh overflow-x-clip">
         <Outlet />
       </main>
       <Footer />
@@ -59,6 +60,7 @@ export default function App() {
           <Route path="/specialties/pharmacy"       element={<Pharmacy />} />
           <Route path="/specialties/diagnostics-lab" element={<Diagnostics />} />
           <Route path="/doctors"                    element={<Doctors />} />
+          <Route path="/doctors/:slug"              element={<DoctorProfile />} />
           <Route path="/health-checkup-packages"    element={<Packages />} />
           <Route path="/blog"                       element={<Blog />} />
           <Route path="/blog/:slug"                 element={<BlogPost />} />

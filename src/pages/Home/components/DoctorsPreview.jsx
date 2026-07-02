@@ -88,7 +88,7 @@ function DoctorCard({ doc, isOpen, onToggle }) {
 
         <div className="flex items-center gap-2 shrink-0 pb-4" onClick={(e) => e.stopPropagation()}>
           <Link
-            to={`/?doctor=${encodeURIComponent(doc.name)}#appointment-form`}
+            to={`/book-an-appointment?doctor=${encodeURIComponent(doc.name)}`}
             className="flex-1 min-w-0 h-10 flex items-center justify-center gap-1.5 rounded-full text-[13px] font-semibold text-white hover:opacity-85 cursor-pointer"
             style={{ background: 'var(--teal)' }}
             aria-label="Book an appointment"

@@ -2,33 +2,31 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { IconChevronDown, IconChevronUp } from '@tabler/icons-react';
-import bannerImg from '../../../../assets/ortho.png';
+import bannerImg from '../../../../assets/diagnostics.png';
 import { fadeUp, vp } from '../../../../lib/animations';
-import { Phone } from '../../../../components/icons';
-
-const PHONE = '+919090546363';
 
 const OTHER_SPECIALTIES = [
   { label: "Maternity & Women's Health",        to: '/specialties/maternity-womens-health' },
   { label: 'Pediatrics',                        to: '/specialties/pediatrics' },
+  { label: 'Orthopedics',                       to: '/specialties/orthopedics' },
   { label: 'General Medicine & Endocrinology',  to: '/specialties/general-medicine-endocrinology' },
   { label: 'General & Minimal Access Surgery',  to: '/specialties/general-minimal-access-surgery' },
   { label: 'Pharmacy',                          to: '/specialties/pharmacy' },
-  { label: 'Diagnostics & Lab',                 to: '/specialties/diagnostics-lab' },
 ];
 
 const SERVICES = [
-  'Fracture care, casting and trauma management',
-  'Knee, hip, shoulder and back pain evaluation and treatment',
-  'Arthritis and joint degeneration management',
-  'Sports injury assessment and recovery planning',
-  'Physiotherapy guidance and post-operative rehabilitation advice',
+  'Complete blood counts, fever panels and infection workups',
+  'Diabetes monitoring: fasting glucose, HbA1c, lipid profiles',
+  'Thyroid and hormonal panels supporting our endocrinology service',
+  'Antenatal and maternity test panels',
+  'Pre-surgical investigation packages',
+  'Preventive health panels for adults and seniors',
 ];
 
 const FAQS = [
   {
-    q: 'Where can I see an orthopedic doctor near Kokapet?',
-    a: 'Unicare Hospitals in Kokapet offers orthopedic consultations for bone, joint, spine and sports injuries, with on-site X-ray and diagnostics. Call +91 90905 46363 to confirm consultant availability and book an appointment.',
+    q: 'Where can I get a blood test done in Kokapet?',
+    a: 'Unicare Hospitals in Kokapet has an in-house diagnostic lab offering blood tests, diabetes and thyroid panels, maternity tests and preventive health checks, with same-day reports reviewed by the hospital\'s own doctors. Call +91 90905 46363 to book.',
   },
 ];
 
@@ -86,13 +84,13 @@ export default function DepartmentAbout() {
           </div>
 
           <motion.div className="lg:col-span-8" variants={fadeUp} initial="hidden" whileInView="visible" viewport={vp}>
-            <img src={bannerImg} alt="Orthopedics at UniCare Hospitals, Kokapet" className="w-full rounded-2xl object-cover mb-8" style={{ aspectRatio: '4/3' }} loading="lazy" />
+            <img src={bannerImg} alt="Diagnostics and Lab at UniCare Hospitals, Kokapet" className="w-full rounded-2xl object-cover mb-8" style={{ aspectRatio: '4/3' }} loading="lazy" />
 
             <h2 className="font-display leading-[1.2] mb-4" style={{ color: 'var(--navy)', fontSize: 'clamp(24px, 3.5vw, 38px)' }}>
-              Strong bones, active lives, expert care.
+              Accurate answers, same-day reports, zero extra trips.
             </h2>
             <p className="text-[15px] sm:text-[16px] leading-[1.8] mb-8" style={{ color: 'var(--muted)' }}>
-              From a child's playground fracture to a parent's knee pain, Unicare's orthopedic service treats the injuries and joint conditions that slow your family down. With X-ray and diagnostics in the same building, you walk in with pain and walk out with a plan.
+              A diagnosis is only as good as the test behind it. Unicare's in-house lab runs the investigations our doctors order, with quality-controlled processes and reports reviewed in-house. For diabetes monitoring, pregnancy panels, fevers or annual checks, your results reach your doctor the same day, often within hours.
             </p>
 
             <p id="services" className="text-[11px] font-bold tracking-[1.1px] uppercase mb-4" style={{ color: 'var(--teal)' }}>Our Services</p>
@@ -106,7 +104,7 @@ export default function DepartmentAbout() {
             </div>
 
             <p id="faq" className="text-[11px] font-bold tracking-[1.1px] uppercase mb-4" style={{ color: 'var(--teal)' }}>Frequently Asked Questions</p>
-            <div className="mb-10">
+            <div>
               {FAQS.map((faq, i) => {
                 const isOpen = openId === i;
                 return (
@@ -125,19 +123,6 @@ export default function DepartmentAbout() {
                   </div>
                 );
               })}
-            </div>
-
-            {/* Consultant joining soon */}
-            <div className="rounded-2xl p-6 flex flex-col sm:flex-row items-start sm:items-center gap-4" style={{ background: 'var(--soft)' }}>
-              <div className="flex-1">
-                <p className="text-[15px] font-semibold mb-1" style={{ color: 'var(--navy)' }}>Our Orthopedic Consultant</p>
-                <p className="text-[14px] leading-relaxed" style={{ color: 'var(--muted)' }}>
-                  Our orthopedic consultant is joining soon. Call us to be notified or to book at the earliest available slot.
-                </p>
-              </div>
-              <a href={`tel:${PHONE}`} className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-[13.5px] font-semibold text-white shrink-0 transition-opacity hover:opacity-85" style={{ background: 'var(--navy)' }}>
-                <Phone s={13} c="#fff" /> Call Now
-              </a>
             </div>
           </motion.div>
 

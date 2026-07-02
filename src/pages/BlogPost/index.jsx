@@ -1,25 +1,26 @@
-import { Navigate, useParams, Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import { Navigate, useParams } from 'react-router-dom';
 import SEO from '../../components/SEO';
 import { articleSchema } from '../../lib/schema';
 import { getDoctorBySlug } from '../../data/doctors';
-import { ChevronRight } from '../../components/icons';
-import { fadeUp, vp } from '../../lib/animations';
 import posts from '../../../data/blog/posts.json';
-import PostHero from './components/PostHero';
+import PostHeader from './components/PostHeader';
 import KeyTakeawaysBox from './components/KeyTakeawaysBox';
 import ArticleBody from './components/ArticleBody';
-import AuthorBioCard from './components/AuthorBioCard';
-import RelatedPosts from './components/RelatedPosts';
-import CTABand from '../Blog/components/CTABand';
+import SocialShare from './components/SocialShare';
+import PostNavigation from './components/PostNavigation';
+import CommentForm from './components/CommentForm';
+import PostSidebar from './components/PostSidebar';
 
 export default function BlogPost() {
   const { slug } = useParams();
-  const post   = posts.find(p => p.slug === slug);
+  const idx  = posts.findIndex(p => p.slug === slug);
 
-  if (!post) return <Navigate to="/blog" replace />;
+  if (idx === -1) return <Navigate to="/blog" replace />;
 
-  const doctor = getDoctorBySlug(post.authorSlug);
+  const post     = posts[idx];
+  const prevPost = idx > 0               ? posts[idx - 1] : null;
+  const nextPost = idx < posts.length - 1 ? posts[idx + 1] : null;
+  const doctor   = getDoctorBySlug(post.authorSlug);
 
   const schema = articleSchema({
     title:         post.seo.title,
@@ -39,38 +40,28 @@ export default function BlogPost() {
         schema={schema}
       />
 
-      {/* Hero — extends behind header via negative margin */}
-      <PostHero post={post} doctor={doctor} />
+      <section className="py-12 lg:py-16 px-4 sm:px-6 lg:px-10">
+        <div className="max-w-330 mx-auto">
+          <div className="flex flex-col-reverse lg:grid lg:grid-cols-12 gap-10 xl:gap-14 lg:items-start">
 
-      {/* Article body — narrow reading column */}
-      <article className="px-4 sm:px-6 py-10 lg:py-14">
-        <div className="max-w-180 mx-auto">
-          <KeyTakeawaysBox takeaways={post.keyTakeaways} />
-          <ArticleBody content={post.content} />
-          <AuthorBioCard doctor={doctor} />
-          <RelatedPosts currentSlug={post.slug} category={post.category} />
+            {/* Sidebar */}
+            <div className="lg:col-span-4 lg:sticky lg:top-28">
+              <PostSidebar currentSlug={post.slug} tags={post.tags || []} />
+            </div>
 
-          {/* Related specialty link */}
-          {post.relatedSpecialty && (
-            <motion.div
-              className="mt-8"
-              variants={fadeUp}
-              initial="hidden"
-              whileInView="visible"
-              viewport={vp}
-            >
-              <Link
-                to={post.relatedSpecialty.url}
-                className="pill inline-flex items-center gap-1.5 text-[13.5px] font-medium"
-              >
-                <span>Explore {post.relatedSpecialty.name} at UniCare</span>
-                <ChevronRight s={13} c="var(--teal)" />
-              </Link>
-            </motion.div>
-          )}
+            {/* Main content */}
+            <article className="lg:col-span-8">
+              <PostHeader post={post} />
+              <KeyTakeawaysBox takeaways={post.keyTakeaways} />
+              <ArticleBody content={post.content} />
+              <SocialShare url={`/blog/${post.slug}`} title={post.title} />
+              <PostNavigation prevPost={prevPost} nextPost={nextPost} />
+              <CommentForm />
+            </article>
+
+          </div>
         </div>
-      </article>
-
+      </section>
     </>
   );
 }
